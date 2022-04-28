@@ -23,15 +23,19 @@ include_once(G5_THEME_LIB_PATH.'/new_lastest.lib.php');
 <!-- } 공지 최신글2 끝 -->
     <div class="v2_container">
         <div class="v2_container_con">
-            <div class="box box01"><a href="#">1</a></div>
-            <div class="box box02"><a href="#">2</a></div>
-            <div class="box box03"><a href="#">3</a></div>
-            <div class="box box04"><a href="#">4</a></div>
-            <div class="box box05"><a href="#">5</a></div>
-            <div class="box box06"><a href="#">6</a></div>
-            <div class="box box06"><a href="#">7</a></div>
-            <div class="box box06"><a href="#">8</a></div>
-            <div class="box box06"><a href="#">9</a></div>
+            <div class="grid-item"><a href="#" class="grid-inner">1</a></div>
+            <div class="grid-item"><a href="#" class="grid-inner">2</a></div>
+            <div class="grid-item"><a href="#" class="grid-inner">3</a></div>
+            <div class="grid-item"><a href="#" class="grid-inner">4</a></div>
+            <div class="grid-item"><a href="#" class="grid-inner">5</a></div>
+            <div class="grid-item"><a href="#" class="grid-inner">6</a></div>
+            <div class="grid-item"><a href="#" class="grid-inner">7</a></div>
+            <div class="grid-item"><a href="#" class="grid-inner">8</a></div>
+            <div class="grid-item"><a href="#" class="grid-inner">9</a></div>
+            <div class="grid-item"><a href="#" class="grid-inner">10</a></div>
+            <div class="grid-item"><a href="#" class="grid-inner">11</a></div>
+            <div class="grid-item"><a href="#" class="grid-inner">12</a></div>
+            <div class="grid-item"><a href="#" class="grid-inner">13</a></div>
         </div>
     </div>
 </div>
