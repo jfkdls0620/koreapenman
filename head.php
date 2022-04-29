@@ -99,19 +99,19 @@ include_once(G5_LIB_PATH.'/popular.lib.php');
                 
             <?php echo popular(); // 인기검색어, 테마의 스킨을 사용하려면 스킨을 theme/basic 과 같이 지정  ?>
         </div>
-        <ul class="hd_login">        
-            <?php if ($is_member) {  ?>
-            <li><a href="<?php echo G5_BBS_URL ?>/member_confirm.php?url=<?php echo G5_BBS_URL ?>/register_form.php">정보수정</a></li>
-            <li><a href="<?php echo G5_BBS_URL ?>/logout.php">로그아웃</a></li>
-            <?php if ($is_admin) {  ?>
-            <li class="tnb_admin"><a href="<?php echo correct_goto_url(G5_ADMIN_URL); ?>">관리자</a></li>
-            <?php }  ?>
-            <?php } else {  ?>
-            <li><a href="<?php echo G5_BBS_URL ?>/register.php">회원가입</a></li>
-            <li><a href="<?php echo G5_BBS_URL ?>/login.php">로그인</a></li>
-            <?php }  ?>
-
-        </ul>
+<!--        <ul class="hd_login">        -->
+<!--            --><?php //if ($is_member) {  ?>
+<!--            <li><a href="--><?php //echo G5_BBS_URL ?><!--/member_confirm.php?url=--><?php //echo G5_BBS_URL ?><!--/register_form.php">정보수정</a></li>-->
+<!--            <li><a href="--><?php //echo G5_BBS_URL ?><!--/logout.php">로그아웃</a></li>-->
+<!--            --><?php //if ($is_admin) {  ?>
+<!--            <li class="tnb_admin"><a href="--><?php //echo correct_goto_url(G5_ADMIN_URL); ?><!--">관리자</a></li>-->
+<!--            --><?php //}  ?>
+<!--            --><?php //} else {  ?>
+<!--            <li><a href="--><?php //echo G5_BBS_URL ?><!--/register.php">회원가입</a></li>-->
+<!--            <li><a href="--><?php //echo G5_BBS_URL ?><!--/login.php">로그인</a></li>-->
+<!--            --><?php //}  ?>
+<!---->
+<!--        </ul>-->
     </div>
     
     <nav id="gnb">

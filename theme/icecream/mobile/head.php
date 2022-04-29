@@ -95,21 +95,21 @@ include_once(G5_LIB_PATH.'/popular.lib.php');
             </ul>
             <div id="gnb_all">
                 <h2>전체메뉴</h2>
-
-                <ul class="gnb_al_login">
-                    <?php if ($is_member) {  ?>
-
-                    <li><a href="<?php echo G5_BBS_URL ?>/member_confirm.php?url=<?php echo G5_BBS_URL ?>/register_form.php">정보수정</a></li>
-                    <li><a href="<?php echo G5_BBS_URL ?>/logout.php">로그아웃</a></li>
-                    <?php if ($is_admin) {  ?>
-                    <li class="tnb_admin"><a href="<?php echo G5_ADMIN_URL ?>">관리자</a></li>
-                    <?php }  ?>
-                    <?php } else {  ?>
-                    <li><a href="<?php echo G5_BBS_URL ?>/register.php">회원가입</a></li>
-                    <li><a href="<?php echo G5_BBS_URL ?>/login.php" class="btn_b02">로그인</a></li>
-                    <?php }  ?>
-
-                </ul>
+                <div style="height:56px;"></div>
+<!--                <ul class="gnb_al_login">-->
+<!--                    --><?php //if ($is_member) {  ?>
+<!---->
+<!--                    <li><a href="--><?php //echo G5_BBS_URL ?><!--/member_confirm.php?url=--><?php //echo G5_BBS_URL ?><!--/register_form.php">정보수정</a></li>-->
+<!--                    <li><a href="--><?php //echo G5_BBS_URL ?><!--/logout.php">로그아웃</a></li>-->
+<!--                    --><?php //if ($is_admin) {  ?>
+<!--                    <li class="tnb_admin"><a href="--><?php //echo G5_ADMIN_URL ?><!--">관리자</a></li>-->
+<!--                    --><?php //}  ?>
+<!--                    --><?php //} else {  ?>
+<!--                    <li><a href="--><?php //echo G5_BBS_URL ?><!--/register.php">회원가입</a></li>-->
+<!--                    <li><a href="--><?php //echo G5_BBS_URL ?><!--/login.php" class="btn_b02">로그인</a></li>-->
+<!--                    --><?php //}  ?>
+<!---->
+<!--                </ul>-->
 
                 <ul class="gnb_al_ul">
                     <?php
@@ -144,12 +144,12 @@ include_once(G5_LIB_PATH.'/popular.lib.php');
                 </ul>
 
               
-                <ul class="gnb_al_ul gnb_al_qk">
-                    <li><a href="<?php echo G5_BBS_URL ?>/faq.php"><i class="fa fa-question" aria-hidden="true"></i><span>FAQ</span></a></li>
-                    <li><a href="<?php echo G5_BBS_URL ?>/qalist.php"><i class="fa fa-comments" aria-hidden="true"></i><span>1:1문의</span></a></li>
-                    <li><a href="<?php echo G5_BBS_URL ?>/current_connect.php" class="visit"><i class="fa fa-users" aria-hidden="true"></i><span>접속자</span><strong class="visit-num"><?php echo connect('theme/basic'); // 현재 접속자수, 테마의 스킨을 사용하려면 스킨을 theme/basic 과 같이 지정  ?></strong></a></li>
-                    <li><a href="<?php echo G5_BBS_URL ?>/new.php"><i class="fa fa-history" aria-hidden="true"></i><span>새글</span></a></li>
-                </ul>
+<!--                <ul class="gnb_al_ul gnb_al_qk">-->
+<!--                    <li><a href="--><?php //echo G5_BBS_URL ?><!--/faq.php"><i class="fa fa-question" aria-hidden="true"></i><span>FAQ</span></a></li>-->
+<!--                    <li><a href="--><?php //echo G5_BBS_URL ?><!--/qalist.php"><i class="fa fa-comments" aria-hidden="true"></i><span>1:1문의</span></a></li>-->
+<!--                    <li><a href="--><?php //echo G5_BBS_URL ?><!--/current_connect.php" class="visit"><i class="fa fa-users" aria-hidden="true"></i><span>접속자</span><strong class="visit-num">--><?php //echo connect('theme/basic'); // 현재 접속자수, 테마의 스킨을 사용하려면 스킨을 theme/basic 과 같이 지정  ?><!--</strong></a></li>-->
+<!--                    <li><a href="--><?php //echo G5_BBS_URL ?><!--/new.php"><i class="fa fa-history" aria-hidden="true"></i><span>새글</span></a></li>-->
+<!--                </ul>-->
                 <button type="button" class="gnb_close_btn"><i class="fa fa-times" aria-hidden="true"></i></button>
             </div>
         </div>
@@ -230,17 +230,15 @@ include_once(G5_LIB_PATH.'/popular.lib.php');
 
 
 <div id="wrapper">
-
-    <?php 
-        if(!defined('_INDEX_')) { // index에서만 실행
-    ?>
-        <div class="sub_nav">
-
-         sub page nav 
-        </div>
-    <?php 
-        }
-    ?>
     <div id="container" <?=!defined('_INDEX_')? 'class="sub_page"': '' ?>>
+        <?php
+            if(!defined('_INDEX_')) { // index에서만 실행
+                ?>
+                <div class="sub_nav">
+                    <h2><?php echo $g5['title'] ?></h2>
+                </div>
+                <?php
+            }
+        ?>
 <!--        <div id="con" class="con_left">-->
 <!--        --><?php //if (!defined("_INDEX_")) { ?><!--<h2 id="container_title" class="top" title="--><?php //echo get_text($g5['title']); ?><!--">--><?php //echo get_head_title($g5['title']); ?><!--</h2>--><?php //} ?>
