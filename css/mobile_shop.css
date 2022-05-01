@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 /* 초기화 */
-body {margin:0;padding:0;font-size:0.813em;height:100%;font-family:HelveticaNeue-Light,AppleSDGothicNeo-Light,'Malgun Gothic','맑은 고딕',sans-serif;;background:#f8f8f8;min-width:320px;-webkit-text-size-adjust: none; }
+body {margin:0;padding:0;font-size:0.813em;height:100%;font-family:HelveticaNeue-Light,AppleSDGothicNeo-Light,'Malgun Gothic','맑은 고딕',sans-serif;background:#f8f8f8;min-width:320px;-webkit-text-size-adjust: none; }
 body.is_hidden{overflow:hidden}
 html, h1, h2, h3, h4, h5, h6, form, fieldset {margin:0;padding:0;border:0}
 h1, h2, h3, h4, h5, h6 {font-size:1em}
