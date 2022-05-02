@@ -15,16 +15,26 @@ add_stylesheet('<link rel="stylesheet" href="'.$latest_skin_url.'/style.css">', 
             if ($list[$i]['icon_secret']) echo "<i class=\"fa fa-lock\" aria-hidden=\"true\"></i> ";
             //echo $list[$i]['icon_reply']." ";
             echo "<a href=\"".$list[$i]['href']."\" class=\"lt_tit\">";
-            if ($list[$i]['is_notice'])
+
+            if ($list[$i]['is_notice']) {
                 echo "<strong>".$list[$i]['subject']."</strong>";
-            else
+            } else {
                 echo $list[$i]['subject'];
+            }
+
+            $thumb = get_list_thumbnail($list[$i]['bo_table'], $list[$i]['wr_id'], 300, 500);
+            if($thumb['src']) {
+                // <a href="'.$list[$i]['href'].'" class="bo_img"></a>
+                $img_content = '<img src="'.$thumb['src'].'" alt="'.$thumb['alt'].'" width="100%" height="auto">';
+            } else {
+                $img_content = '';
+            }
+
+            echo $img_content;
 
 
             echo "</a>";
-
             ?>
-     
         </li>
     <?php } ?>
     <?php if (count($list) == 0) { //게시물이 없을 때 ?>

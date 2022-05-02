@@ -33,7 +33,7 @@ ul{list-style:none;}
 /* v2 */
 .v2_container .v2_container_con{
     max-width: 850px;
-    margin: 0 0 0 -130px;
+    margin: 0 0 0 -110px;
     padding: 30px 0;
 }
 .v2_container .v2_container_con::after{

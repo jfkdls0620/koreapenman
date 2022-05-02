@@ -13,14 +13,9 @@ include_once(G5_THEME_LIB_PATH.'/new_lastest.lib.php');
 //echo latest('theme/slide', 'gallery', 6, 43);
 ?>
 <!-- } 사진 최신글2 끝 -->
-<!--  공지 최신글2 { -->
-<?php
-// 이 함수가 바로 최신글을 추출하는 역할을 합니다.
-// 사용방법 : latest(스킨, 게시판아이디, 출력라인, 글자수);
-// 테마의 스킨을 사용하려면 theme/basic 과 같이 지정
-echo latest('theme/notice', 'notice', 6, 43);
-?>
-<!-- } 공지 최신글2 끝 -->
+
+<div class="main_container">
+    <!-- } 공지 최신글2 끝 -->
     <div class="v2_container">
         <div class="v2_container_con">
             <div class="grid-item"><div class="grid-inner">1</div></div>
@@ -38,6 +33,14 @@ echo latest('theme/notice', 'notice', 6, 43);
             <div class="grid-item"><div class="grid-inner">13</div></div>
         </div>
     </div>
+
+    <!--  공지 최신글2 { -->
+    <?php
+    // 이 함수가 바로 최신글을 추출하는 역할을 합니다.
+    // 사용방법 : latest(스킨, 게시판아이디, 출력라인, 글자수);
+    // 테마의 스킨을 사용하려면 theme/basic 과 같이 지정
+    echo latest('theme/notice', 'notice', 6, 43);
+    ?>
 </div>
 
 <div class="con_left">

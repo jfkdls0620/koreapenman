@@ -31,7 +31,6 @@ function new_latest($skin_dir='', $rows=20, $subject_len=40, $is_comment=false, 
     }
 
 
-
     $list = array();
 
     $sql_common = " from {$g5['board_new_table']} a, {$g5['board_table']} b where a.bo_table = b.bo_table and b.bo_use_search = 1 ";
@@ -61,10 +60,10 @@ function new_latest($skin_dir='', $rows=20, $subject_len=40, $is_comment=false, 
         $list[$i]['subject'] = conv_subject($list[$i]['wr_subject'], $subject_len, '…');
         $list[$i]['datetime'] = $datetime;
         $list[$i]['datetime2'] = $datetime2;
+        $list[$i]['wr_id'] = $row['wr_id'];
         $list[$i]['bo_subject'] = $row['bo_subject'];
         $list[$i]['wr_subject'] = $row2['wr_subject'];
     }
-
 
 
     ob_start();

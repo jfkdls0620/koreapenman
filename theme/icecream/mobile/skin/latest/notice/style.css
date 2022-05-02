@@ -1,7 +1,17 @@
 @charset "utf-8";
 
+.main_container {
+    display: flex;
+    flex-flow: row wrap;
+}
+.main_container .v2_container {
+    flex-grow: 1;
+}
+.main_container .notice_wr {
+    flex: 0 1 30%;
+}
 /* 최근게시물 스킨 (latest) */
-.notice_wr{border-radius:5px;margin:30px 15px 15px; padding-left:100px; position:relative;line-height:66px; padding-right:80px;
+.notice_wr{border-radius:5px;margin:30px 15px 15px; position:relative;line-height:66px;padding: 0 15px 15px;
 background: rgba(157,128,252,1);
 background: -moz-linear-gradient(left, rgba(157,128,252,1) 0%, rgba(121,125,253,1) 100%);
 background: -webkit-gradient(left top, right top, color-stop(0%, rgba(157,128,252,1)), color-stop(100%, rgba(121,125,253,1)));
@@ -10,9 +20,9 @@ background: -o-linear-gradient(left, rgba(157,128,252,1) 0%, rgba(121,125,253,1)
 background: -ms-linear-gradient(left, rgba(157,128,252,1) 0%, rgba(121,125,253,1) 100%);
 background: linear-gradient(to right, rgba(157,128,252,1) 0%, rgba(121,125,253,1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9d80fc', endColorstr='#797dfd', GradientType=1 );}
-.notice_wr h2{position:absolute;top:0;left:0;padding:0 30px}
+.notice_wr h2{position:relative;top:0;left:0;padding:0 30px}
 .notice_wr h2 a{color:#fff;font-size:1.077em}
-.notice_wr li{text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
+/*.notice_wr li{text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }*/
 .notice_wr li a{color:#fff;font-size:1.077em}
 .notice_wr .bx-controls-direction{position:absolute;top:19px;right:25px}
 
@@ -21,6 +31,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9d80fc', end
  
 @media (max-width: 969px){
     .notice_wr{margin:30px 15px}
+    .main_container .notice_wr {
+        flex: 0 1 100%;
+    }
+    .main_container .notice_wr img {
+        width: auto;
+        max-height: 300px;
+    }
 }
 
 @media (max-width: 639px){
