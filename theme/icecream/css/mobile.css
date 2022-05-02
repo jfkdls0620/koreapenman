@@ -141,8 +141,20 @@ ul{list-style:none;}
 .location_content p{font-size:24px;line-height: 32px}
 .location_content p img{margin-top: 20px;width: 100%;max-width: 1000px;}
 
+/* v2 조직도/임원 */
+.organization_content .tab_area ul{border:1px solid #ccc;font-size:0;}
+.organization_content .tab_area ul li{display: inline-block;text-align: center;width: 50%;}
+.organization_content .tab_area ul li a{font-size:24px;display: block;padding: 15px 0}
+.organization_content .tab_area ul li.on a{color:#fff;background-color:#000;}
+.organization_content .tab_area .conbox{display: none;padding: 10px}
+.organization_content .tab_area .conbox.on{ display: block; }
+.organization_content table{width: 100%;border-top:2px solid #000;border-collapse: collapse}
+.organization_content table th,
+.organization_content table td{border-bottom:1px solid #ccc;padding: 10px 20px;font-family: 'noto-sans' ,Sans-serif}
+.organization_content table th{font-size:22px;}
+.organization_content table td{border-left:1px solid #ccc;font-size:18px; }
 
-/* v2 서브*/
+    /* v2 서브*/
 .sub_nav{margin-top: 30px}
 .sub_nav h2{font-size:30px;padding-left:10px;padding-bottom: 10px;}
 #ctt {margin:10px 0;padding:20px;border-top:1px solid #e9e9e9;border-bottom:1px solid #e9e9e9;background-color: #fff;}

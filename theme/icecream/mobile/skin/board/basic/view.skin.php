@@ -175,7 +175,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 
 </ul>
 <?php } ?>
-
+<!--v2게시판-->
 <div id="bo_v_top">
     <?php
     ob_start();
@@ -190,9 +190,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     </ul>
     <div class="btn_bo_user"> 
         <?php if ($reply_href) { ?><a href="<?php echo $reply_href ?>" class="btn_b01 btn">답변</a><?php } ?>
+        <?php if ($list_href) { ?><a href="<?php echo $list_href ?>" class="btn_b02 btn">목록</a><?php } ?>
         <?php if ($write_href) { ?><a href="<?php echo $write_href ?>" class="btn_b02 btn">글쓰기</a><?php } ?>
 
     </div>
+
     <?php
     $link_buttons = ob_get_contents();
     ob_end_flush();
