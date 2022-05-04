@@ -3,7 +3,7 @@
 
 /* 초기화 */
 html {overflow-y:scroll;height:100%;min-width:320px}
-body {margin:0;padding:0;font-size:0.813em;background:#f9f9f9;height:100%;font-family:나눔스퀘어, 'NanumSquare', 'Noto Sans KR',
+body {margin:0;padding:0;font-size:0.813em;background:#f9f9f9;height:100%;font-family:'Noto Sans KR',
 AppleSDGothicNeo-Regular,'Malgun Gothic','맑은 고딕',dotum,'돋움',sans-serif;}
 html, h1, h2, h3, h4, h5, h6, form, fieldset, img {margin:0;padding:0;border:0}
 h1, h2, h3, h4, h5, h6 {font-size:1em}
@@ -95,6 +95,7 @@ ul{list-style:none;}
     font-weight: bold;
     text-shadow: 1px 1px 1px #666;
     line-height: 185px;
+    font-family:나눔스퀘어, 'NanumSquare', 'Noto Sans KR', AppleSDGothicNeo-Regular,sans-serif;
 }
 
 .v2_container .v2_container_con .grid-item .grid-inner::before{
@@ -130,6 +131,25 @@ ul{list-style:none;}
     font-size:24px;
 }
 
+/* 공지사항 메인 */
+.main_container .notice_wr{
+    position:absolute;
+    top:0;
+    right:0;
+    width: 550px;
+    height:840px;
+}
+.notice_wr li a{
+    display: block;
+    height: 100%;
+}
+.notice_wr li a .notice_img{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:auto;
+    height: 680px;
+}
+
 /* 기본 테이블 */
 table.v2_table01{width: 100%;border-top:2px solid #000;border-collapse: collapse}
 table.v2_table01 th, table.v2_table01 td{border-bottom:1px solid #ccc;padding: 15px 20px 10px;}
@@ -142,10 +162,10 @@ table.v2_table01 td.bg{font-weight: 600}
 .location_content p img{margin-top: 20px;width: 100%;max-width: 1000px;}
 
 /* v2 조직도/임원 */
-.organization_content .tab_area ul{border:1px solid #ccc;font-size:0;}
-.organization_content .tab_area ul li{display: inline-block;text-align: center;width: 50%;}
-.organization_content .tab_area ul li a{font-size:24px;display: block;padding: 15px 0}
-.organization_content .tab_area ul li.on a{color:#fff;background-color:#000;}
+.organization_content .tab_area>ul{border:1px solid #ccc;font-size:0;margin-bottom: 50px}
+.organization_content .tab_area>ul>li{display: inline-block;text-align: center;width: 50%;}
+.organization_content .tab_area>ul>li a{font-size:30px;display: block;padding: 15px 0}
+.organization_content .tab_area>ul>li.on a{color:#fff;background-color:#000;}
 .organization_content .tab_area .conbox{display: none;padding: 10px}
 .organization_content .tab_area .conbox.on{ display: block; }
 
@@ -272,7 +292,8 @@ table.v2_table01 td.bg{font-weight: 600}
 #gnb .gnb_wrap{}
 #gnb #gnb_1dul {;font-size:1.083em;padding: 0;zoom:1;}
 #gnb ul:after {display:block;visibility:hidden;clear:both;content:""}
-#gnb .gnb_1dli{display:inline-block;line-height:58px;padding:0 25px;position:relative;z-index:1}
+#gnb .gnb_1dli{display:inline-block;line-height:58px;padding:0 25px;position:relative;z-index:1;
+    font-family:나눔스퀘어, 'NanumSquare', 'Noto Sans KR', AppleSDGothicNeo-Regular,sans-serif;}
 /*#gnb .gnb_1dli:hover{background:#131416;
 -webkit-transition: background-color 2s ease-out;
 -moz-transition: background-color 0.3s ease-out;

@@ -22,10 +22,12 @@ add_stylesheet('<link rel="stylesheet" href="'.$latest_skin_url.'/style.css">', 
                 echo $list[$i]['subject'];
             }
 
-            $thumb = get_list_thumbnail($list[$i]['bo_table'], $list[$i]['wr_id'], 300, 500);
+            $thumb = get_list_thumbnail($list[$i]['bo_table'], $list[$i]['wr_id'], 500,500);
             if($thumb['src']) {
                 // <a href="'.$list[$i]['href'].'" class="bo_img"></a>
-                $img_content = '<img src="'.$thumb['src'].'" alt="'.$thumb['alt'].'" width="100%" height="auto">';
+                $img_content = '<div class="notice_img" style="background-image: url('.$thumb['src'].')"></div>';
+                // <img src="'.$thumb['src'].'" alt="'.$thumb['alt'].'" width="100%" height="auto">
+                // <div class="notice_img" style="background-image: url('.$thumb['src'].')"></div>
             } else {
                 $img_content = '';
             }

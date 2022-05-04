@@ -10,38 +10,28 @@ $or_view = sql_fetch(" select co_subject, co_content, co_mobile_content from {$g
 $ex_view = sql_fetch(" select co_subject, co_content, co_mobile_content from {$g5['content_table']} where co_id = 'executives' ");
 // print_r2($or_view);
 ?>
-    <article id="ctt" class="ctt_aoIncorporation">
-        <div id="ctt_con">
-            <div class="organization_content">
-                <div class="tab_area">
-                    <ul>
-                        <li class="t01 on"><a href="#">조직도</a></li>
-                        <li class="t02"><a href="#">임원</a></li>
-                    </ul>
-                    <div class="conbox on">
-                        <p><?php echo $or_view['co_content']?></p>
-                    </div>
-                    <div class="conbox">
-                        <p><?php echo $ex_view['co_content']?></p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </article>
     <style>
+        ol.organizational-chart{
+            padding-top: 50px;
+        }
         ol.organizational-chart h1{
             color:#fff;
-            font-size:24px;
+            font-size:28px;
         }
         ol.organizational-chart h2{
             color:#fff;
-            font-size:22px;
+            font-size:26px;
         }
         ol.organizational-chart h3{
             color:#fff;
+            font-size:24px;
+        }
+        ol.organizational-chart h4,
+        ol.organizational-chart h5{
+            color:#fff;
             font-size:20px;
         }
+
         ol.organizational-chart,
         ol.organizational-chart ol,
         ol.organizational-chart li,
@@ -117,7 +107,7 @@ $ex_view = sql_fetch(" select co_subject, co_content, co_mobile_content from {$g
         }
         /*** PRIMARY ***/
         ol.organizational-chart > li > div {
-            background-color: #4c5052;
+            background-color: #00478e;
             margin-right: 1em;
         }
         ol.organizational-chart > li > div:before {
@@ -151,19 +141,19 @@ $ex_view = sql_fetch(" select co_subject, co_content, co_mobile_content from {$g
             width: 100%;
         }
         ol.organizational-chart > li > ol > li > div {
-            background-color: #9f9f9f;
+            background-color: #26a8e0;
         }
         /*** TERTIARY ***/
         ol.organizational-chart > li > ol > li > ol > li > div {
-            background-color: #aaa;
+            background-color: #3e83b9;
         }
         /*** QUATERNARY ***/
         ol.organizational-chart > li > ol > li > ol > li > ol > li > div {
-            background-color: #fca858;
+            background-color: #9b8579;
         }
         /*** QUINARY ***/
         ol.organizational-chart > li > ol > li > ol > li > ol > li > ol > li > div {
-            background-color: #fddc32;
+            background-color: #c2b59a;
         }
 
         @media only screen and ( min-width: 64em ) {
@@ -277,6 +267,26 @@ $ex_view = sql_fetch(" select co_subject, co_content, co_mobile_content from {$g
         }
 
     </style>
+    <article id="ctt" class="ctt_aoIncorporation">
+        <div id="ctt_con">
+            <div class="organization_content">
+                <div class="tab_area">
+                    <ul>
+                        <li class="t01 on"><a href="javascript:;">조직도</a></li>
+                        <li class="t02"><a href="javascript:;">임원</a></li>
+                    </ul>
+                    <div class="conbox on">
+                        <p><?php echo $or_view['co_content']?></p>
+                    </div>
+                    <div class="conbox">
+                        <p><?php echo $ex_view['co_content']?></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </article>
+
     <script>
         var title = "<?php echo $or_view['co_subject'] ?>";
         $(".sub_nav h2").text(title);
