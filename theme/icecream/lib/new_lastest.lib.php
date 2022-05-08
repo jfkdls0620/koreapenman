@@ -7,7 +7,7 @@ function new_latest($skin_dir='', $rows=20, $subject_len=40, $is_comment=false, 
 {
     global $g5;
 
-    if (!$skin_dir) $skin_dir = 'basic';
+    if (!$skin_dir) $skin_dir = 'icecream';
 
     if(preg_match('#^theme/(.+)$#', $skin_dir, $match)) {
         if (G5_IS_MOBILE) {
@@ -33,7 +33,9 @@ function new_latest($skin_dir='', $rows=20, $subject_len=40, $is_comment=false, 
 
     $list = array();
 
-    $sql_common = " from {$g5['board_new_table']} a, {$g5['board_table']} b where a.bo_table = b.bo_table and b.bo_use_search = 1 ";
+    $sql_common = " from {$g5['board_new_table']} a, {$g5['board_table']} b where a.bo_table = b.bo_table ";
+    // and b.bo_use_search = 1
+    $sql_common .= " and FIND_IN_SET(a.wr_id, b.bo_notice) > 0 ";
 
     if($is_comment)
         $sql_common .= " and a.wr_id <> a.wr_parent ";

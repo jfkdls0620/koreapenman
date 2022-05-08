@@ -7,7 +7,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$latest_skin_url.'/style.css">', 
 ?>
 
 <div class="notice_wr">
-    <h2><a href="<?php echo get_pretty_url($bo_table); ?>"><?php echo $bo_subject ?></a></h2>
+<!--    <h2><a href="--><?php //echo get_pretty_url($bo_table); ?><!--">--><?php //echo $bo_subject ?><!--</a></h2>-->
     <ul class="lt_notice">
     <?php for ($i=0; $i<count($list); $i++) { ?>
         <li>
@@ -16,11 +16,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$latest_skin_url.'/style.css">', 
             //echo $list[$i]['icon_reply']." ";
             echo "<a href=\"".$list[$i]['href']."\" class=\"lt_tit\">";
 
-            if ($list[$i]['is_notice']) {
-                echo "<strong>".$list[$i]['subject']."</strong>";
-            } else {
-                echo $list[$i]['subject'];
-            }
+//            if ($list[$i]['is_notice']) {
+//                echo "<strong>".$list[$i]['subject']."</strong>";
+//            } else {
+//                echo $list[$i]['subject'];
+//            }
 
             $thumb = get_list_thumbnail($list[$i]['bo_table'], $list[$i]['wr_id'], 500,500);
             if($thumb['src']) {
@@ -50,9 +50,10 @@ add_stylesheet('<link rel="stylesheet" href="'.$latest_skin_url.'/style.css">', 
 <script>
 $(document).ready(function(){
     $('.lt_notice').bxSlider({
-        controls:true,
-        pager:false,
-
+        controls: true,
+        pager: false,
+        infiniteLoop: false,
+        auto: true,
     });
 });
 
