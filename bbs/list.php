@@ -36,9 +36,49 @@ $stx = trim($stx);
 //검색인지 아닌지 구분하는 변수 초기화
 $is_search_bbs = false;
 
-if ($sca || $stx || $stx === '0') {     //검색이면
+
+if (isset($_REQUEST['kor']))  {
+    $f_word = clean_xss_tags(trim($_REQUEST['kor']));
+} else {
+    $f_word = '';
+}
+
+if ((isset($_REQUEST['kor'])) || ($sca || $stx || $stx === '0')) {     //검색이면
     $is_search_bbs = true;      //검색구분변수 true 지정
     $sql_search = get_sql_search($sca, $sfl, $stx, $sop);
+
+    if (isset($_REQUEST['kor'])) {
+        $sql_search = " 1=1 ";
+        if (strpos($f_word, 'ㄱ') === 0) {
+            $sql_search .=  " and substr(wr_subject,1,1) between '가' and '낗' ";
+        } else if(strpos($f_word, 'ㄴ') === 0) {
+            $sql_search .=  " and substr(wr_subject,1,1) between '나' and '닣' ";
+        } else if(strpos($f_word, 'ㄷ') === 0) {
+            $sql_search .=  " and substr(wr_subject,1,1) between '다' and '띻' ";
+        } else if(strpos($f_word, 'ㄹ') === 0) {
+            $sql_search .=  " and substr(wr_subject,1,1) between '라' and '맇' ";
+        } else if(strpos($f_word, 'ㅁ') === 0) {
+            $sql_search .=  " and substr(wr_subject,1,1) between '마' and '밓' ";
+        } else if(strpos($f_word, 'ㅂ') === 0) {
+            $sql_search .=  " and substr(wr_subject,1,1) between '바' and '삫' ";
+        } else if(strpos($f_word, 'ㅅ') === 0) {
+            $sql_search .=  " and substr(wr_subject,1,1) between '사' and '앃' ";
+        } else if(strpos($f_word, 'ㅇ') === 0) {
+            $sql_search .=  " and substr(wr_subject,1,1) between '아' and '잏' ";
+        } else if(strpos($f_word, 'ㅈ') === 0) {
+            $sql_search .=  " and substr(wr_subject,1,1) between '자' and '찧' ";
+        } else if(strpos($f_word, 'ㅊ') === 0) {
+            $sql_search .=  " and substr(wr_subject,1,1) between '차' and '칳' ";
+        } else if(strpos($f_word, 'ㅋ') === 0) {
+            $sql_search .=  " and substr(wr_subject,1,1) between '카' and '킿' ";
+        } else if(strpos($f_word, 'ㅌ') === 0) {
+            $sql_search .=  " and substr(wr_subject,1,1) between '타' and '팋' ";
+        } else if(strpos($f_word, 'ㅍ') === 0) {
+            $sql_search .=  " and substr(wr_subject,1,1) between '파' and '핗' ";
+        } else if(strpos($f_word, 'ㅎ') === 0) {
+            $sql_search .= " and substr(wr_subject,1,1) between '하' and '힣' ";
+        }
+    }
 
     // 가장 작은 번호를 얻어서 변수에 저장 (하단의 페이징에서 사용)
     $sql = " select MIN(wr_num) as min_wr_num from {$write_table} ";
@@ -177,8 +217,11 @@ if ($is_search_bbs) {
     $sql = " select * from {$write_table} where wr_is_comment = 0 ";
     if(!empty($notice_array))
         $sql .= " and wr_id not in (".implode(', ', $notice_array).") ";
-    $sql .= " {$sql_order} limit {$from_record}, $page_rows ";
+
+
+    $sql .= " {$sql_search} {$sql_order} limit {$from_record}, $page_rows ";
 }
+
 
 // 페이지의 공지개수가 목록수 보다 작을 때만 실행
 if($page_rows > 0) {
@@ -207,7 +250,11 @@ if($page_rows > 0) {
 
 g5_latest_cache_data($board['bo_table'], $list);
 
-$write_pages = get_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, get_pretty_url($bo_table, '', $qstr.'&amp;page='));
+if (isset($_REQUEST['kor'])) {
+    $write_pages = get_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, get_pretty_url($bo_table, '', $qstr.'&amp;kor='.$f_word.'&amp;page='));
+} else {
+    $write_pages = get_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, get_pretty_url($bo_table, '', $qstr.'&amp;page='));
+}
 
 $list_href = '';
 $prev_part_href = '';

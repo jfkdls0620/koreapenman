@@ -11,6 +11,10 @@ include_once(G5_LIB_PATH.'/thumbnail.lib.php');
 add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0);
 ?>
 
+<style type="text/css">
+    .bo_info_items .bo_info_item .bo_info_item--title {color: #333; font-weight: 500;}
+</style>
+
 <!-- 게시판 목록 시작 -->
 <div id="bo_list">
 
@@ -38,6 +42,24 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     <input type="hidden" name="sod" value="<?php echo $sod ?>">
     <input type="hidden" name="page" value="<?php echo $page ?>">
     <input type="hidden" name="sw" value="">
+        
+    <div class="board_kor_search_bar">
+        <button type="button" onclick="search_kor('ㄱ');">ㄱ</button>
+        <button type="button" onclick="search_kor('ㄴ');">ㄴ</button>
+        <button type="button" onclick="search_kor('ㄷ');">ㄷ</button>
+        <button type="button" onclick="search_kor('ㄹ');">ㄹ</button>
+        <button type="button" onclick="search_kor('ㅁ');">ㅁ</button>
+        <button type="button" onclick="search_kor('ㅂ');">ㅂ</button>
+        <button type="button" onclick="search_kor('ㅅ');">ㅅ</button>
+        <button type="button" onclick="search_kor('ㅇ');">ㅇ</button>
+        <button type="button" onclick="search_kor('ㅈ');">ㅈ</button>
+        <button type="button" onclick="search_kor('ㅊ');">ㅊ</button>
+        <button type="button" onclick="search_kor('ㅋ');">ㅋ</button>
+        <button type="button" onclick="search_kor('ㅌ');">ㅌ</button>
+        <button type="button" onclick="search_kor('ㅍ');">ㅍ</button>
+        <button type="button" onclick="search_kor('ㅎ');">ㅎ</button>
+        <button type="button" onclick="search_kor('');">전체</button>
+    </div>
 
     <div class="board_list">
         <?php if ($is_checkbox) { ?>
@@ -82,12 +104,32 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                     </a>
                 </div>
                 <div class="bo_info">
-                     <span class="bo_pf_img"><?php echo get_member_profile_img($list[$i]['mb_id']); ?></span>
-                     <span class="sound_only">작성자</span><?php echo $list[$i]['name'] ?>
-                    
-                    <span class="bo_date"><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo $list[$i]['datetime2'] ?></span>  
-                    <?php if ($list[$i]['comment_cnt']) { ?><span class="sound_only">댓글</span><i class="fa fa-commenting-o" aria-hidden="true"></i><?php echo $list[$i]['comment_cnt']; ?><?php } ?> 
-                
+<!--                    <span class="sound_only">작성자</span>--><?php //echo $list[$i]['name'] ?>
+<!--                    -->
+<!--                    <span class="bo_date"><i class="fa fa-clock-o" aria-hidden="true"></i> --><?php //echo $list[$i]['datetime2'] ?><!--</span>  -->
+<!--                    --><?php //if ($list[$i]['comment_cnt']) { ?><!--<span class="sound_only">댓글</span><i class="fa fa-commenting-o" aria-hidden="true"></i>--><?php //echo $list[$i]['comment_cnt']; ?><!----><?php //} ?>
+
+                    <span class="bo_pf_img"><?php echo get_member_profile_img($list[$i]['mb_id']); ?></span>
+                    <div class="bo_info_items">
+                        <?php if ($list[$i]['wr_1']) { ?>
+                        <div class="bo_info_item">
+                            <span class="bo_info_item--title">아호</span>
+                            <span><?php echo $list[$i]['wr_1'] ?></span>
+                        </div>
+                        <? } ?>
+                        <?php if ($list[$i]['wr_2']) { ?>
+                        <div class="bo_info_item">
+                            <span class="bo_info_item--title">대한민국서법예술대전 취득년도</span>
+                            <span><?php echo $list[$i]['wr_2'] ?></span>
+                        </div>
+                        <? } ?>
+                        <?php if ($list[$i]['wr_3']) { ?>
+                        <div class="bo_info_item">
+                            <span class="bo_info_item--title">충무공숭모서화대전 취득년도</span>
+                            <span><?php echo $list[$i]['wr_3'] ?></span>
+                        </div>
+                        <? } ?>
+                    </div>
                 </div>
                 <?php
                 $thumb = get_list_thumbnail($board['bo_table'], $list[$i]['wr_id'], $board['bo_mobile_gallery_width'], $board['bo_mobile_gallery_height']);
@@ -149,15 +191,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     <input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
     <input type="hidden" name="sca" value="<?php echo $sca ?>">
     <input type="hidden" name="sop" value="and">
+    <input type="hidden" name="kor" value="">
+
     <label for="sfl" class="sound_only">검색대상</label>
     <select name="sfl" id="sfl">
-        <option value="wr_subject"<?php echo get_selected($sfl, 'wr_subject', true); ?>>제목</option>
-        <option value="wr_content"<?php echo get_selected($sfl, 'wr_content'); ?>>내용</option>
-        <option value="wr_subject||wr_content"<?php echo get_selected($sfl, 'wr_subject||wr_content'); ?>>제목+내용</option>
-        <option value="mb_id,1"<?php echo get_selected($sfl, 'mb_id,1'); ?>>회원아이디</option>
-        <option value="mb_id,0"<?php echo get_selected($sfl, 'mb_id,0'); ?>>회원아이디(코)</option>
-        <option value="wr_name,1"<?php echo get_selected($sfl, 'wr_name,1'); ?>>글쓴이</option>
-        <option value="wr_name,0"<?php echo get_selected($sfl, 'wr_name,0'); ?>>글쓴이(코)</option>
+        <option value="wr_subject"<?php echo get_selected($sfl, 'wr_subject', true); ?>>이름</option>
     </select>
     <input name="stx" value="<?php echo stripslashes($stx) ?>" placeholder="검색어(필수)" required id="stx" class="sch_input" size="15" maxlength="20">
     <button type="submit" value="검색" class="sch_btn"><i class="fa fa-search" aria-hidden="true"></i> <span class="sound_only">검색</span></button>
@@ -165,7 +203,14 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 </fieldset>
 
 <?php if ($is_checkbox) { ?>
-<script>
+<script type="text/javascript">
+function search_kor(v) {
+    var f = document.fsearch;
+
+    f.kor.value = v;
+    f.submit();
+}
+
 function all_checked(sw) {
     var f = document.fboardlist;
 
