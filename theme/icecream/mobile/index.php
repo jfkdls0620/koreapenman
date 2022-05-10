@@ -21,15 +21,15 @@ include_once(G5_THEME_LIB_PATH.'/new_lastest.lib.php');
             <div class="grid-item"><div class="grid-inner">1</div></div>
             <div class="grid-item"><a href="http://koreapenman.com/bbs/content.php?co_id=association" class="grid-inner">협회소개</a></div>
             <div class="grid-item"><div class="grid-inner">3</div></div>
-            <div class="grid-item"><a href="#" class="grid-inner">사범증</a></div>
+            <div class="grid-item"><a href="http://www.koreapenman.com/bbs/content.php?co_id=registration" class="grid-inner">사범증</a></div>
             <div class="grid-item"><a href="http://koreapenman.com/sub/organization.php" class="grid-inner">회원소개</a></div>
             <div class="grid-item"><div class="grid-inner">6</div></div>
             <div class="grid-item"><a href="http://koreapenman.com/bbs/board.php?bo_table=notice" class="grid-inner">커뮤니티</a></div>
             <div class="grid-item"><div class="grid-inner">8</div></div>
             <div class="grid-item"><div class="grid-inner">9</div></div>
-            <div class="grid-item"><a href="#" class="grid-inner">발간자료</a></div>
+            <div class="grid-item"><a href="http://www.koreapenman.com/sub/publications.php" class="grid-inner">발간자료</a></div>
             <div class="grid-item"><div class="grid-inner">11</div></div>
-            <div class="grid-item"><a href="#" class="grid-inner">대한민국명인명장</a></div>
+            <div class="grid-item"><a href="http://www.koreapenman.com/bbs/content.php?co_id=masterintro" class="grid-inner">한국예술명인명장</a></div>
             <div class="grid-item"><div class="grid-inner">13</div></div>
         </div>
     </div>
