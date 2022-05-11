@@ -200,6 +200,11 @@ table.v2_table01 td.bg{font-weight: 600}
 .registration_table td{vertical-align: top;padding: 15px;}
 .registration_table td>table{margin: 0 auto}
 
+/* 초대작가 */
+.board_kor_search_bar{display: flex;justify-content: flex-start;}
+.board_kor_search_bar button{border:1px solid #ccc;font-size:16px;padding: 10px;margin-right: 10px;line-height: 16px}
+
+
 /* 모바일 */
 @media (max-width: 969px){
     #logo a{padding:15px 0;height:60px}
