@@ -17,38 +17,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     <input type="hidden" name="sst" value="<?php echo $sst ?>">
     <input type="hidden" name="sod" value="<?php echo $sod ?>">
     <input type="hidden" name="page" value="<?php echo $page ?>">
-    <?php
-    $option = '';
-    $option_hidden = '';
-    if ($is_notice || $is_html || $is_secret || $is_mail) {
-        $option = '';
-        if ($is_notice) {
-            $option .= PHP_EOL.'<input type="checkbox" id="notice" name="notice" value="1" '.$notice_checked.'>'.PHP_EOL.'<label for="notice">공지</label>';
-        }
-
-        if ($is_html) {
-            if ($is_dhtml_editor) {
-                $option_hidden .= '<input type="hidden" value="html1" name="html">';
-            } else {
-                $option .= PHP_EOL.'<input type="checkbox" id="html" name="html" onclick="html_auto_br(this);" value="'.$html_value.'" '.$html_checked.'>'.PHP_EOL.'<label for="html">html</label>';
-            }
-        }
-
-        if ($is_secret) {
-            if ($is_admin || $is_secret==1) {
-                $option .= PHP_EOL.'<input type="checkbox" id="secret" name="secret" value="secret" '.$secret_checked.'>'.PHP_EOL.'<label for="secret">비밀글</label>';
-            } else {
-                $option_hidden .= '<input type="hidden" name="secret" value="secret">';
-            }
-        }
-
-        if ($is_mail) {
-            $option .= PHP_EOL.'<input type="checkbox" id="mail" name="mail" value="mail" '.$recv_email_checked.'>'.PHP_EOL.'<label for="mail">답변메일받기</label>';
-        }
-    }
-
-    echo $option_hidden;
-    ?>
     <div class="form_01 write_div">
         <h2 class="sound_only"><?php echo $g5['title'] ?></h2>
 
@@ -98,50 +66,37 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         <?php } ?>
 
         <div class="bo_w_tit write_div">
-            <label for="wr_subject" class="sound_only">제목<strong>필수</strong></label>
-            <input type="text" name="wr_subject" value="<?php echo $subject ?>" id="wr_subject" required class="frm_input full_input required" placeholder="제목">
+            <label for="wr_subject" class="sound_only">이름<strong>필수</strong></label>
+            <input type="text" name="wr_subject" value="<?php echo $subject ?>" id="wr_subject" required class="frm_input full_input required" placeholder="이름">
+        </div>
+
+        <div class="bo_w_tit write_div">
+            <label for="wr_1" class="sound_only">아호</label>
+            <input type="text" name="wr_1" value="<?php echo $write[wr_1] ?>" id="wr_1" class="frm_input full_input" placeholder="아호">
+        </div>
+
+        <div class="bo_w_tit write_div">
+            <label for="wr_2" class="sound_only">대한민국서법예술대전 취득년도</label>
+            <input type="text" name="wr_2" value="<?php echo $write[wr_2] ?>" id="wr_2" class="frm_input full_input" placeholder="대한민국서법예술대전 취득년도">
+        </div>
+
+        <div class="bo_w_tit write_div">
+            <label for="wr_3" class="sound_only">충무공숭모서화대전 취득년도</label>
+            <input type="text" name="wr_3" value="<?php echo $write[wr_3] ?>" id="wr_3" class="frm_input full_input" placeholder="충무공숭모서화대전 취득년도">
         </div>
 
         <div class="write_div">
             <label for="wr_content" class="sound_only">내용<strong>필수</strong></label>
             <?php if($write_min || $write_max) { ?>
-            <!-- 최소/최대 글자 수 사용 시 -->
-            <p id="char_count_desc">이 게시판은 최소 <strong><?php echo $write_min; ?></strong>글자 이상, 최대 <strong><?php echo $write_max; ?></strong>글자 이하까지 글을 쓰실 수 있습니다.</p>
+                <!-- 최소/최대 글자 수 사용 시 -->
+                <p id="char_count_desc">이 게시판은 최소 <strong><?php echo $write_min; ?></strong>글자 이상, 최대 <strong><?php echo $write_max; ?></strong>글자 이하까지 글을 쓰실 수 있습니다.</p>
             <?php } ?>
             <?php echo $editor_html; // 에디터 사용시는 에디터로, 아니면 textarea 로 노출 ?>
             <?php if($write_min || $write_max) { ?>
-            <!-- 최소/최대 글자 수 사용 시 -->
-            <div id="char_count_wrap"><span id="char_count"></span>글자</div>
+                <!-- 최소/최대 글자 수 사용 시 -->
+                <div id="char_count_wrap"><span id="char_count"></span>글자</div>
             <?php } ?>
         </div>
-
-
-        <?php for ($i=1; $is_link && $i<=G5_LINK_COUNT; $i++) { ?>
-        <div class="bo_w_link write_div">
-            <label for="wr_link<?php echo $i ?>"><i class="fa fa-link" aria-hidden="true"></i> <span class="sound_only">링크 #<?php echo $i ?></span></label>
-            <input type="text" name="wr_link<?php echo $i ?>" value="<?php if($w=="u"){echo $write['wr_link'.$i];} ?>" id="wr_link<?php echo $i ?>" class="frm_input wr_link">
-        </div>
-        <?php } ?>
-
-        
-        <?php for ($i=0; $is_file && $i<$file_count; $i++) { ?>
-        <div class="bo_w_flie write_div">
-            <div class="file_wr write_div">
-                <label for="bf_file_<?php echo $i+1 ?>" class="lb_icon"><i class="fa fa-download" aria-hidden="true"></i><span class="sound_only">파일 #<?php echo $i+1 ?></span></label>
-                <input type="file" name="bf_file[]" id="bf_file_<?php echo $i+1 ?>" title="파일첨부 <?php echo $i+1 ?> : 용량 <?php echo $upload_max_filesize ?> 이하만 업로드 가능" class="frm_file ">
-            </div>
-            <?php if ($is_file_content) { ?>
-            <input type="text" name="bf_content[]" value="<?php echo ($w == 'u') ? $file[$i]['bf_content'] : ''; ?>" title="파일 설명을 입력해주세요." class="full_input frm_input" size="50" placeholder="파일 설명을 입력해주세요.">
-            <?php } ?>
-
-            <?php if($w == 'u' && $file[$i]['file']) { ?>
-            <span class="file_del">
-                <input type="checkbox" id="bf_file_del<?php echo $i ?>" name="bf_file_del[<?php echo $i;  ?>]" value="1"> <label for="bf_file_del<?php echo $i ?>"><?php echo $file[$i]['source'].'('.$file[$i]['size'].')';  ?> 파일 삭제</label>
-            </span>
-            <?php } ?>
-            
-        </div>
-        <?php } ?>
 
         <?php if ($is_use_captcha) { //자동등록방지 ?>
         <div class="write_div">
@@ -198,7 +153,7 @@ function fwrite_submit(f)
         type: "POST",
         data: {
             "subject": f.wr_subject.value,
-            "content": f.wr_content.value
+            "content": "empty"
         },
         dataType: "json",
         async: false,

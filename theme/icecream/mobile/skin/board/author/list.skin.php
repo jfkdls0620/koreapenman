@@ -13,6 +13,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 
 <style type="text/css">
     .bo_info_items .bo_info_item .bo_info_item--title {color: #333; font-weight: 500;}
+    .board_kor_search_bar button.on {background-color: #ccc;color: #fff;}
 </style>
 
 <!-- 게시판 목록 시작 -->
@@ -44,21 +45,21 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     <input type="hidden" name="sw" value="">
         
     <div class="board_kor_search_bar">
-        <button type="button" onclick="search_kor('ㄱ');">ㄱ</button>
-        <button type="button" onclick="search_kor('ㄴ');">ㄴ</button>
-        <button type="button" onclick="search_kor('ㄷ');">ㄷ</button>
-        <button type="button" onclick="search_kor('ㄹ');">ㄹ</button>
-        <button type="button" onclick="search_kor('ㅁ');">ㅁ</button>
-        <button type="button" onclick="search_kor('ㅂ');">ㅂ</button>
-        <button type="button" onclick="search_kor('ㅅ');">ㅅ</button>
-        <button type="button" onclick="search_kor('ㅇ');">ㅇ</button>
-        <button type="button" onclick="search_kor('ㅈ');">ㅈ</button>
-        <button type="button" onclick="search_kor('ㅊ');">ㅊ</button>
-        <button type="button" onclick="search_kor('ㅋ');">ㅋ</button>
-        <button type="button" onclick="search_kor('ㅌ');">ㅌ</button>
-        <button type="button" onclick="search_kor('ㅍ');">ㅍ</button>
-        <button type="button" onclick="search_kor('ㅎ');">ㅎ</button>
-        <button type="button" onclick="search_kor('');">전체</button>
+        <button type="button" onclick="search_kor('ㄱ');"<?php if (strpos($f_word, 'ㄱ') === 0) { ?> class="on"<?}?>>ㄱ</button>
+        <button type="button" onclick="search_kor('ㄴ');"<?php if (strpos($f_word, 'ㄴ') === 0) { ?> class="on"<?}?>>ㄴ</button>
+        <button type="button" onclick="search_kor('ㄷ');"<?php if (strpos($f_word, 'ㄷ') === 0) { ?> class="on"<?}?>>ㄷ</button>
+        <button type="button" onclick="search_kor('ㄹ');"<?php if (strpos($f_word, 'ㄹ') === 0) { ?> class="on"<?}?>>ㄹ</button>
+        <button type="button" onclick="search_kor('ㅁ');"<?php if (strpos($f_word, 'ㅁ') === 0) { ?> class="on"<?}?>>ㅁ</button>
+        <button type="button" onclick="search_kor('ㅂ');"<?php if (strpos($f_word, 'ㅂ') === 0) { ?> class="on"<?}?>>ㅂ</button>
+        <button type="button" onclick="search_kor('ㅅ');"<?php if (strpos($f_word, 'ㅅ') === 0) { ?> class="on"<?}?>>ㅅ</button>
+        <button type="button" onclick="search_kor('ㅇ');"<?php if (strpos($f_word, 'ㅇ') === 0) { ?> class="on"<?}?>>ㅇ</button>
+        <button type="button" onclick="search_kor('ㅈ');"<?php if (strpos($f_word, 'ㅈ') === 0) { ?> class="on"<?}?>>ㅈ</button>
+        <button type="button" onclick="search_kor('ㅊ');"<?php if (strpos($f_word, 'ㅊ') === 0) { ?> class="on"<?}?>>ㅊ</button>
+        <button type="button" onclick="search_kor('ㅋ');"<?php if (strpos($f_word, 'ㅋ') === 0) { ?> class="on"<?}?>>ㅋ</button>
+        <button type="button" onclick="search_kor('ㅌ');"<?php if (strpos($f_word, 'ㅌ') === 0) { ?> class="on"<?}?>>ㅌ</button>
+        <button type="button" onclick="search_kor('ㅍ');"<?php if (strpos($f_word, 'ㅍ') === 0) { ?> class="on"<?}?>>ㅍ</button>
+        <button type="button" onclick="search_kor('ㅎ');"<?php if (strpos($f_word, 'ㅎ') === 0) { ?> class="on"<?}?>>ㅎ</button>
+        <button type="button" onclick="search_kor('');"<?php if (!$f_word) { ?> class="on"<?}?>>전체</button>
     </div>
 
     <div class="board_list">
@@ -151,7 +152,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     <div class="bo_fx">
         <ul class="btn_bo_adm">
             <?php if ($list_href) { ?>
-            <li><a href="<?php echo $list_href ?>" class="btn_b01 btn"> 목록</a></li>
+<!--            <li><a href="--><?php //echo $list_href ?><!--" class="btn_b01 btn"> 목록</a></li>-->
             <?php } ?>
             <?php if ($is_checkbox) { ?>
             <li><button type="submit" name="btn_submit" value="선택삭제" onclick="document.pressed=this.value" class="btn"><i class="fa fa-trash-o" aria-hidden="true"></i><span class="sound_only">선택삭제</span></button></li>
@@ -202,15 +203,17 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     </form>
 </fieldset>
 
+<script type="text/javascript">
+    function search_kor(v) {
+        var f = document.fsearch;
+
+        f.kor.value = v;
+        f.submit();
+    }
+</script>
+
 <?php if ($is_checkbox) { ?>
 <script type="text/javascript">
-function search_kor(v) {
-    var f = document.fsearch;
-
-    f.kor.value = v;
-    f.submit();
-}
-
 function all_checked(sw) {
     var f = document.fboardlist;
 
