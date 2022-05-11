@@ -55,7 +55,8 @@
 #bo_cate #bo_cate_on {background:#86b9f8;color:#fff;border-color:#86b9f8}
 
 .board_list ul{display: flex; justify-content:flex-start;flex-flow: row wrap;}
-.board_list li{background: #fff;margin: 20px 0;position: relative;flex: 0 1 25%;padding-right: 15px;}
+.board_list li{background: #fff;margin: 20px 1% 0 0;position: relative;flex: 0 1 24%;box-shadow: 2px 2px 2px #ededed;
+    padding:5px;}
 /*.board_list .bo_liimg {padding-right:120px}*/
 .board_list .bo_pf_img {display:none;position:absolute;top:30px;left:30px;width:46px;height:46px}
 .board_list .bo_pf_img img{border-radius:30px;width:100%;height:auto}
@@ -81,7 +82,7 @@
 .bo_subject i{color: #8d96c2;font-size:12px}
 .bo_subject  .fa-heart{color:#ff0000}
 .bo_current {color:#e8180c}
-.bo_info{line-height:20px;color:#888d94;font-weight:300}
+.bo_info{line-height:20px;color:#888d94;font-weight:300;display: none}
 .bo_info .comment_icon{background:url(./img/icon_comment.png) no-repeat 50% 50% ;display:inline-block;width:20px;height:28px;text-indent:-999px;overflow:hidden;vertical-align:top;background-size:70%;margin:0 0px 0 5px}
 .bo_info .bo_date{margin:0 5px}
 .bo_info .cnt_cmt {display:inline-block;margin: 0 5px 0 3px;}

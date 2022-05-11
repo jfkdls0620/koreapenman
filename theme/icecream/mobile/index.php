@@ -27,7 +27,7 @@ include_once(G5_THEME_LIB_PATH.'/new_lastest.lib.php');
             <div class="grid-item"><a href="http://koreapenman.com/bbs/board.php?bo_table=notice" class="grid-inner">커뮤니티</a></div>
             <div class="grid-item"><div class="grid-inner">8</div></div>
             <div class="grid-item"><div class="grid-inner">9</div></div>
-            <div class="grid-item"><a href="http://www.koreapenman.com/sub/publications.php" class="grid-inner">발간자료</a></div>
+            <div class="grid-item"><a href="http://www.koreapenman.com/bbs/board.php?bo_table=data01" class="grid-inner">발간자료</a></div>
             <div class="grid-item"><div class="grid-inner">11</div></div>
             <div class="grid-item"><a href="http://www.koreapenman.com/bbs/content.php?co_id=masterintro" class="grid-inner">한국예술명인명장</a></div>
             <div class="grid-item"><div class="grid-inner">13</div></div>

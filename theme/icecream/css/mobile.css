@@ -139,6 +139,9 @@ ul{list-style:none;}
     width: 550px;
     height:840px;
 }
+.notice_wr li{
+    padding-top: 60px;
+}
 .notice_wr li a{
     display: block;
     height: 100%;
@@ -146,7 +149,7 @@ ul{list-style:none;}
 .notice_wr li a .notice_img{
     background-repeat: no-repeat;
     background-position: center;
-    background-size:auto;
+    background-size:cover;
     height: 680px;
 }
 
@@ -182,6 +185,9 @@ table.v2_table01 td.bg{font-weight: 600}
 #ctt header h1 {position:absolute;font-size:0;line-height:0;overflow:hidden}
 #ctt_con {padding:10px 0}
 .ctt_img {text-align:center}
+
+/* 지회지부 */
+.branch_box table{width: 100%}
 
 /* 발간자료 */
 .publications_box ul{display: flex}
@@ -402,7 +408,8 @@ a.gnb_2da:hover{background:#222;
 /* 중간 레이아웃 */
 #wrapper {}
 #wrapper:after {display:block;visibility:hidden;clear:both;content:""}
-#container {position:relative;min-height:300px;margin:0 auto;max-width:1260px;padding:15px}
+#container {position:relative;min-height:300px;margin:0 auto;max-width:1280px;padding:15px}
+#container.sub_page{width: 1024px}
 #container:after {display:block;visibility:hidden;clear:both;content:""}
 #container_title {font-size:1.6em;margin:0 15px 15px}
 .btn_top li{display:inline-block}
