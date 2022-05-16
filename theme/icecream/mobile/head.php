@@ -21,10 +21,11 @@ include_once(G5_LIB_PATH.'/popular.lib.php');
         include G5_BBS_PATH.'/newwin.inc.php'; // 팝업레이어
     }
     ?>
-    
+
+    <!-- v2메인 로고 -->
     <div id="hd_wrapper">
         <div id="logo">
-            <a href="<?php echo G5_URL ?>"><img src="<?php echo G5_IMG_URL ?>/v2_logo_new.png" alt="<?php echo $config['cf_title']; ?>"></a>
+            <a href="<?php echo G5_URL ?>"><img src="<?php echo G5_IMG_URL ?>/new_2022_logo.png" alt="<?php echo $config['cf_title']; ?>"></a>
         </div>
         <div id="tnb">
             <ul>
