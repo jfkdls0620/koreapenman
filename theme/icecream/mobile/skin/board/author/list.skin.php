@@ -13,7 +13,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 
 <style type="text/css">
     .bo_info_items .bo_info_item .bo_info_item--title {color: #333; font-weight: 700;}
-    .board_kor_search_bar button.on {background-color: #ccc;color: #fff;}
+    .board_kor_search_bar button{background-color:#fff;font-weight: 600}
+    .board_kor_search_bar button.on {background-color: #0d61fb;color: #fff;}
 </style>
 
 <!-- 게시판 목록 시작 -->

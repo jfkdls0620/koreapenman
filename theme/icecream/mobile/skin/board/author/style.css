@@ -57,8 +57,8 @@
 
 .board_list{}
 .board_list ul{display: flex;justify-content: flex-start;flex-flow: row wrap;}
-.board_list li{background: #fff;margin: 20px 1% 0 0;position: relative;flex: 0 1 32%;padding:20px 10px;border-radius: 5px;line-height:20px;
-    box-shadow: 2px 2px 2px #ededed;}
+.board_list li{background: #81bfff;margin: 1% 1% 0 0;position: relative;flex: 0 1 32%;padding:20px 10px;line-height:20px;
+   border-radius: 3px}
 /*.board_list .bo_liimg {padding-right:120px}*/
 .board_list .bo_pf_img {position:absolute;top:30px;left:30px;width:46px;height:46px;display: none;}
 .board_list .bo_pf_img img{border-radius:30px;width:100%;height:auto}
@@ -89,7 +89,7 @@
 .bo_info .cnt_cmt {display:inline-block;margin: 0 5px 0 3px;}
 .bo_info .profile_img img{border-radius:50%;vertical-align:top;width:20px;height:20px}
 
-#bo_sch {display:none;background:#fff;border:1px solid #bdc2d8;position:relative;margin:10px;border-radius:3px}
+#bo_sch {background:#fff;border:1px solid #bdc2d8;position:relative;margin:10px;border-radius:3px}
 #bo_sch:after {display:block;visibility:hidden;clear:both;content:""}
 #bo_sch legend {position:absolute;margin:0;padding:0;font-size:0;line-height:0;text-indent:-9999em;overflow:hidden}
 #bo_sch select{border:0;;margin:9px 0;height:20px;border-right:1px solid #ddd;float:left;width:40%}

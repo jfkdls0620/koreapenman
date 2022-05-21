@@ -8,14 +8,20 @@ if ($board['bo_use_category']) {
     $is_category = true;
     $category_href = get_pretty_url($bo_table);
 
-    $category_option .= '<li><a href="'.$category_href.'"';
-    if ($sca=='')
-        $category_option .= ' id="bo_cate_on"';
-    $category_option .= '>전체</a></li>';
+//    if($bo_table != 'branch'){
+//        $category_option .= '<li><a href="'.$category_href.'"';
+//        if ($sca=='')
+//            $category_option .= ' id="bo_cate_on"';
+//        $category_option .= '>전체</a></li>';
+//    }
+
 
     $categories = explode('|', $board['bo_category_list']); // 구분자가 , 로 되어 있음
     for ($i=0; $i<count($categories); $i++) {
         $category = trim($categories[$i]);
+        if($sca == ""){
+            goto_url(get_pretty_url($bo_table,'','sca='.urlencode($categories[0])));
+        }
         if ($category=='') continue;
         $category_option .= '<li><a href="'.(get_pretty_url($bo_table,'','sca='.urlencode($category))).'"';
         $category_msg = '';

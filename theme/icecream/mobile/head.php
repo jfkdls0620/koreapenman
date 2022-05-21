@@ -12,6 +12,7 @@ include_once(G5_LIB_PATH.'/popular.lib.php');
 
 <!-- 상단 시작 { -->
 <div id="hd">
+    <div class="hd_inner">
     <h1 id="hd_h1"><?php echo $g5['title'] ?></h1>
 
     <div id="skip_to_container"><a href="#container">본문 바로가기</a></div>
@@ -25,7 +26,9 @@ include_once(G5_LIB_PATH.'/popular.lib.php');
     <!-- v2메인 로고 -->
     <div id="hd_wrapper">
         <div id="logo">
-            <a href="<?php echo G5_URL ?>"><img src="<?php echo G5_IMG_URL ?>/new_2022_logo.png" alt="<?php echo $config['cf_title']; ?>"></a>
+            <a href="<?php echo G5_URL ?>">
+<!--                <img src="--><?php //echo G5_IMG_URL ?><!--/new_2022_logo.png" alt="--><?php //echo $config['cf_title']; ?><!--">-->
+            </a>
         </div>
         <div id="tnb">
             <ul>
@@ -225,6 +228,7 @@ include_once(G5_LIB_PATH.'/popular.lib.php');
     });
 
     </script>
+</div>
 </div>
 <!-- } 상단 끝 -->
 

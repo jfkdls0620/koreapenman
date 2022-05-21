@@ -271,15 +271,8 @@ $ex_view = sql_fetch(" select co_subject, co_content, co_mobile_content from {$g
         <div id="ctt_con">
             <div class="organization_content">
                 <div class="tab_area">
-                    <ul>
-                        <li class="t01 on"><a href="javascript:;">조직도</a></li>
-                        <li class="t02"><a href="javascript:;">임원</a></li>
-                    </ul>
                     <div class="conbox on">
                         <p><?php echo $or_view['co_content']?></p>
-                    </div>
-                    <div class="conbox">
-                        <p><?php echo $ex_view['co_content']?></p>
                     </div>
                 </div>
 

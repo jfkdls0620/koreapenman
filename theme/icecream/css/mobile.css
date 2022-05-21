@@ -3,7 +3,7 @@
 
 /* 초기화 */
 html {overflow-y:scroll;height:100%;min-width:320px}
-body {margin:0;padding:0;font-size:0.813em;background:#f9f9f9;height:100%;font-family:'Noto Sans KR',
+body {margin:0;padding:0;font-size:0.813em;background:#f1f1f1;height:100%;font-family:'Noto Sans KR',
 AppleSDGothicNeo-Regular,'Malgun Gothic','맑은 고딕',dotum,'돋움',sans-serif;}
 html, h1, h2, h3, h4, h5, h6, form, fieldset, img {margin:0;padding:0;border:0}
 h1, h2, h3, h4, h5, h6 {font-size:1em}
@@ -54,6 +54,7 @@ tr.table_bg02{background-color: #c1ddff}
     transform: rotate(45deg);
     margin: -11% 5.5% 5.5% 5.5%;
 }
+
 
 .v2_container .v2_container_con .grid-item:nth-child(1),
 .v2_container .v2_container_con .grid-item:nth-child(2),
@@ -157,9 +158,10 @@ tr.table_bg02{background-color: #c1ddff}
 }
 
 /* 기본 테이블 */
-table.v2_table01{width: 100%;border-top:2px solid #000;border-collapse: collapse}
-table.v2_table01 th, table.v2_table01 td{border-bottom:1px solid #000;padding: 15px 20px 10px;}
-table.v2_table01 th{text-align: right;font-size:34px;}
+table.v2_table01{width: 100%;border-top:2px solid #000;border-collapse: collapse;font-size:0;}
+table.v2_table01 th, table.v2_table01 td{border-top:1px solid #000;padding:10px 20px 10px;line-height: 30px;vertical-align:middle}
+table.v2_table01 th{text-align: right;font-size:26px;}
+table.v2_table01 th.bt0{border-top:0;}
 table.v2_table01 td{font-size:20px;border-left:1px solid #000;}
 table.v2_table01 td.bg{font-weight: 600}
 
@@ -288,14 +290,16 @@ table.v2_table01 td.bg{font-weight: 600}
 .hd_pops_footer button {margin-right:5px;padding:5px 10px;border:0;background:#393939;color:#fff}
 #skip_to_container{display:none}
 /* 상단 레이아웃 */
-#hd {position:relative;background:#f9f9f9;text-align:center;padding:0 30px;max-width: 1400px;margin: 0 auto}
+#hd {position:relative;background:#6ea5f7;text-align:center;width:100%;}
+#hd .hd_inner{position:relative;max-width: 1400px;margin: 0 auto;}
 #hd_h1 {position:absolute;font-size:0;line-height:0;overflow:hidden}
 
 #hd_wrapper {position:relative;margin:0 auto;max-width:100%;zoom:1;height:150px}
 #hd_wrapper:after {display:block;visibility:hidden;clear:both;content:""}
 
 #logo{position:absolute;top:50%;transform: translateY(-50%)}
-#logo a{display:inline-block;padding:15px 0;width: 290px}
+#logo a{display:inline-block;padding:15px 0;width:320px;height:60px;background-image: url("../../../img/new_2022_logo.png");background-repeat: no-repeat;
+background-size: 100% auto}
 #logo a img{width: 100%}
 
 .hd_sch_wr{display:none;position:absolute;top:0;left:0;width:100%;z-index:80;background: #23292c;}
@@ -328,21 +332,24 @@ table.v2_table01 td.bg{font-weight: 600}
 #hd_qnb .visit .visit-num{display:inline-block;line-height:18px;padding:0 5px;border-radius:10px;background:#f04e00;color:#fff;font-size:10px;position:absolute;top:0;right:0}
 
 /* 메인메뉴 */
-#gnb{max-width:1200px;position:absolute;top:50%;right:0;transform: translateY(-50%)}
+#gnb{max-width:1200px;position:absolute;top:50%;right:0;transform: translateY(-50%);z-index: 999}
 #gnb h2{position:absolute;font-size:0;line-height:0;overflow:hidden}
 #gnb .gnb_wrap{}
 #gnb #gnb_1dul {;font-size:1.083em;padding: 0;zoom:1;}
 #gnb ul:after {display:block;visibility:hidden;clear:both;content:""}
 #gnb .gnb_1dli{display:inline-block;line-height:58px;padding:0 25px;position:relative;z-index:1;
-    font-family:나눔스퀘어, 'NanumSquare', 'Noto Sans KR', AppleSDGothicNeo-Regular,sans-serif;}
+    }
 /*#gnb .gnb_1dli:hover{background:#131416;
 -webkit-transition: background-color 2s ease-out;
 -moz-transition: background-color 0.3s ease-out;
 -o-transition: background-color 0.3s ease-out;
 transition: background-color 0.3s ease-out;}*/
 
+.board_list .bo_img.v2_no-image{background-size: contain !important}
+.board_list .bo_img{background-position: center;background-size: auto 100% !important}
+
 .gnb_1dli .bg{display:none;width:10px;height:10px;overflow:hidden;background:url(../img/gnb_bg2.gif) no-repeat 50% 50%;text-indent:-999px}
-.gnb_1da {display:inline-block;font-weight:600;color:#000;text-decoration:none;font-size:22px}
+.gnb_1da {display:inline-block;color:#000;text-decoration:none;font-size:22px;}
 .gnb_2dli{}
 .gnb_2dli:first-child{border:0}
 .gnb_2dul {display:none;position:absolute;top:58px;min-width:220px;background:#fff;padding: 0;

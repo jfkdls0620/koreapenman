@@ -22,6 +22,7 @@ $ex_view = sql_fetch(" select co_subject, co_content, co_mobile_content from {$g
                         <p><?php echo $or_view['co_content']?></p>
                     </div>
                     <div class="conbox">
+                        <div></div>
                         <p><?php echo $ex_view['co_content']?></p>
                     </div>
                 </div>
