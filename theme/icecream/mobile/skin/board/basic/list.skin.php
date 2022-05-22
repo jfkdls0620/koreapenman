@@ -72,24 +72,27 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                         <?php
                         // if ($list[$i]['file']['count']) { echo '<'.$list[$i]['file']['count'].'>'; }
 
-                        if (isset($list[$i]['icon_new'])) echo $list[$i]['icon_new'];
-                        if (isset($list[$i]['icon_hot'])) echo $list[$i]['icon_hot'];
-                        if (isset($list[$i]['icon_file'])) echo $list[$i]['icon_file'];
-                        if (isset($list[$i]['icon_link'])) echo $list[$i]['icon_link'];
-                        if (isset($list[$i]['icon_secret'])) echo $list[$i]['icon_secret'];
+                        // if (isset($list[$i]['icon_new'])) echo $list[$i]['icon_new'];
+                        // if (isset($list[$i]['icon_hot'])) echo $list[$i]['icon_hot'];
+                        // if (isset($list[$i]['icon_file'])) echo $list[$i]['icon_file'];
+                        // if (isset($list[$i]['icon_link'])) echo $list[$i]['icon_link'];
+                        // if (isset($list[$i]['icon_secret'])) echo $list[$i]['icon_secret'];
 
                         ?>
                     </a>
                 </div>
+
                 <div class="bo_info">
-                     <span class="bo_pf_img"><?php echo get_member_profile_img($list[$i]['mb_id']); ?></span>
+                  <?php /*<span class="bo_pf_img"><?php echo get_member_profile_img($list[$i]['mb_id']); ?></span> */?>
                      <span class="sound_only">작성자</span><?php echo $list[$i]['name'] ?>
                     
                     <span class="bo_date"><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo $list[$i]['datetime2'] ?></span>  
                     <?php if ($list[$i]['comment_cnt']) { ?><span class="sound_only">댓글</span><i class="fa fa-commenting-o" aria-hidden="true"></i><?php echo $list[$i]['comment_cnt']; ?><?php } ?> 
                 
                 </div>
+
                 <?php
+                /*
                 $thumb = get_list_thumbnail($board['bo_table'], $list[$i]['wr_id'], $board['bo_mobile_gallery_width'], $board['bo_mobile_gallery_height']);
                 if($thumb['src']) {
                     $img_content = '<a href="'.$list[$i]['href'].'" class="bo_img"><img src="'.$thumb['src'].'" alt="'.$thumb['alt'].'" width="'.$board['bo_mobile_gallery_width'].'" height="'.$board['bo_mobile_gallery_height'].'"></a>';
@@ -98,6 +101,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                 }
 
                 echo $img_content;
+                */
                 ?>
                  
             </li><?php } ?>

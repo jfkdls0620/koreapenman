@@ -44,26 +44,27 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     <input type="hidden" name="sod" value="<?php echo $sod ?>">
     <input type="hidden" name="page" value="<?php echo $page ?>">
     <input type="hidden" name="sw" value="">
-        
-    <div class="board_kor_search_bar">
-        <button type="button" onclick="search_kor('ㄱ');"<?php if (strpos($f_word, 'ㄱ') === 0) { ?> class="on"<?}?>>ㄱ</button>
-        <button type="button" onclick="search_kor('ㄴ');"<?php if (strpos($f_word, 'ㄴ') === 0) { ?> class="on"<?}?>>ㄴ</button>
-        <button type="button" onclick="search_kor('ㄷ');"<?php if (strpos($f_word, 'ㄷ') === 0) { ?> class="on"<?}?>>ㄷ</button>
-        <button type="button" onclick="search_kor('ㄹ');"<?php if (strpos($f_word, 'ㄹ') === 0) { ?> class="on"<?}?>>ㄹ</button>
-        <button type="button" onclick="search_kor('ㅁ');"<?php if (strpos($f_word, 'ㅁ') === 0) { ?> class="on"<?}?>>ㅁ</button>
-        <button type="button" onclick="search_kor('ㅂ');"<?php if (strpos($f_word, 'ㅂ') === 0) { ?> class="on"<?}?>>ㅂ</button>
-        <button type="button" onclick="search_kor('ㅅ');"<?php if (strpos($f_word, 'ㅅ') === 0) { ?> class="on"<?}?>>ㅅ</button>
-        <button type="button" onclick="search_kor('ㅇ');"<?php if (strpos($f_word, 'ㅇ') === 0) { ?> class="on"<?}?>>ㅇ</button>
-        <button type="button" onclick="search_kor('ㅈ');"<?php if (strpos($f_word, 'ㅈ') === 0) { ?> class="on"<?}?>>ㅈ</button>
-        <button type="button" onclick="search_kor('ㅊ');"<?php if (strpos($f_word, 'ㅊ') === 0) { ?> class="on"<?}?>>ㅊ</button>
-        <button type="button" onclick="search_kor('ㅋ');"<?php if (strpos($f_word, 'ㅋ') === 0) { ?> class="on"<?}?>>ㅋ</button>
-        <button type="button" onclick="search_kor('ㅌ');"<?php if (strpos($f_word, 'ㅌ') === 0) { ?> class="on"<?}?>>ㅌ</button>
-        <button type="button" onclick="search_kor('ㅍ');"<?php if (strpos($f_word, 'ㅍ') === 0) { ?> class="on"<?}?>>ㅍ</button>
-        <button type="button" onclick="search_kor('ㅎ');"<?php if (strpos($f_word, 'ㅎ') === 0) { ?> class="on"<?}?>>ㅎ</button>
-        <button type="button" onclick="search_kor('');"<?php if (!$f_word) { ?> class="on"<?}?>>전체</button>
-    </div>
 
     <div class="board_list">
+
+        <div class="board_kor_search_bar">
+            <button type="button" onclick="search_kor('ㄱ');"<?php if (strpos($f_word, 'ㄱ') === 0) { ?> class="on"<?}?>>ㄱ</button>
+            <button type="button" onclick="search_kor('ㄴ');"<?php if (strpos($f_word, 'ㄴ') === 0) { ?> class="on"<?}?>>ㄴ</button>
+            <button type="button" onclick="search_kor('ㄷ');"<?php if (strpos($f_word, 'ㄷ') === 0) { ?> class="on"<?}?>>ㄷ</button>
+            <button type="button" onclick="search_kor('ㄹ');"<?php if (strpos($f_word, 'ㄹ') === 0) { ?> class="on"<?}?>>ㄹ</button>
+            <button type="button" onclick="search_kor('ㅁ');"<?php if (strpos($f_word, 'ㅁ') === 0) { ?> class="on"<?}?>>ㅁ</button>
+            <button type="button" onclick="search_kor('ㅂ');"<?php if (strpos($f_word, 'ㅂ') === 0) { ?> class="on"<?}?>>ㅂ</button>
+            <button type="button" onclick="search_kor('ㅅ');"<?php if (strpos($f_word, 'ㅅ') === 0) { ?> class="on"<?}?>>ㅅ</button>
+            <button type="button" onclick="search_kor('ㅇ');"<?php if (strpos($f_word, 'ㅇ') === 0) { ?> class="on"<?}?>>ㅇ</button>
+            <button type="button" onclick="search_kor('ㅈ');"<?php if (strpos($f_word, 'ㅈ') === 0) { ?> class="on"<?}?>>ㅈ</button>
+            <button type="button" onclick="search_kor('ㅊ');"<?php if (strpos($f_word, 'ㅊ') === 0) { ?> class="on"<?}?>>ㅊ</button>
+            <button type="button" onclick="search_kor('ㅋ');"<?php if (strpos($f_word, 'ㅋ') === 0) { ?> class="on"<?}?>>ㅋ</button>
+            <button type="button" onclick="search_kor('ㅌ');"<?php if (strpos($f_word, 'ㅌ') === 0) { ?> class="on"<?}?>>ㅌ</button>
+            <button type="button" onclick="search_kor('ㅍ');"<?php if (strpos($f_word, 'ㅍ') === 0) { ?> class="on"<?}?>>ㅍ</button>
+            <button type="button" onclick="search_kor('ㅎ');"<?php if (strpos($f_word, 'ㅎ') === 0) { ?> class="on"<?}?>>ㅎ</button>
+            <button type="button" onclick="search_kor('');"<?php if (!$f_word) { ?> class="on"<?}?>>전체</button>
+        </div>
+
         <?php if ($is_checkbox) { ?>
         <div class="al_chk">
             <input type="checkbox" id="chkall" onclick="if (this.checked) all_checked(true); else all_checked(false);">

@@ -294,7 +294,7 @@ table.v2_table01 td.bg{font-weight: 600}
 #hd .hd_inner{position:relative;max-width: 1400px;margin: 0 auto;}
 #hd_h1 {position:absolute;font-size:0;line-height:0;overflow:hidden}
 
-#hd_wrapper {position:relative;margin:0 auto;max-width:100%;zoom:1;height:150px}
+#hd_wrapper {position:relative;margin:0 auto;max-width:100%;zoom:1;height:120px}
 #hd_wrapper:after {display:block;visibility:hidden;clear:both;content:""}
 
 #logo{position:absolute;top:50%;transform: translateY(-50%)}
@@ -337,8 +337,7 @@ background-size: 100% auto}
 #gnb .gnb_wrap{}
 #gnb #gnb_1dul {;font-size:1.083em;padding: 0;zoom:1;}
 #gnb ul:after {display:block;visibility:hidden;clear:both;content:""}
-#gnb .gnb_1dli{display:inline-block;line-height:58px;padding:0 25px;position:relative;z-index:1;
-    }
+#gnb .gnb_1dli{display:inline-block;line-height:58px;padding:0 25px;position:relative;z-index:1;}
 /*#gnb .gnb_1dli:hover{background:#131416;
 -webkit-transition: background-color 2s ease-out;
 -moz-transition: background-color 0.3s ease-out;
@@ -402,11 +401,9 @@ a.gnb_2da:hover{background:#222;
 .gnb_al_qk li{float:left;width:50%;border-left:1px solid #2e3336}
 .gnb_al_qk i{width:30px;}
 
-@media (min-width: 970px){
-
-}
 
 @media (max-width: 969px){
+    #logo{display: none;}
     #gnb_1dul{display:none}
     #gnb .gnb_btn{border:0}
     #gnb .gnb_menu_btn{display: block;}

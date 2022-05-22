@@ -55,11 +55,11 @@
 #bo_cate a {position:relative;display:block;line-height:35px;padding:0 20px;color:#888;border-bottom:2px solid #ddd;background:#fff;margin:5px 5px  5px 0;border-radius:5px}
 #bo_cate #bo_cate_on {background:#86b9f8;color:#fff;border-color:#86b9f8}
 
-.board_list{}
+.board_list{background-color: #fff;padding: 10px}
 .board_list ul{display: flex;justify-content: flex-start;flex-flow: row wrap;}
-.board_list li{background: #81bfff;margin: 1% 1% 0 0;position: relative;flex: 0 1 32%;padding:20px 10px;line-height:20px;
-   border-radius: 3px}
-/*.board_list .bo_liimg {padding-right:120px}*/
+.board_list li{background: #fff;margin:1% 1% 0 0;position: relative;flex: 0 1 24%;padding:20px 10px;line-height:20px;
+    border:5px solid #ccc;}
+.board_list li:nth-child(4n){margin-right: 0}
 .board_list .bo_pf_img {position:absolute;top:30px;left:30px;width:46px;height:46px;display: none;}
 .board_list .bo_pf_img img{border-radius:30px;width:100%;height:auto}
 .board_list .bo_notice{background:#e9f0ff;}

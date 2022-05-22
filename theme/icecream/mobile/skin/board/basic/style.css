@@ -54,8 +54,8 @@
 #bo_cate a {position:relative;display:block;line-height:35px;padding:0 20px;color:#888;border-bottom:2px solid #ddd;background:#fff;margin:5px 5px  5px 0;border-radius:5px}
 #bo_cate #bo_cate_on {background:#86b9f8;color:#fff;border-color:#86b9f8}
 
-.board_list li{background: #fff;margin: 20px 0 ;padding: 30px 30px 30px 100px;border-radius: 5px;position: relative;line-height:20px}
-.board_list .bo_liimg {padding-right:120px}
+.board_list ul{border-top:2px solid #000;margin-top: 10px}
+.board_list ul li{background: #fff;padding:10px 20px;position: relative;line-height:20px;border-bottom:1px solid #686868}
 .board_list .bo_pf_img {position:absolute;top:30px;left:30px;width:46px;height:46px}
 .board_list .bo_pf_img img{border-radius:30px;width:100%;height:auto}
 .board_list .bo_notice{background:#e9f0ff;}
