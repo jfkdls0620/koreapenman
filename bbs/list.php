@@ -111,6 +111,7 @@ if ((isset($_REQUEST['kor'])) || ($sca || $stx || $stx === '0')) {     //검색�
     $total_count = $board['bo_count_write'];
 }
 
+
 if(G5_IS_MOBILE) {
     $page_rows = $board['bo_mobile_page_rows'];
     $list_page_rows = $board['bo_mobile_page_rows'];
@@ -227,7 +228,6 @@ if ($is_search_bbs) {
 
     $sql .= " {$sql_search} {$sql_order} limit {$from_record}, $page_rows ";
 }
-
 
 // 페이지의 공지개수가 목록수 보다 작을 때만 실행
 if($page_rows > 0) {
