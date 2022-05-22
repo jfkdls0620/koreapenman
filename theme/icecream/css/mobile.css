@@ -144,7 +144,8 @@ tr.table_bg02{background-color: #c1ddff}
     height:840px;
 }
 .notice_wr li{
-    padding-top: 60px;
+    padding-top:30px;
+    padding-bottom:60px;
 }
 .notice_wr li a{
     display: block;
