@@ -103,7 +103,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 
         <div class="bo_w_tit write_div">
             <label for="wr_1" class="sound_only"><strong>필수</strong></label>
-            <input type="text" name="wr_1" value="<?php echo $wr_1 ?>" id="wr_1" required class="frm_input full_input required" placeholder="아호">
+            <input type="text" name="wr_1" value="<?php echo $wr_1 ?>" id="wr_1" class="frm_input full_input" placeholder="아호">
         </div>
 
         <div class="bo_w_tit write_div">
