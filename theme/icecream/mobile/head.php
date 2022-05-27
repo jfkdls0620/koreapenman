@@ -235,6 +235,41 @@ include_once(G5_LIB_PATH.'/popular.lib.php');
 
 
 <div id="wrapper">
+    <?php
+    if(!defined('_INDEX_')) { // index에서만 실행
+        ?>
+        <div class="v2_lnb">
+            <ul >
+                <?
+                $find_txt = $_SERVER['REQUEST_URI'];
+                $find_clone = false;
+                foreach( $menu_datas as $row ){
+                    if(strpos($find_txt,$row['me_link'])== false){
+                        $find_clone =true;
+                    }else{
+                        foreach( (array) $row['sub'] as $row2 ){
+                            if(strpos($find_txt,$row2['me_link'])== false){
+                                $find_clone =true;
+                            }
+                        }
+                    }
+
+                    if($find_clone){
+                        $snb_menu = $row;
+                        break;
+                    }
+                }
+
+                foreach ($snb_menu['sub'] as $menu){//커! 스근
+                    echo '<li '.(strpos($find_txt,$menu['me_link'])== false ? 'class="on"' : '').'><a class="" href="'.G5_URL.$menu['me_link'].'"> '.$menu['me_name'].'</a></li>';
+                }
+
+                ?>
+            </ul>
+        </div>
+        <?php
+    }
+    ?>
     <div id="container" <?=!defined('_INDEX_')? 'class="sub_page"': '' ?>>
         <?php
             if(!defined('_INDEX_')) { // index에서만 실행
@@ -245,5 +280,6 @@ include_once(G5_LIB_PATH.'/popular.lib.php');
                 <?php
             }
         ?>
+
 <!--        <div id="con" class="con_left">-->
 <!--        --><?php //if (!defined("_INDEX_")) { ?><!--<h2 id="container_title" class="top" title="--><?php //echo get_text($g5['title']); ?><!--">--><?php //echo get_head_title($g5['title']); ?><!--</h2>--><?php //} ?>

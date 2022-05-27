@@ -55,7 +55,6 @@ tr.table_bg02{background-color: #c1ddff}
     margin: -11% 5.5% 5.5% 5.5%;
 }
 
-
 .v2_container .v2_container_con .grid-item:nth-child(1),
 .v2_container .v2_container_con .grid-item:nth-child(2),
 .v2_container .v2_container_con .grid-item:nth-child(3) {
@@ -135,6 +134,13 @@ tr.table_bg02{background-color: #c1ddff}
     font-size:24px;
 }
 
+/* lnb */
+.v2_lnb{width:250px;background: #fff;position:absolute;top:114px;left:200px;}
+.v2_lnb li{border-bottom: 1px solid #ccc;}
+.v2_lnb li.on{background: #0f75ac}
+.v2_lnb li.on a{color:#fff;}
+.v2_lnb li a{font-size:16px;padding: 10px;display: block;}
+
 /* 공지사항 메인 */
 .main_container .notice_wr{
     position:absolute;
@@ -184,9 +190,10 @@ table.v2_table01 td.bg{font-weight: 600}
 .organization_content table.v2_table01 td{font-size:18px;}
 
 /* v2 서브*/
-.sub_nav{margin-top: 30px}
-.sub_nav h2{font-size:30px;padding-left:10px;padding-bottom: 10px;}
-#ctt {margin:10px 0;padding:20px;border-top:1px solid #e9e9e9;border-bottom:1px solid #e9e9e9;background-color: #fff;}
+.sub_nav{margin-top: 30px;padding-left: 20px;}
+.sub_nav h2{font-size:30px;padding-bottom: 10px;}
+#ctt {margin:15px;padding:20px;border-top:1px solid #e9e9e9;border-bottom:1px solid #e9e9e9;background-color: #fff;width: 1024px}
+#container.org #ctt.ctt_aoIncorporation{width: 1190px}
 .ctt_admin {margin:0 5px;text-align:right}
 #ctt header h1 {position:absolute;font-size:0;line-height:0;overflow:hidden}
 #ctt_con {padding:10px 0}
@@ -421,11 +428,11 @@ a.gnb_2da:hover{background:#222;
 .ts_up2 {font-size:1.3em !important}
 
 /* 중간 레이아웃 */
-#wrapper {}
+#wrapper {position:relative}
 #wrapper:after {display:block;visibility:hidden;clear:both;content:""}
 #container {position:relative;min-height:300px;margin:0 auto;max-width:1280px;padding:15px}
 #container.sub_page{width: 1024px}
-#container.org{width: 1280px;}
+/*#container.org{width: 1280px;}*/
 #container:after {display:block;visibility:hidden;clear:both;content:""}
 #container_title {font-size:1.6em;margin:0 15px 15px}
 .btn_top li{display:inline-block}
