@@ -194,7 +194,7 @@ box-shadow: 1px 2px 8px #e2e4f1}
 #bo_v_atc {min-height:200px}
 #bo_v_atc_title {margin:0;padding:0;height:0;overflow:hidden}
 
-#bo_v_img {margin:0 0 10px;width:100%;overflow:hidden;zoom:1}
+#bo_v_img {margin:0 0 10px;width:100%;overflow:hidden;zoom:1;text-align: center;}
 #bo_v_img:after {display:block;visibility:hidden;clear:both;content:""}
 #bo_v_img a.view_image{display:block}
 #bo_v_img img {margin-bottom:15px;max-width:100%;height:auto}

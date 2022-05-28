@@ -17,7 +17,12 @@ $co_view = sql_fetch(" select co_subject, co_content, co_mobile_content from {$g
             </div>
         </div>
     </article>
-
+    <style>
+        span.subway{display: inline-block;border-radius: 50%;width: 25px;line-height: 25px;text-align: center;color:#fff;}
+        span.subway.line3{background-color: #EF7C1C}
+        span.subway.line5{background-color: #996CAC}
+        span.subway.line6{background-color: #CD7C2F}
+    </style>
     <script>
             var title = "<?php echo $co_view['co_subject'] ?>";
             $(".sub_nav h2").text(title);
