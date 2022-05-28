@@ -55,8 +55,9 @@
 #bo_cate #bo_cate_on {background:#86b9f8;color:#fff;border-color:#86b9f8}
 
 .board_list ul{display: flex; justify-content:flex-start;flex-flow: row wrap;}
-.board_list li{background: #fff;margin: 20px 1% 0 0;position: relative;flex: 0 1 24%;box-shadow: 2px 2px 2px #ededed;
+.board_list li{background: #fff;margin:0 1% 20px 0;position: relative;flex: 0 1 23%;box-shadow: 2px 2px 2px #ededed;
     padding:5px;}
+.board_list li:nth-child(4n){margin-right: 0}
 /*.board_list .bo_liimg {padding-right:120px}*/
 .board_list .bo_pf_img {display:none;position:absolute;top:30px;left:30px;width:46px;height:46px}
 .board_list .bo_pf_img img{border-radius:30px;width:100%;height:auto}
