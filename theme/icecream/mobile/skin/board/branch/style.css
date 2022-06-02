@@ -61,7 +61,7 @@
 .board_list .bo_pf_img img{border-radius:30px;width:100%;height:auto}
 .board_list .bo_notice{background:#e9f0ff;}
 .board_list .bo_img {position:relative;top:0;right:0;width:150px;height:150px;display: inline-block;background-repeat: no-repeat;background-size:100% auto;}
-.board_list .bo_img.v2_no-image{background-image: url("img/v2_no-img.png")}
+.board_list .bo_img.v2_no-image{background-image: url("img/v2_no-img.png");background-size: 70% auto !important}
 
 .card-content{position:relative;width: 100%;padding-left: 180px;font-size:0;min-height: 150px}
 .card-content .card-content_img{position:absolute;top:50%;left:0;transform: translateY(-50%)}
