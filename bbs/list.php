@@ -49,6 +49,8 @@ if (isset($_REQUEST['kor']))  {
     $f_word = '';
 }
 
+$wr_4 = clean_xss_tags(trim($_REQUEST['wr_4']));
+
 if ((isset($_REQUEST['kor'])) || ($sca || $stx || $stx === '0')) {     //검색이면
     $is_search_bbs = true;      //검색구분변수 true 지정
     $sql_search = get_sql_search($sca, $sfl, $stx, $sop);
@@ -84,6 +86,10 @@ if ((isset($_REQUEST['kor'])) || ($sca || $stx || $stx === '0')) {     //검색�
         } else if(strpos($f_word, 'ㅎ') === 0) {
             $sql_search .= " and substr(wr_subject,1,1) between '하' and '힣' ";
         }
+    }
+
+    if (isset($_REQUEST['wr_4'])) {
+        $sql_search .= " and wr_4 = '".$wr_4."'";
     }
 
     // 가장 작은 번호를 얻어서 변수에 저장 (하단의 페이징에서 사용)
@@ -222,6 +228,9 @@ if ($is_search_bbs) {
     $sql = " select distinct wr_parent from {$write_table} where {$sql_search} {$sql_order} limit {$from_record}, $page_rows ";
 } else {
     $sql = " select * from {$write_table} where wr_is_comment = 0 ";
+    if (isset($_REQUEST['wr_4'])) {
+        $sql_search .= " and wr_4 = '".$wr_4."'";
+    }
     if(!empty($notice_array))
         $sql .= " and wr_id not in (".implode(', ', $notice_array).") ";
 
@@ -257,7 +266,7 @@ if($page_rows > 0) {
 g5_latest_cache_data($board['bo_table'], $list);
 
 if (isset($_REQUEST['kor'])) {
-    $write_pages = get_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, get_pretty_url($bo_table, '', $qstr.'&amp;kor='.$f_word.'&amp;page='));
+    $write_pages = get_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, get_pretty_url($bo_table, '', $qstr.'&amp;wr_4='.$wr_4.'&amp;kor='.$f_word.'&amp;page='));
 } else {
     $write_pages = get_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, get_pretty_url($bo_table, '', $qstr.'&amp;page='));
 }
