@@ -29,7 +29,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$latest_skin_url.'/style.css">', 
                 $img_content = '<img src="'.$thumb['ori'].'" alt="'.$thumb['alt'].'" width="100%" height="auto">';
                 // <div class="notice_img" style="background-image: url('.$thumb['src'].')"></div>
             } else {
-                $img_content = '';
+                $img_content = 'ㄹㄹ';
             }
 
             echo $img_content;
