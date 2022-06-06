@@ -432,6 +432,7 @@ a.gnb_2da:hover{background:#222;
 #wrapper:after {display:block;visibility:hidden;clear:both;content:""}
 #container {position:relative;min-height:300px;margin:0 auto;max-width:1280px;padding:15px}
 #container.sub_page{padding-left: 260px}
+#container.sub_page.exhibition{padding-left:0;width: 1024px;}
 /*#container.org{width: 1280px;}*/
 #container:after {display:block;visibility:hidden;clear:both;content:""}
 #container_title {font-size:1.6em;margin:0 15px 15px}
