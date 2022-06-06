@@ -36,13 +36,13 @@ $co_skin = isset($_POST['co_skin']) ? clean_xss_tags($_POST['co_skin'], 1, 1) : 
 $co_mobile_skin = isset($_POST['co_mobile_skin']) ? clean_xss_tags($_POST['co_mobile_skin'], 1, 1) : '';
 
 // 관리자가 자동등록방지를 사용해야 할 경우
-if ((( isset($co_row['co_include_head']) && $co_row['co_include_head'] !== $co_include_head ) || ( isset($co_row['co_include_tail']) && $co_row['co_include_tail'] !== $co_include_tail )) && function_exists('get_admin_captcha_by') && get_admin_captcha_by()){
-    include_once(G5_CAPTCHA_PATH.'/captcha.lib.php');
-
-    if (!chk_captcha()) {
-        alert('자동등록방지 숫자가 틀렸습니다.');
-    }
-}
+//if ((( isset($co_row['co_include_head']) && $co_row['co_include_head'] !== $co_include_head ) || ( isset($co_row['co_include_tail']) && $co_row['co_include_tail'] !== $co_include_tail )) && function_exists('get_admin_captcha_by') && get_admin_captcha_by()){
+//    include_once(G5_CAPTCHA_PATH.'/captcha.lib.php');
+//
+//    if (!chk_captcha()) {
+//        alert('자동등록방지 숫자가 틀렸습니다.');
+//    }
+//}
 
 @mkdir(G5_DATA_PATH."/content", G5_DIR_PERMISSION);
 @chmod(G5_DATA_PATH."/content", G5_DIR_PERMISSION);
