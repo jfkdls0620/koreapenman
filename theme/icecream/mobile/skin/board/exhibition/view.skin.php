@@ -13,14 +13,70 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 <article id="bo_v">
     <header>
         <h2 id="bo_v_title">
+            <table>
+                <colgroup>
+                    <col width="15%">
+                    <col width="35%">
+                    <col width="15%">
+                    <col width="35%">
+                </colgroup>
+                <tr>
+                    <th>성명</th>
+                    <td>
+                        <span>
+                            <?php
+                                echo cut_str(get_text($view['wr_subject']), 70);  // 성명 출력
+                            ?>
+                        </span>
+                        <span>(<?php
+                                echo cut_str(get_text($view['wr_8']), 70); // 성명 출력
+                            ?>) - <?php echo cut_str(get_text($view['wr_5']), 70);  ?>
+                        </span>
+                    </td>
+                    <th>아호</th>
+                    <td>
+                         <span>
+                            <?php echo cut_str(get_text($view['wr_1']), 70);  // 아호 출력 ?>
+                        </span>
+                        <span>
+                            (<?php
+                            echo cut_str(get_text($view['wr_2']), 70); // 아호 출력
+                            ?>)
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>출생지역</th>
+                    <td>
+                        <span>
+                            <?php echo cut_str(get_text($view['wr_3']), 70);  // 출생지역 출력 ?>
+                        </span>
+                    </td>
+                    <th>출생년도</th>
+                    <td>
+                         <span>
+                            <?php echo cut_str(get_text($view['wr_4']), 70);  // 출생년도 출력 ?>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>활동지역</th>
+                    <td>
+                        <span>
+                            <?php echo cut_str(get_text($view['wr_6']), 70);  // 활동지역 출력 ?>
+                        </span>
+                    </td>
+                    <th>스승</th>
+                    <td>
+                         <span>
+                            <?php echo cut_str(get_text($view['wr_7']), 70);  // 스승 출력 ?>
+                        </span>
+                    </td>
+                </tr>
+            </table>
             <?php if ($category_name) { ?>
             <span class="bo_v_cate"><?php echo $view['ca_name']; // 분류 출력 끝 ?></span> 
             <?php } ?>
-            <span class="bo_v_tit">
-            <?php
-            echo cut_str(get_text($view['wr_subject']), 70); // 글제목 출력
-            ?>
-            </span>
         </h2>
         
     </header>
@@ -37,32 +93,29 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     <section id="bo_v_atc">
         <h2 id="bo_v_atc_title">본문</h2>
 
-        <?php
-        // 파일 출력
-        $v_img_count = count($view['file']);
-        if($v_img_count) {
-            echo "<div id=\"bo_v_img\">\n";
-
-            for ($i=0; $i<=count($view['file']); $i++) {
-                if ($view['file'][$i]['view']) {
-                    //echo $view['file'][$i]['view'];
-                    echo get_view_thumbnail($view['file'][$i]['view']);
-                }
-            }
-
-            echo "</div>\n";
-        }
-         ?>
-
         <div id="bo_v_con">
-            <p><?php echo $view['wr_5']; ?></p>
-            <p><?php echo $view['wr_1']; ?></p>
-            <p><?php echo $view['wr_2']; ?></p>
-            <p><?php echo $view['wr_3']; ?></p>
-            <p><?php echo $view['wr_4']; ?></p>
-            <p style="display: none;"><?php echo get_view_thumbnail($view['content']); ?></p>
-        </div>
+            <?php echo get_view_thumbnail($view['content']); ?>
+            <?php
+            // 파일 출력
+            $v_img_count = count($view['file']);
+            if($v_img_count) {
+                echo "<div id=\"bo_v_img\">\n";
 
+                for ($i=0; $i<=count($view['file']); $i++) {
+                    if ($view['file'][$i]['view']) {
+                        //echo $view['file'][$i]['view'];
+                        $file_ext = strtolower(substr(strrchr($view['file'][$i]['source'], "."), 1));
+                        $fileNameWithoutExt = substr($view['file'][$i]['source'], 0, strrpos($view['file'][$i]['source'], "."));
+
+                        echo get_view_thumbnail($view['file'][$i]['view']);
+                        echo get_view_thumbnail($fileNameWithoutExt);
+                    }
+                }
+
+                echo "</div>\n";
+            }
+            ?>
+        </div>
         <?php //echo $view['rich_content']; // {이미지:0} 과 같은 코드를 사용할 경우 ?>
 
         <?php if ($is_signature) { ?><p><?php echo $signature ?></p><?php } ?>
@@ -198,7 +251,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 
     </ul>
     <div class="btn_bo_user"> 
-        <?php if ($reply_href) { ?><a href="<?php echo $reply_href ?>" class="btn_b01 btn">답변</a><?php } ?>
+        <?php /* if ($reply_href) { ?><a href="<?php echo $reply_href ?>" class="btn_b01 btn">답변</a><?php } */?>
         <?php if ($list_href) { ?><a href="<?php echo $list_href ?>" class="btn_b02 btn">목록</a><?php } ?>
         <?php if ($write_href) { ?><a href="<?php echo $write_href ?>" class="btn_b02 btn">글쓰기</a><?php } ?>
 
@@ -214,12 +267,18 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 
 <?php
 // 코멘트 입출력
-// include_once(G5_BBS_PATH.'/view_comment.php');
+include_once(G5_BBS_PATH.'/view_comment.php');
  ?>
 
 <script>
+    $( document ).ready(function() {
+        var $target = $(".sub_nav");
+        $target.find("h2").text("작가 소개");
+        $target.show();
+    });
 <?php if ($board['bo_download_point'] < 0) { ?>
 $(function() {
+
     $("a.view_file_download").click(function() {
         if(!g5_is_member) {
             alert("다운로드 권한이 없습니다.\n회원이시라면 로그인 후 이용해 보십시오.");

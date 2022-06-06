@@ -64,7 +64,6 @@ tr.table_bg02{background-color: #c1ddff}
 .v2_container .v2_container_con .grid-item:nth-child(3),
 .v2_container .v2_container_con .grid-item:nth-child(6),
 .v2_container .v2_container_con .grid-item:nth-child(8),
-.v2_container .v2_container_con .grid-item:nth-child(9),
 .v2_container .v2_container_con .grid-item:nth-child(11),
 .v2_container .v2_container_con .grid-item:nth-child(13){
     opacity: 0;
@@ -121,6 +120,7 @@ tr.table_bg02{background-color: #c1ddff}
 }
 .v2_container .v2_container_con .grid-item:nth-child(4) .grid-inner::before,
 .v2_container .v2_container_con .grid-item:nth-child(5) .grid-inner::before,
+.v2_container .v2_container_con .grid-item:nth-child(9) .grid-inner::before,
 .v2_container .v2_container_con .grid-item:nth-child(10) .grid-inner::before{
     background-image: url("../img/main02.png");
 }
