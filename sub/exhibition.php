@@ -18,27 +18,27 @@ $co_view = sql_fetch(" select co_subject, co_content, co_mobile_content from {$g
                     </a>
                 </li>
                 <li>
-                    <a href="http://koreapenman.com/bbs/board.php?bo_table=certificate&wr_4=한글서예" class="draw-btn draw-border">
+                    <a href="http://koreapenman.com/bbs/board.php?bo_table=certificate&wr_4=한문서예" class="draw-btn draw-border">
                         한문서예사범
                     </a>
                 </li>
                 <li>
-                    <a href="http://koreapenman.com/bbs/board.php?bo_table=certificate&wr_4=한글서예" class="draw-btn draw-border">
+                    <a href="http://koreapenman.com/bbs/board.php?bo_table=certificate&wr_4=문인화" class="draw-btn draw-border">
                         문인화사범
                     </a>
                 </li>
                 <li>
-                    <a href="http://koreapenman.com/bbs/board.php?bo_table=certificate&wr_4=한글서예" class="draw-btn draw-border">
+                    <a href="http://koreapenman.com/bbs/board.php?bo_table=certificate&wr_4=서각" class="draw-btn draw-border">
                         서각사범
                     </a>
                 </li>
                 <li>
-                    <a href="http://koreapenman.com/bbs/board.php?bo_table=certificate&wr_4=한글서예" class="draw-btn draw-border">
+                    <a href="http://koreapenman.com/bbs/board.php?bo_table=certificate&wr_4=전각" class="draw-btn draw-border">
                         전각사범
                     </a>
                 </li>
                 <li>
-                    <a href="http://koreapenman.com/bbs/board.php?bo_table=certificate&wr_4=한글서예" class="draw-btn draw-border">
+                    <a href="http://koreapenman.com/bbs/board.php?bo_table=certificate&wr_4=민화" class="draw-btn draw-border">
                         민화사범
                     </a>
                 </li>
@@ -99,9 +99,9 @@ $co_view = sql_fetch(" select co_subject, co_content, co_mobile_content from {$g
             padding: 1em 2em;
             letter-spacing: 0.05rem;
         }
-        .draw-btn:focus {
-            outline: 2px dotted #55d7dc;
-        }
+        /*.draw-btn:focus {*/
+        /*    outline: 2px dotted #55d7dc;*/
+        /*}*/
 
     </style>
     <script>
