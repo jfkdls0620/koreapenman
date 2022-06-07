@@ -29,7 +29,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             </select>
         </div>
         <?php } ?> 
-        
+
+        <?php /*
+
         <?php if ($is_name) { ?>
         <div class="write_div">
             <label for="wr_name" class="sound_only">이름<strong>필수</strong></label>
@@ -57,6 +59,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             <input type="text" name="wr_homepage" value="<?php echo $homepage ?>" id="wr_homepage" class="frm_input full_input " placeholder="홈페이지">
         </div>
         <?php } ?>
+        */
+        ?>
 
         <?php if ($option) { ?>
         <div class="write_div">
