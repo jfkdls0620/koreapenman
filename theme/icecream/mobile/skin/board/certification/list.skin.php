@@ -15,6 +15,65 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     .bo_info_items .bo_info_item .bo_info_item--title {color: #333; font-weight: 700;}
     .board_kor_search_bar button{background-color:#fff;font-weight: 600}
     .board_kor_search_bar button.on {background-color: #0d61fb;color: #fff;}
+
+    ul.ex_ul {font-size:0;margin-bottom: 15px;}
+    ul.ex_ul li{display:inline-block;width: calc(33% - 5px);text-align: center;margin: 0 10px 10px 0;vertical-align:top;}
+    ul.ex_ul li:nth-child(3n) {margin-right: 0;}
+    .draw-border {
+        box-shadow: inset 0 0 0 4px #1a5ec1;
+        color: #1a5ec1;
+        transition: color 0.25s 0.0833333333s;
+        position: relative;
+    }
+    .draw-border::before, .draw-border::after {
+        border: 0 solid transparent;
+        box-sizing: border-box;
+        content: "";
+        pointer-events: none;
+        position: absolute;
+        width: 0;
+        height: 0;
+        bottom: 0;
+        right: 0;
+    }
+    .draw-border::before {
+        border-bottom-width: 4px;
+        border-left-width: 4px;
+    }
+    .draw-border::after {
+        border-top-width: 4px;
+        border-right-width: 4px;
+    }
+    .draw-border:hover {
+        color: #000;
+    }
+    .draw-border:hover::before, .draw-border:hover::after {
+        border-color: #000;
+        transition: border-color 0s, width 0.25s, height 0.25s;
+        width: 100%;
+        height: 100%;
+    }
+    .draw-border:hover::before {
+        transition-delay: 0s, 0s, 0.25s;
+    }
+    .draw-border:hover::after {
+        transition-delay: 0s, 0.25s, 0s;
+    }
+
+    .draw-btn {
+        display: block;
+        background: #6aa3f7;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        font-size: 1.3rem;
+        padding: .4em 1em;
+        letter-spacing: 0.05rem;
+    }
+    /*.draw-btn:focus {*/
+    /*    outline: 2px dotted #55d7dc;*/
+    /*}*/
+
 </style>
 
 <!-- 게시판 목록 시작 -->
@@ -47,6 +106,39 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 
     <div class="board_list">
 
+        <ul class="ex_ul">
+            <li>
+                <a href="http://koreapenman.com/bbs/board.php?bo_table=certificate&kor=&wr_4=한글서예" class="draw-btn draw-border">
+                    한글서예사범
+                </a>
+            </li>
+            <li>
+                <a href="http://koreapenman.com/bbs/board.php?bo_table=certificate&kor=&wr_4=한문서예" class="draw-btn draw-border">
+                    한문서예사범
+                </a>
+            </li>
+            <li>
+                <a href="http://koreapenman.com/bbs/board.php?bo_table=certificate&kor=&wr_4=문인화" class="draw-btn draw-border">
+                    문인화사범
+                </a>
+            </li>
+            <li>
+                <a href="http://koreapenman.com/bbs/board.php?bo_table=certificate&kor=&wr_4=서각" class="draw-btn draw-border">
+                    서각사범
+                </a>
+            </li>
+            <li>
+                <a href="http://koreapenman.com/bbs/board.php?bo_table=certificate&kor=&wr_4=전각" class="draw-btn draw-border">
+                    전각사범
+                </a>
+            </li>
+            <li>
+                <a href="http://koreapenman.com/bbs/board.php?bo_table=certificate&kor=&wr_4=민화" class="draw-btn draw-border">
+                    민화사범
+                </a>
+            </li>
+        </ul>
+
         <div class="board_kor_search_bar">
             <button type="button" onclick="search_kor('ㄱ');"<?php if (strpos($f_word, 'ㄱ') === 0) { ?> class="on"<?}?>>ㄱ</button>
             <button type="button" onclick="search_kor('ㄴ');"<?php if (strpos($f_word, 'ㄴ') === 0) { ?> class="on"<?}?>>ㄴ</button>
@@ -71,7 +163,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             <label for="chkall"><span class="sound_only">현재 페이지 게시물 </span>전체선택</label>
         </div>
         <?php } ?>
-        <ul>
+        <ul class="board_list__items">
             <?php
             for ($i=0; $i<count($list); $i++) {
             ?>

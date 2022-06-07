@@ -268,7 +268,7 @@ g5_latest_cache_data($board['bo_table'], $list);
 if (isset($_REQUEST['kor'])) {
     $write_pages = get_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, get_pretty_url($bo_table, '', $qstr.'&amp;wr_4='.$wr_4.'&amp;kor='.$f_word.'&amp;page='));
 } else {
-    $write_pages = get_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, get_pretty_url($bo_table, '', $qstr.'&amp;page='));
+    $write_pages = get_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, get_pretty_url($bo_table, '', $qstr.'&amp;wr_4='.$wr_4.'&amp;page='));
 }
 
 $list_href = '';

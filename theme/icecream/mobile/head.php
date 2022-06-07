@@ -232,8 +232,6 @@ include_once(G5_LIB_PATH.'/popular.lib.php');
 </div>
 <!-- } 상단 끝 -->
 
-
-
 <div id="wrapper">
     <div id="container" <?=!defined('_INDEX_')? 'class="sub_page"': '' ?>>
         <?php

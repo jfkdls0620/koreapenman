@@ -13,32 +13,32 @@ $co_view = sql_fetch(" select co_subject, co_content, co_mobile_content from {$g
         <div id="ctt_con">
             <ul class="ex_ul">
                 <li>
-                    <a href="http://koreapenman.com/bbs/board.php?bo_table=certificate&wr_4=한글서예" class="draw-btn draw-border">
+                    <a href="http://koreapenman.com/bbs/board.php?bo_table=certificate&kor=&wr_4=한글서예" class="draw-btn draw-border">
                         한글서예사범
                     </a>
                 </li>
                 <li>
-                    <a href="http://koreapenman.com/bbs/board.php?bo_table=certificate&wr_4=한문서예" class="draw-btn draw-border">
+                    <a href="http://koreapenman.com/bbs/board.php?bo_table=certificate&kor=&wr_4=한문서예" class="draw-btn draw-border">
                         한문서예사범
                     </a>
                 </li>
                 <li>
-                    <a href="http://koreapenman.com/bbs/board.php?bo_table=certificate&wr_4=문인화" class="draw-btn draw-border">
+                    <a href="http://koreapenman.com/bbs/board.php?bo_table=certificate&kor=&wr_4=문인화" class="draw-btn draw-border">
                         문인화사범
                     </a>
                 </li>
                 <li>
-                    <a href="http://koreapenman.com/bbs/board.php?bo_table=certificate&wr_4=서각" class="draw-btn draw-border">
+                    <a href="http://koreapenman.com/bbs/board.php?bo_table=certificate&kor=&wr_4=서각" class="draw-btn draw-border">
                         서각사범
                     </a>
                 </li>
                 <li>
-                    <a href="http://koreapenman.com/bbs/board.php?bo_table=certificate&wr_4=전각" class="draw-btn draw-border">
+                    <a href="http://koreapenman.com/bbs/board.php?bo_table=certificate&kor=&wr_4=전각" class="draw-btn draw-border">
                         전각사범
                     </a>
                 </li>
                 <li>
-                    <a href="http://koreapenman.com/bbs/board.php?bo_table=certificate&wr_4=민화" class="draw-btn draw-border">
+                    <a href="http://koreapenman.com/bbs/board.php?bo_table=certificate&kor=&wr_4=민화" class="draw-btn draw-border">
                         민화사범
                     </a>
                 </li>
