@@ -32,8 +32,10 @@ ul{list-style:none;}
 tr.table_bg01{background-color:#9cc4f5}
 tr.table_bg02{background-color: #c1ddff}
 
+.main_container{min-height: 980px;}
 
 /* v2 */
+.v2_container{position:relative}
 .v2_container .v2_container_con{
     max-width: 850px;
     margin: 0 0 0 -130px;
@@ -64,6 +66,7 @@ tr.table_bg02{background-color: #c1ddff}
 .v2_container .v2_container_con .grid-item:nth-child(3),
 .v2_container .v2_container_con .grid-item:nth-child(6),
 .v2_container .v2_container_con .grid-item:nth-child(8),
+.v2_container .v2_container_con .grid-item:nth-child(9),
 .v2_container .v2_container_con .grid-item:nth-child(11),
 .v2_container .v2_container_con .grid-item:nth-child(13){
     opacity: 0;
@@ -120,7 +123,6 @@ tr.table_bg02{background-color: #c1ddff}
 }
 .v2_container .v2_container_con .grid-item:nth-child(4) .grid-inner::before,
 .v2_container .v2_container_con .grid-item:nth-child(5) .grid-inner::before,
-.v2_container .v2_container_con .grid-item:nth-child(9) .grid-inner::before,
 .v2_container .v2_container_con .grid-item:nth-child(10) .grid-inner::before{
     background-image: url("../img/main02.png");
 }
@@ -163,6 +165,14 @@ tr.table_bg02{background-color: #c1ddff}
     background-size:cover;
     height: 680px;
 }
+
+.ex_area{width: 520px; height:160px;position:absolute;right:30px;bottom:0;border:5px solid #000;box-shadow: 1px 3px 2px #9d9999;}
+.ex_area .ex_area-inner{position:relative;width: 100%;height: 100%;overflow: hidden}
+.ex_area .ex_area-inner .ex_area-bg{transition: all .5s;position:absolute;top:0;left:0;width:100%;height:100%;
+    background-image: url("../img/exhibition_bg.png");
+    background-repeat: no-repeat;background-position: center;background-size: cover;}
+.ex_area:hover .ex_area-bg{transform: scale(1.1);}
+.ex_area a{position:absolute;width:100%;height:100%;top:0;left:0;z-index:10;display:block;font-size:40px;font-weight:700;color:#fff;line-height:150px;text-align: center;text-shadow: 2px 2px 1px #161616;}
 
 /* 기본 테이블 */
 table.v2_table01{width: 100%;border-top:2px solid #000;border-collapse: collapse;font-size:0;}

@@ -26,23 +26,26 @@ include_once(G5_THEME_LIB_PATH.'/new_lastest.lib.php');
             <div class="grid-item"><div class="grid-inner">6</div></div>
             <div class="grid-item"><a href="http://koreapenman.com/bbs/board.php?bo_table=notice" class="grid-inner">알림</a></div>
             <div class="grid-item"><div class="grid-inner">8</div></div>
-            <div class="grid-item">
-                <a href="http://koreapenman.com/bbs/board.php?bo_table=exhibition" class="grid-inner">미술관</a>
-            </div>
+            <div class="grid-item"><div class="grid-inner">9</div></div>
             <div class="grid-item"><a href="http://www.koreapenman.com/bbs/board.php?bo_table=data01" class="grid-inner">발간자료</a></div>
             <div class="grid-item"><div class="grid-inner">11</div></div>
             <div class="grid-item"><a href="http://www.koreapenman.com/bbs/content.php?co_id=masterintro" class="grid-inner">한국예술명인명장</a></div>
             <div class="grid-item"><div class="grid-inner">13</div></div>
         </div>
+        <!--  공지 최신글2 { -->
+        <?php
+        // 이 함수가 바로 최신글을 추출하는 역할을 합니다.
+        // 사용방법 : latest(스킨, 게시판아이디, 출력라인, 글자수);
+        // 테마의 스킨을 사용하려면 theme/basic 과 같이 지정
+        echo new_latest('theme/notice', 20, 40);
+        ?>
+        <div class="ex_area">
+            <div class="ex_area-inner">
+                <a href="http://koreapenman.com/bbs/board.php?bo_table=exhibition">미술관</a>
+                <div class="ex_area-bg"></div>
+            </div>
+        </div>
     </div>
-
-    <!--  공지 최신글2 { -->
-    <?php
-    // 이 함수가 바로 최신글을 추출하는 역할을 합니다.
-    // 사용방법 : latest(스킨, 게시판아이디, 출력라인, 글자수);
-    // 테마의 스킨을 사용하려면 theme/basic 과 같이 지정
-    echo new_latest('theme/notice', 20, 40);
-    ?>
 </div>
 
 <div class="con_left">
