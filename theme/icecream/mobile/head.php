@@ -166,6 +166,8 @@ include_once(G5_LIB_PATH.'/popular.lib.php');
                 <input type="hidden" name="sop" value="and">
                 <label for="sch_stx" class="sound_only">검색어 필수</label>
                 <input type="text" name="stx" id="sch_stx" maxlength="20" placeholder="검색어를 입력해주세요">
+                    <!--<input type="hidden" name="wr_4" value="<?=$wr_4?>">
+                    -->
                 <button type="submit" id="sch_submit" value="검색"><i class="fa fa-search" aria-hidden="true"></i><span class="sound_only">검색</span></button>
                 </form>
 

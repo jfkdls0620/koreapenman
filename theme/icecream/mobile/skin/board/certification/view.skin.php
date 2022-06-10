@@ -53,7 +53,14 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         }
          ?>
 
-        <div id="bo_v_con"><?php echo get_view_thumbnail($view['content']); ?></div>
+        <div id="bo_v_con">
+            <p><?php echo $view['wr_2']; ?> <?php echo $view['wr_subject']; ?></p>
+            <p>취득년도 : <?php echo $view['wr_1']; ?> </p>
+            <p>분야 : <?php echo $view['wr_4']; ?> </p>
+            <p>급수 : <?php echo $view['wr_5']; ?> </p>
+            <p>발행번호 : <?php echo $view['wr_3']; ?> </p>
+            <?php echo get_view_thumbnail($view['content']); ?>
+        </div>
         <?php //echo $view['rich_content']; // {이미지:0} 과 같은 코드를 사용할 경우 ?>
 
         <?php if ($is_signature) { ?><p><?php echo $signature ?></p><?php } ?>

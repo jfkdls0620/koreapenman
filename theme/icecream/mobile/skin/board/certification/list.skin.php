@@ -168,13 +168,54 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             for ($i=0; $i<count($list); $i++) {
             ?>
             <li class="<?php if ($thumb) echo "bo_liimg "; ?><?php if ($list[$i]['is_notice']) echo " bo_notice"; ?>">
+                <div class="card-content">
+                    <div class="card-content_img">
+                        <?php
+                        $thumb = get_list_thumbnail($board['bo_table'], $list[$i]['wr_id'], $board['bo_mobile_gallery_width'], $board['bo_mobile_gallery_height']);
+                        if ($is_admin){
+                            if($thumb['src']) {
+                                $img_content = '<a href="'.$list[$i]['href'].'" class="bo_img" style="background-image:url('.$thumb['src'].')"> </a>';
+                            } else {
+                                $img_content = '<a href="'.$list[$i]['href'].'" class="bo_img v2_no-image"></a>';
+                            }
+                        }else{
+                            if($thumb['src']) {
+                                $img_content = '<span class="bo_img" style="background-image:url('.$thumb['src'].')"> </a>';
+                            } else {
+                                $img_content = '<span class="bo_img v2_no-image"></a>';
+                            }
+                        }
+                        echo $img_content;
+                        ?>
+                    </div>
+                    <dl class="dl_title">
+                        <dt>아호 성명</dt>
+                        <dd>
+                            <span style="min-width: 30px;display: inline-block;text-align: center;"><?php echo $list[$i]['wr_2']?></span>
+                            <span><?php echo $list[$i]['subject']?></span>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>분야</dt>
+                        <dd><?php echo $list[$i]['wr_4']?></dd>
+                    </dl>
+                    <dl>
+                        <dt>급수</dt>
+                        <dd><?php echo $list[$i]['wr_5']?></dd>
+                    </dl>
+                    <dl>
+                        <dt>취득년도</dt>
+                        <dd><?php echo $list[$i]['wr_1']?></dd>
+                    </dl>
 
+                </div>
                 <div class="bo_subject">
                     <?php if ($is_checkbox) { ?>
                     <span class="bo_chk">
                         <label for="chk_wr_id_<?php echo $i ?>" class="sound_only"><?php echo $list[$i]['subject'] ?></label>
                         <input type="checkbox" name="chk_wr_id[]" value="<?php echo $list[$i]['wr_id'] ?>" id="chk_wr_id_<?php echo $i ?>">
                     </span><?php } ?>
+
 
                     <?php
                     if ($is_category && $list[$i]['ca_name']) {
@@ -184,9 +225,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 
                     <a href="<?php echo $list[$i]['href'] ?>" class="bo_subject">
                         <?php echo $list[$i]['icon_reply']; ?>
-                        <?php if ($list[$i]['is_notice']) { ?><strong class="notice_icon">공지</strong><?php } ?> 
-                        <?php echo $list[$i]['subject'] ?>
+                        <?php if ($list[$i]['is_notice']) { ?><strong class="notice_icon">공지</strong><?php } ?>
                         <?php
+                        /*
                         // if ($list[$i]['file']['count']) { echo '<'.$list[$i]['file']['count'].'>'; }
 
                         if (isset($list[$i]['icon_new'])) echo $list[$i]['icon_new'];
@@ -194,54 +235,17 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                         if (isset($list[$i]['icon_file'])) echo $list[$i]['icon_file'];
                         if (isset($list[$i]['icon_link'])) echo $list[$i]['icon_link'];
                         if (isset($list[$i]['icon_secret'])) echo $list[$i]['icon_secret'];
-
+                    */
                         ?>
                     </a>
+
                 </div>
                 <div class="bo_info">
                     <span class="bo_pf_img"><?php echo get_member_profile_img($list[$i]['mb_id']); ?></span>
-                    <div class="bo_info_items">
-                        <?php if ($list[$i]['wr_1']) { ?>
-                        <div class="bo_info_item">
-                            <span class="bo_info_item--title">취득년도</span>
-                            <span><?php echo $list[$i]['wr_1'] ?></span>
-                        </div>
-                        <? } ?>
-                        <?php if ($list[$i]['wr_2']) { ?>
-                        <div class="bo_info_item">
-                            <span class="bo_info_item--title">아호</span>
-                            <span><?php echo $list[$i]['wr_2'] ?></span>
-                        </div>
-                        <? } ?>
-                        <?php if ($list[$i]['wr_3']) { ?>
-                        <div class="bo_info_item">
-                            <span class="bo_info_item--title">발행번호</span>
-                            <span><?php echo $list[$i]['wr_3'] ?></span>
-                        </div>
-                        <? } ?>
-                        <?php if ($list[$i]['wr_4']) { ?>
-                        <div class="bo_info_item">
-                            <span class="bo_info_item--title">분야</span>
-                            <span><?php echo $list[$i]['wr_4'] ?></span>
-                        </div>
-                        <? } ?>
-                        <?php if ($list[$i]['wr_5']) { ?>
-                        <div class="bo_info_item">
-                            <span class="bo_info_item--title">급수</span>
-                            <span><?php echo $list[$i]['wr_5'] ?></span>
-                        </div>
-                        <? } ?>
-                        <?php if ($list[$i]['wr_6']) { ?>
-                        <div class="bo_info_item">
-                            <span class="bo_info_item--title">비고</span>
-                            <span><?php echo $list[$i]['wr_6'] ?></span>
-                        </div>
-                        <? } ?>
-                    </div>
                 </div>
                  
             </li><?php } ?>
-            <?php if (count($list) == 0) { echo '<li class="empty_table">게시물이 없습니다.</li>'; } ?>
+            <?php if (count($list) == 0) { echo '<li class="empty_table">해당 취득자가 없습니다.</li>'; } ?>
         </ul>
     </div>
 
@@ -280,7 +284,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 <?php } ?>
 
 <!-- 페이지 -->
-<?php echo $write_pages; ?>
+<?php echo $write_pages;?>
 
 <fieldset id="bo_sch">
     <legend>게시물 검색</legend>
@@ -290,7 +294,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     <input type="hidden" name="sca" value="<?php echo $sca ?>">
     <input type="hidden" name="sop" value="and">
     <input type="hidden" name="kor" value="">
-
+    <input type="hidden" name="wr_4" value="<?=$wr_4?>">
     <label for="sfl" class="sound_only">검색대상</label>
     <select name="sfl" id="sfl">
         <option value="wr_subject"<?php echo get_selected($sfl, 'wr_subject', true); ?>>이름</option>

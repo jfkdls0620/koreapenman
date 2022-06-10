@@ -4,6 +4,7 @@ include_once(G5_LIB_PATH.'/thumbnail.lib.php');
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0);
+
 ?>
 <style>
     .sub_nav{display: none;}
@@ -17,12 +18,39 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         <h2 id="bo_v_title">
             <table>
                 <colgroup>
-                    <col width="15%">
-                    <col width="35%">
-                    <col width="15%">
-                    <col width="35%">
+                    <col width="20%">
+                    <col width="10%">
+                    <col width="20%">
+                    <col width="10%">
+                    <col width="20%">
                 </colgroup>
                 <tr>
+                    <td rowspan="3">
+                        <div class="thum_img">
+                            <?php
+                            // 파일 출력
+                            $v_img_count = count($view['file']);
+                            if($v_img_count > 1) {
+                                echo "<div id=\"bo_v_img\">\n";
+
+                                for ($i=0; $i<=count($view['file']); $i++) {
+                                    if ($view['file'][$i]['view']) {
+                                        //echo $view['file'][$i]['view'];
+                                        //$file_ext = strtolower(substr(strrchr($view['file'][$i]['source'], "."), 1));
+                                       // $fileNameWithoutExt = substr($view['file'][$i]['source'], 0, strrpos($view['file'][$i]['source'], "."));
+
+                                       echo get_view_thumbnail($view['file'][$i]['view']);
+                                       // echo get_view_thumbnail($fileNameWithoutExt);
+                                    }
+                                }
+                                echo "</div>\n";
+                            }else{
+                                echo "<div class='no-image'></div>";
+                            }
+
+                            ?>
+                        </div>
+                    </td>
                     <th>성명</th>
                     <td>
                         <span>
@@ -97,26 +125,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 
         <div id="bo_v_con">
             <?php echo get_view_thumbnail($view['content']); ?>
-            <?php
-            // 파일 출력
-            $v_img_count = count($view['file']);
-            if($v_img_count) {
-                echo "<div id=\"bo_v_img\">\n";
 
-                for ($i=0; $i<=count($view['file']); $i++) {
-                    if ($view['file'][$i]['view']) {
-                        //echo $view['file'][$i]['view'];
-                        $file_ext = strtolower(substr(strrchr($view['file'][$i]['source'], "."), 1));
-                        $fileNameWithoutExt = substr($view['file'][$i]['source'], 0, strrpos($view['file'][$i]['source'], "."));
-
-                        echo get_view_thumbnail($view['file'][$i]['view']);
-                        echo get_view_thumbnail($fileNameWithoutExt);
-                    }
-                }
-
-                echo "</div>\n";
-            }
-            ?>
         </div>
         <?php //echo $view['rich_content']; // {이미지:0} 과 같은 코드를 사용할 경우 ?>
 

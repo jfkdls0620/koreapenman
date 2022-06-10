@@ -82,8 +82,24 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 
         <div class="bo_w_tit write_div">
             <label for="wr_3" class="sound_only">충무공숭모서화대전 취득년도</label>
-            <input type="text" name="wr_3" value="<?php echo $write[wr_3] ?>" id="wr_3" class="frm_input full_input" placeholder="충무공숭모서화대전 취득년도">
+            <input type="text" name="wr_3" value="<?php echo $write['wr_3'] ?>" id="wr_3" class="frm_input full_input" placeholder="충무공숭모서화대전 취득년도">
         </div>
+
+        <?php /*
+        <div class="bo_w_tit write_div">
+            <?php
+                $wr_4_arr = explode('|', $write['wr_4']);
+                $wr_4_arr = array_filter($wr_4_arr);
+            ?>
+            <span>노출 사용 여부</span>
+            <br/>
+            <input type="hidden" name="wr_4" value="">
+            <label for="wr_4_1"  >대한민국서법예술대전</label>
+            <input type="checkbox" <?=in_array('대한민국서법예술대전',$wr_4_arr) ? 'checked': ''?> name="wr_4_array" value="대한민국서법예술대전" id="wr_4_1" >
+            <label for="wr_4_2">충무공숭모서화대전</label>
+            <input type="checkbox" <?=in_array('충무공숭모서화대전',$wr_4_arr) ? 'checked': ''?> name="wr_4_array" value="충무공숭모서화대전" id="wr_4_2" >
+        </div>
+        */?>
 
         <div class="write_div">
             <label for="wr_content" class="sound_only">내용<strong>필수</strong></label>
@@ -97,6 +113,25 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                 <div id="char_count_wrap"><span id="char_count"></span>글자</div>
             <?php } ?>
         </div>
+
+        <?php for ($i=0; $is_file && $i<$file_count; $i++) { ?>
+            <div class="bo_w_flie write_div">
+                <div class="file_wr write_div">
+                    <label for="bf_file_<?php echo $i+1 ?>" class="lb_icon"><i class="fa fa-download" aria-hidden="true"></i><span class="sound_only">파일 #<?php echo $i+1 ?></span></label>
+                    <input type="file" name="bf_file[]" id="bf_file_<?php echo $i+1 ?>" title="파일첨부 <?php echo $i+1 ?> : 용량 <?php echo $upload_max_filesize ?> 이하만 업로드 가능" class="frm_file ">
+                </div>
+                <?php if ($is_file_content) { ?>
+                    <input type="text" name="bf_content[]" value="<?php echo ($w == 'u') ? $file[$i]['bf_content'] : ''; ?>" title="파일 설명을 입력해주세요." class="full_input frm_input" size="50" placeholder="파일 설명을 입력해주세요.">
+                <?php } ?>
+
+                <?php if($w == 'u' && $file[$i]['file']) { ?>
+                    <span class="file_del">
+                <input type="checkbox" id="bf_file_del<?php echo $i ?>" name="bf_file_del[<?php echo $i;  ?>]" value="1"> <label for="bf_file_del<?php echo $i ?>"><?php echo $file[$i]['source'].'('.$file[$i]['size'].')';  ?> 파일 삭제</label>
+            </span>
+                <?php } ?>
+
+            </div>
+        <?php } ?>
 
         <?php if ($is_use_captcha) { //자동등록방지 ?>
         <div class="write_div">
@@ -148,6 +183,17 @@ function fwrite_submit(f)
 
     var subject = "";
     var content = "";
+
+    /*
+    var wr_array = $('input[name="wr_4_array"]')
+    var wr_4     = '';
+    wr_array.each(function (e,ii) {
+        if($(this).prop("checked"))
+            wr_4 += $(this).val()+'|';
+    })
+    f.wr_4.value = wr_4;
+     */
+
     $.ajax({
         url: g5_bbs_url+"/ajax.filter.php",
         type: "POST",

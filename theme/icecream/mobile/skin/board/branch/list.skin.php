@@ -47,13 +47,13 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             ?>
             <li class="<?php if ($thumb) echo "bo_liimg "; ?><?php if ($list[$i]['is_notice']) echo " bo_notice"; ?>">
                     <div class="bo_subject">
-                    <?php if ($is_checkbox) { ?>
-                    <span class="bo_chk">
-                        <label for="chk_wr_id_<?php echo $i ?>" class="sound_only"><?php echo $list[$i]['subject'] ?></label>
-                        <input type="checkbox" name="chk_wr_id[]" value="<?php echo $list[$i]['wr_id'] ?>" id="chk_wr_id_<?php echo $i ?>">
-                    </span><?php } ?>
+                        <?php if ($is_checkbox) { ?>
+                        <span class="bo_chk">
+                            <label for="chk_wr_id_<?php echo $i ?>" class="sound_only"><?php echo $list[$i]['subject'] ?></label>
+                            <input type="checkbox" name="chk_wr_id[]" value="<?php echo $list[$i]['wr_id'] ?>" id="chk_wr_id_<?php echo $i ?>">
+                        </span><?php } ?>
 
-                </div>
+                    </div>
 
                    <?php /*
                 <div class="bo_info">

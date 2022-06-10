@@ -56,14 +56,25 @@
 #bo_cate #bo_cate_on {background:#86b9f8;color:#fff;border-color:#86b9f8}
 
 .board_list{background-color: #fff;padding: 10px}
-.board_list ul{}
-.board_list ul.board_list__items li{display:inline-block;background: #fff;margin:1% 1% 0 0;position: relative;width:24%;padding:10px;line-height:20px;
+.board_list ul.board_list__items{font-size:0;}
+.board_list ul.board_list__items li{display:inline-block;background: #fff;margin:1%;position: relative;width:31%;padding:10px;line-height:20px;
     border:5px solid #ccc;vertical-align: top;height: 185px;}
-.board_list ul.board_list__items li:nth-child(4n){margin-right: 0}
 .board_list .bo_pf_img {position:absolute;top:30px;left:30px;width:46px;height:46px;display: none;}
 .board_list .bo_pf_img img{border-radius:30px;width:100%;height:auto}
 .board_list .bo_notice{background:#e9f0ff;}
-.board_list .bo_img {position:absolute;top:0;right:0}
+.board_list .bo_img {position:relative;top:0;right:0;width:120px;height:120px;display: inline-block;background-repeat: no-repeat;background-size:100% auto;background-position: center;}
+.board_list .bo_img.v2_no-image{background-image: url("img/v2_no-img.png");background-size: 70% auto !important;}
+
+.card-content{position:relative;width: 100%;padding-left: 130px;font-size:0;min-height: 120px}
+.card-content .card-content_img{position:absolute;top:50%;left:0;transform: translateY(-50%)}
+.card-content .card-content_img a{display: block}
+.card-content h3{font-size:24px;}
+.card-content dl{border-bottom:1px solid #ccc;width: 100%;font-size:16px;padding: 5px 0}
+.card-content dl:last-child{border:0;}
+.card-content dl dt{color:#666;display: inline-block}
+.card-content dl dd{display: inline-block}
+
+.bo_chk{position:absolute;top:0;left:5px;}
 
 /* 게시판 목록 공통 */
 .bo_fx {margin:15px 0;padding:0 }

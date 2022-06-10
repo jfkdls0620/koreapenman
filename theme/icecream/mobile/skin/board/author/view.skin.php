@@ -4,6 +4,7 @@ include_once(G5_LIB_PATH.'/thumbnail.lib.php');
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0);
+
 ?>
 
 <script src="<?php echo G5_JS_URL; ?>/viewimageresize.js"></script>
@@ -53,7 +54,18 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         }
          ?>
 
-        <div id="bo_v_con"><?php echo get_view_thumbnail($view['content']); ?></div>
+        <div id="bo_v_con">
+            <?php if ($view['wr_1']) { ?>
+                <p>아호 <?php echo $view['wr_1']; ?></p>
+            <?php } ?>
+            <?php if ($view['wr_2']) { ?>
+                <p>대한민국서법예술대전 취득년도<?php echo $view['wr_2']; ?></p>
+            <?php } ?>
+            <?php if ($view['wr_3']) { ?>
+              <p>충무공숭모서화대전 취득년도<?php echo $view['wr_3']; ?></p>
+            <?php } ?>
+            <?php echo get_view_thumbnail($view['content']); ?>
+        </div>
         <?php //echo $view['rich_content']; // {이미지:0} 과 같은 코드를 사용할 경우 ?>
 
         <?php if ($is_signature) { ?><p><?php echo $signature ?></p><?php } ?>

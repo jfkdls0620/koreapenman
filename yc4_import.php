@@ -39,6 +39,7 @@ if($is_admin != 'super')
             <input type="hidden" name="sop" value="and">
             <label for="sch_stx" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>
             <input type="text" name="stx" id="sch_stx" maxlength="20">
+
             <input type="submit" id="sch_submit" value="검색">
             </form>
 

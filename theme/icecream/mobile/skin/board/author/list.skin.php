@@ -15,6 +15,69 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     .bo_info_items .bo_info_item .bo_info_item--title {color: #333; font-weight: 700;}
     .board_kor_search_bar button{background-color:#fff;font-weight: 600}
     .board_kor_search_bar button.on {background-color: #0d61fb;color: #fff;}
+
+    .bo_info_items .bo_info_item .bo_info_item--title {color: #333; font-weight: 700;}
+    .board_kor_search_bar button{background-color:#fff;font-weight: 600}
+    .board_kor_search_bar button.on {background-color: #0d61fb;color: #fff;}
+
+    ul.ex_ul {font-size:0;margin-bottom: 15px;}
+    ul.ex_ul li{display:inline-block;width: calc(33% - 5px);text-align: center;margin: 0 10px 10px 0;vertical-align:top;}
+    ul.ex_ul li:nth-child(3n) {margin-right: 0;}
+    .draw-border {
+        box-shadow: inset 0 0 0 4px #1a5ec1;
+        color: #1a5ec1;
+        transition: color 0.25s 0.0833333333s;
+        position: relative;
+    }
+    .draw-border::before, .draw-border::after {
+        border: 0 solid transparent;
+        box-sizing: border-box;
+        content: "";
+        pointer-events: none;
+        position: absolute;
+        width: 0;
+        height: 0;
+        bottom: 0;
+        right: 0;
+    }
+    .draw-border::before {
+        border-bottom-width: 4px;
+        border-left-width: 4px;
+    }
+    .draw-border::after {
+        border-top-width: 4px;
+        border-right-width: 4px;
+    }
+    .draw-border:hover {
+        color: #000;
+    }
+    .draw-border:hover::before, .draw-border:hover::after {
+        border-color: #000;
+        transition: border-color 0s, width 0.25s, height 0.25s;
+        width: 100%;
+        height: 100%;
+    }
+    .draw-border:hover::before {
+        transition-delay: 0s, 0s, 0.25s;
+    }
+    .draw-border:hover::after {
+        transition-delay: 0s, 0.25s, 0s;
+    }
+
+    .draw-btn {
+        display: block;
+        background: #6aa3f7;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        font-size: 1.3rem;
+        padding: .4em 1em;
+        letter-spacing: 0.05rem;
+    }
+    /*.draw-btn:focus {*/
+    /*    outline: 2px dotted #55d7dc;*/
+    /*}*/
+
 </style>
 
 <!-- 게시판 목록 시작 -->
@@ -46,6 +109,20 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     <input type="hidden" name="sw" value="">
 
     <div class="board_list">
+        <ul class="ex_ul">
+            <li>
+                <a href="http://koreapenman.com/bbs/board.php?bo_table=author&kor=&u_author=wr_2" class="draw-btn draw-border">
+                    대한민국서법예술대전
+                </a>
+            </li>
+            <li>
+                <a href="http://koreapenman.com/bbs/board.php?bo_table=author&kor=&u_author=wr_3" class="draw-btn draw-border">
+                    충무공숭모서화대전
+                </a>
+            </li>
+
+        </ul>
+
         <div class="board_kor_search_bar">
             <button type="button" onclick="search_kor('ㄱ');"<?php if (strpos($f_word, 'ㄱ') === 0) { ?> class="on"<?}?>>ㄱ</button>
             <button type="button" onclick="search_kor('ㄴ');"<?php if (strpos($f_word, 'ㄴ') === 0) { ?> class="on"<?}?>>ㄴ</button>
@@ -64,18 +141,92 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             <button type="button" onclick="search_kor('');"<?php if (!$f_word) { ?> class="on"<?}?>>전체</button>
         </div>
 
+        <?php
+        //직접하면 안돼는 추가한 쿼리문 임시로 사용하느것이기에 이렇게 사용하며 좋지 않음을 인지해야함
+        /*<button type="button" onclick="search_kor('대한민국서법예술대전');"<?php if (strpos($f_word, '대한민국서법예술대전') === 0) { ?> class="on"<?}?>>대한민국서법예술대전</button>
+        <button type="button" onclick="search_kor('충무공숭모서화대전');"<?php if (strpos($f_word, '충무공숭모서화대전') === 0) { ?> class="on"<?}?>>충무공숭모서화대전</button>
+        */
+
+        $u_sql = "select wr_2 from {$write_table} where wr_2 !='' group by wr_2";
+        $u_query = sql_query($u_sql);
+        while($row=sql_fetch_array($u_query)){
+            $yy[] = (int)trim($row['wr_2']);
+        }
+
+        $u_sql = "select wr_3 from {$write_table} where wr_3 !='' group by wr_3";
+        $u_query = sql_query($u_sql);
+        while($row=sql_fetch_array($u_query)){
+            $yy[] = (int)trim($row['wr_3']);
+        }
+
+        $yy = array_unique($yy);
+        sort($yy);
+
+        if(count($yy) > 2){
+        ?>
+            <?php /*
+            <div class="board_kor_search_bar">
+                <button type="button" onclick="search_yy('')">전체보기</button>
+                <?php for($i=0;$i<count($yy);$i++){?>
+                <button type="button" onclick="search_yy('<?=$yy[$i]?>')"><?=$yy[$i]?></button>
+                <?php } ?>
+            </div>
+            */ ?>
+        <?php } ?>
+
         <?php if ($is_checkbox) { ?>
         <div class="al_chk">
             <input type="checkbox" id="chkall" onclick="if (this.checked) all_checked(true); else all_checked(false);">
             <label for="chkall"><span class="sound_only">현재 페이지 게시물 </span>전체선택</label>
         </div>
         <?php } ?>
-        <ul>
+        <ul class="board_list__items">
             <?php
             for ($i=0; $i<count($list); $i++) {
             ?>
             <li class="<?php if ($thumb) echo "bo_liimg "; ?><?php if ($list[$i]['is_notice']) echo " bo_notice"; ?>">
+                <div class="card-content">
+                    <div class="card-content_img">
+                        <?php
+                        $thumb = get_list_thumbnail($board['bo_table'], $list[$i]['wr_id'], $board['bo_mobile_gallery_width'], $board['bo_mobile_gallery_height']);
+                        if ($is_admin){
+                            if($thumb['src']) {
+                                $img_content = '<a href="'.$list[$i]['href'].'" class="bo_img" style="background-image:url('.$thumb['src'].')"> </a>';
+                            } else {
+                                $img_content = '<a href="'.$list[$i]['href'].'" class="bo_img v2_no-image"></a>';
+                            }
+                        }else{
+                            if($thumb['src']) {
+                                $img_content = '<span class="bo_img" style="background-image:url('.$thumb['src'].')"> </a>';
+                            } else {
+                                $img_content = '<span class="bo_img v2_no-image"></a>';
+                            }
+                        }
 
+                        echo $img_content;
+                        ?>
+                    </div>
+                    <h3><?php echo $list[$i]['wr_5'] ?></h3>
+                    <dl>
+                        <dt>아호 성명</dt>
+                        <dd>
+                            <span style="min-width: 30px;display: inline-block;text-align: center;"><?php echo $list[$i]['wr_1']?></span>
+                            <span><?php echo $list[$i]['subject']?></span>
+                        </dd>
+                    </dl>
+                    <?php if ($list[$i]['wr_2']){ ?>
+                    <dl>
+                        <dt>대한민국서법예술대전 취득년도</dt>
+                        <dd><?php echo $list[$i]['wr_2']?></dd>
+                    </dl>
+                    <?php } ?>
+                    <?php if ($list[$i]['wr_3']) { ?>
+                    <dl>
+                        <dt>충무공숭모서화대전 취득년도</dt>
+                        <dd><?php echo $list[$i]['wr_3']?></dd>
+                    </dl>
+                    <?php } ?>
+                </div>
                 <div class="bo_subject">
                     <?php if ($is_checkbox) { ?>
                     <span class="bo_chk">
@@ -86,54 +237,34 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                     <?php
                     if ($is_category && $list[$i]['ca_name']) {
                     ?>
-                    <a href="<?php echo $list[$i]['ca_name_href'] ?>" class="bo_cate_link"><?php echo $list[$i]['ca_name'] ?></a>
+                    <?php /* <a href="<?php echo $list[$i]['ca_name_href'] ?>" class="bo_cate_link"><?php echo $list[$i]['ca_name'] ?></a> */ ?>
                     <?php } ?>
 
                     <a href="<?php echo $list[$i]['href'] ?>" class="bo_subject">
                         <?php echo $list[$i]['icon_reply']; ?>
-                        <?php if ($list[$i]['is_notice']) { ?><strong class="notice_icon">공지</strong><?php } ?> 
-                        <?php echo $list[$i]['subject'] ?>
+                        <?php if ($list[$i]['is_notice']) { ?><strong class="notice_icon">공지</strong><?php } ?>
                         <?php
                         // if ($list[$i]['file']['count']) { echo '<'.$list[$i]['file']['count'].'>'; }
-
+        /*
                         if (isset($list[$i]['icon_new'])) echo $list[$i]['icon_new'];
                         if (isset($list[$i]['icon_hot'])) echo $list[$i]['icon_hot'];
                         if (isset($list[$i]['icon_file'])) echo $list[$i]['icon_file'];
                         if (isset($list[$i]['icon_link'])) echo $list[$i]['icon_link'];
                         if (isset($list[$i]['icon_secret'])) echo $list[$i]['icon_secret'];
-
+*/
                         ?>
                     </a>
                 </div>
-                <div class="bo_info">
-<!--                    <span class="sound_only">작성자</span>--><?php //echo $list[$i]['name'] ?>
-<!--                    -->
-<!--                    <span class="bo_date"><i class="fa fa-clock-o" aria-hidden="true"></i> --><?php //echo $list[$i]['datetime2'] ?><!--</span>  -->
-<!--                    --><?php //if ($list[$i]['comment_cnt']) { ?><!--<span class="sound_only">댓글</span><i class="fa fa-commenting-o" aria-hidden="true"></i>--><?php //echo $list[$i]['comment_cnt']; ?><!----><?php //} ?>
 
-                    <span class="bo_pf_img"><?php echo get_member_profile_img($list[$i]['mb_id']); ?></span>
-                    <div class="bo_info_items">
-                        <?php if ($list[$i]['wr_1']) { ?>
-                        <div class="bo_info_item">
-                            <span class="bo_info_item--title">아호</span>
-                            <span><?php echo $list[$i]['wr_1'] ?></span>
-                        </div>
-                        <? } ?>
-                        <?php if ($list[$i]['wr_2']) { ?>
-                        <div class="bo_info_item">
-                            <span class="bo_info_item--title">대한민국서법예술대전 취득년도</span>
-                            <span><?php echo $list[$i]['wr_2'] ?></span>
-                        </div>
-                        <? } ?>
-                        <?php if ($list[$i]['wr_3']) { ?>
-                        <div class="bo_info_item">
-                            <span class="bo_info_item--title">충무공숭모서화대전 취득년도</span>
-                            <span><?php echo $list[$i]['wr_3'] ?></span>
-                        </div>
-                        <? } ?>
-                    </div>
+                <?php /*
+                <div class="bo_info">
+                    <span class="sound_only">작성자</span><?php echo $list[$i]['name'] ?>
+
+                    <span class="bo_date"><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo $list[$i]['datetime2'] ?></span>
+                    <?php if ($list[$i]['comment_cnt']) { ?><span class="sound_only">댓글</span><i class="fa fa-commenting-o" aria-hidden="true"></i><?php echo $list[$i]['comment_cnt']; ?><?php } ?>
+
                 </div>
-                <?php
+
                 $thumb = get_list_thumbnail($board['bo_table'], $list[$i]['wr_id'], $board['bo_mobile_gallery_width'], $board['bo_mobile_gallery_height']);
                 if($thumb['src']) {
                     $img_content = '<a href="'.$list[$i]['href'].'" class="bo_img"><img src="'.$thumb['src'].'" alt="'.$thumb['alt'].'" width="'.$board['bo_mobile_gallery_width'].'" height="'.$board['bo_mobile_gallery_height'].'"></a>';
@@ -142,6 +273,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                 }
 
                 echo $img_content;
+                */
                 ?>
                  
             </li><?php } ?>
@@ -195,7 +327,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     <input type="hidden" name="sop" value="and">
     <input type="hidden" name="kor" value="">
 
-    <label for="sfl" class="sound_only">검색대상</label>
+    <input type="hidden" name="u_author" value="<?=$u_author?>">
+
+
+
+        <label for="sfl" class="sound_only">검색대상</label>
     <select name="sfl" id="sfl">
         <option value="wr_subject"<?php echo get_selected($sfl, 'wr_subject', true); ?>>이름</option>
     </select>
@@ -211,6 +347,15 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         f.kor.value = v;
         f.submit();
     }
+
+    function search_yy(v) {
+        var f = document.fsearch;
+
+        f.kor.wr_2 = v;
+        f.kor.wr_3 = v;
+        f.submit();
+    }
+
 </script>
 
 <?php if ($is_checkbox) { ?>

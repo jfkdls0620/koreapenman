@@ -67,7 +67,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 
                     <a href="<?php echo $list[$i]['href'] ?>" class="bo_subject">
                         <?php echo $list[$i]['icon_reply']; ?>
-                        <?php if ($list[$i]['is_notice']) { ?><strong class="notice_icon">공지</strong><?php } ?> 
+                        <?php if ($list[$i]['is_notice']) { ?><strong class="notice_icon">공지</strong><?php } ?>
+                        <?php echo $list[$i]['wr_1'] ?>
                         <?php echo $list[$i]['subject'] ?>
                         <?php
                         // if ($list[$i]['file']['count']) { echo '<'.$list[$i]['file']['count'].'>'; }
@@ -82,14 +83,16 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                     </a>
                 </div>
 
+                <?php /*
                 <div class="bo_info">
-                  <?php /*<span class="bo_pf_img"><?php echo get_member_profile_img($list[$i]['mb_id']); ?></span> */?>
+                  <?php <span class="bo_pf_img"><?php echo get_member_profile_img($list[$i]['mb_id']); ?></span> ?>
                      <span class="sound_only">작성자</span><?php echo $list[$i]['name'] ?>
                     
                     <span class="bo_date"><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo $list[$i]['datetime2'] ?></span>  
                     <?php if ($list[$i]['comment_cnt']) { ?><span class="sound_only">댓글</span><i class="fa fa-commenting-o" aria-hidden="true"></i><?php echo $list[$i]['comment_cnt']; ?><?php } ?> 
                 
                 </div>
+                */ ?>
 
                 <?php
                 /*

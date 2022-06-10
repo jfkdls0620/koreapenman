@@ -49,7 +49,13 @@ if (isset($_REQUEST['kor']))  {
     $f_word = '';
 }
 
+
+$wr_2 = clean_xss_tags(trim($_REQUEST['wr_2']));
+$wr_3 = clean_xss_tags(trim($_REQUEST['wr_3']));
 $wr_4 = clean_xss_tags(trim($_REQUEST['wr_4']));
+$wr_5 = clean_xss_tags(trim($_REQUEST['wr_5']));
+$u_author = clean_xss_tags(trim($_REQUEST['u_author']));
+
 
 if ((isset($_REQUEST['kor'])) || ($sca || $stx || $stx === '0')) {     //검색이면
     $is_search_bbs = true;      //검색구분변수 true 지정
@@ -88,9 +94,29 @@ if ((isset($_REQUEST['kor'])) || ($sca || $stx || $stx === '0')) {     //검색�
         }
     }
 
-    if (isset($_REQUEST['wr_4'])) {
+    if (isset($_REQUEST['wr_4']) && $wr_4 !== '') {
         $sql_search .= " and wr_4 = '".$wr_4."'";
     }
+    if (isset($_REQUEST['wr_5']) && $wr_5 !== '') {
+        $sql_search .= " and wr_5 = '".$wr_5."'";
+    }
+
+    if (isset($_REQUEST['wr_2']) && $wr_2 !== '') {
+        $sql_search .= " and wr_2 = '".$wr_2."'";
+    }
+    if (isset($_REQUEST['wr_3']) && $wr_3 !== '') {
+        $sql_search .= " and wr_3 = '".$wr_3."'";
+    }
+
+
+    if (isset($_REQUEST['u_author']) && $u_author == 'wr_2') {
+        $sql_search .= " and wr_2 != '' ";
+    }
+
+    if (isset($_REQUEST['u_author']) && $u_author == 'wr_3') {
+        $sql_search .= " and wr_3 != '' ";
+    }
+
 
     // 가장 작은 번호를 얻어서 변수에 저장 (하단의 페이징에서 사용)
     $sql = " select MIN(wr_num) as min_wr_num from {$write_table} ";
@@ -228,9 +254,33 @@ if ($is_search_bbs) {
     $sql = " select distinct wr_parent from {$write_table} where {$sql_search} {$sql_order} limit {$from_record}, $page_rows ";
 } else {
     $sql = " select * from {$write_table} where wr_is_comment = 0 ";
-    if (isset($_REQUEST['wr_4'])) {
+
+    if (isset($_REQUEST['wr_5']) && $wr_5 !== '') {
+        $sql_search .= " and wr_5 = '".$wr_5."'";
+    }
+
+    if (isset($_REQUEST['u_author']) && $u_author == 'wr_2') {
+        $sql_search .= " and wr_2 != '' ";
+    }
+
+    if (isset($_REQUEST['u_author']) && $u_author == 'wr_3') {
+        $sql_search .= " and wr_3 != '' ";
+    }
+
+
+
+    if (isset($_REQUEST['wr_4']) && $wr_4 !== '') {
         $sql_search .= " and wr_4 = '".$wr_4."'";
     }
+
+    if (isset($_REQUEST['wr_3']) && $wr_3 !== '') {
+        $sql_search .= " and wr_3 = '".$wr_3."'";
+    }
+
+    if (isset($_REQUEST['wr_2']) && $wr_2 !== '') {
+        $sql_search .= " and wr_2 = '".$wr_2."'";
+    }
+
     if(!empty($notice_array))
         $sql .= " and wr_id not in (".implode(', ', $notice_array).") ";
 
