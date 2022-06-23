@@ -70,6 +70,19 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         padding: .4em 1em;
         letter-spacing: 0.05rem;
     }
+
+    .grade_area{
+        margin-top: 10px;
+    }
+    .grade_area a{display: inline-block;border: 1px solid #ccc;
+        font-size: 16px;
+        padding: 10px;
+        margin-right: 10px;
+        line-height: 16px;}
+    .grade_area a.on{
+        background-color: #0d61fb;
+        color: #fff;
+    }
     /*.draw-btn:focus {*/
     /*    outline: 2px dotted #55d7dc;*/
     /*}*/
@@ -156,7 +169,17 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             <button type="button" onclick="search_kor('ㅎ');"<?php if (strpos($f_word, 'ㅎ') === 0) { ?> class="on"<?}?>>ㅎ</button>
             <button type="button" onclick="search_kor('');"<?php if (!$f_word) { ?> class="on"<?}?>>전체</button>
         </div>
-
+        <div class="grade_area">
+            <a href="<?=G5_BBS_URL?>/board.php?bo_table=certificate&kor=&wr_5=1&kor=&wr_4=<?=$wr_4?>" <?php if ($wr_5 === '1') { ?> class="on"<?}?>>
+                1급
+            </a>
+            <a href="<?=G5_BBS_URL?>/board.php?bo_table=certificate&kor=&wr_5=2&kor=&wr_4=<?=$wr_4?>" <?php if ($wr_5 === '2') { ?> class="on"<?}?>>
+                2급
+            </a>
+            <a href="<?=G5_BBS_URL?>/board.php?bo_table=certificate&kor=&kor=&wr_4=<?=$wr_4?>">
+                전체 급수보기
+            </a>
+        </div>
         <?php if ($is_checkbox) { ?>
         <div class="al_chk">
             <input type="checkbox" id="chkall" onclick="if (this.checked) all_checked(true); else all_checked(false);">
@@ -295,6 +318,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     <input type="hidden" name="sop" value="and">
     <input type="hidden" name="kor" value="">
     <input type="hidden" name="wr_4" value="<?=$wr_4?>">
+    <input type="hidden" name="wr_5" value="<?=$wr_5?>">
     <label for="sfl" class="sound_only">검색대상</label>
     <select name="sfl" id="sfl">
         <option value="wr_subject"<?php echo get_selected($sfl, 'wr_subject', true); ?>>이름</option>

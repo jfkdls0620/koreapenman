@@ -97,31 +97,37 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         </div>
         <?php } ?>
         <div class="bo_w_tit write_div">
+            <p>직위</p>
             <label for="wr_5" class="sound_only"><strong>필수</strong></label>
             <input type="text" name="wr_5" value="<?php echo $wr_5 ?>" id="wr_5" required class="frm_input full_input required" placeholder="직위">
         </div>
 
         <div class="bo_w_tit write_div">
+            <p>아호</p>
             <label for="wr_1" class="sound_only"><strong>필수</strong></label>
             <input type="text" name="wr_1" value="<?php echo $wr_1 ?>" id="wr_1" class="frm_input full_input" placeholder="아호">
         </div>
 
         <div class="bo_w_tit write_div">
+            <p>성명</p>
             <label for="wr_subject" class="sound_only">제목<strong>필수</strong></label>
             <input type="text" name="wr_subject" value="<?php echo $subject ?>" id="wr_subject" required class="frm_input full_input required" placeholder="성명">
         </div>
 
         <div class="bo_w_tit write_div">
+            <p>주소</p>
             <label for="wr_2" class="sound_only"><strong>필수</strong></label>
             <input type="text" name="wr_2" value="<?php echo $wr_2 ?>" id="wr_2" required class="frm_input full_input required" placeholder="주소">
         </div>
 
         <div class="bo_w_tit write_div">
+            <p>연락처</p>
             <label for="wr_3" class="sound_only"><strong>필수</strong></label>
             <input type="text" name="wr_3" value="<?php echo $wr_3 ?>" id="wr_3" required class="frm_input full_input required" placeholder="연락처">
         </div>
 
         <div class="bo_w_tit write_div">
+            <p>이메일</p>
             <label for="wr_4" class="sound_only"><strong>필수</strong></label>
             <input type="text" name="wr_4" value="<?php echo $wr_4  ?>" id="wr_4" required class="frm_input full_input required" placeholder="이메일">
         </div>

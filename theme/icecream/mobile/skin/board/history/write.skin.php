@@ -23,7 +23,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     if ($is_notice || $is_html || $is_secret || $is_mail) {
         $option = '';
         if ($is_notice) {
-            $option .= PHP_EOL.'<input type="checkbox" id="notice" name="notice" value="1" '.$notice_checked.'>'.PHP_EOL.'<label for="notice"</label>';
+            $option .= PHP_EOL.'<input type="checkbox" id="notice" name="notice" value="1" '.$notice_checked.'>'.PHP_EOL.'<label for="notice">공지</label>';
         }
 
         if ($is_html) {
@@ -90,50 +90,18 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         </div>
         <?php } ?>
 
-        <?php if ($option && false) { ?>
+        <?php if ($option) { ?>
         <div class="write_div">
             <span class="sound_only">옵션</span>
             <?php echo $option ?>
         </div>
         <?php } ?>
-        <div class="bo_w_tit write_div">
-            <p>지역</p>
-            <label for="wr_5" class="sound_only"><strong>필수</strong></label>
-            <input type="text" name="wr_5" value="<?php echo $wr_5 ?>" id="wr_5" required class="frm_input full_input required" placeholder="지역">
-        </div>
 
         <div class="bo_w_tit write_div">
-            <p>아호</p>
-            <label for="wr_1" class="sound_only"><strong>필수</strong></label>
-            <input type="text" name="wr_1" value="<?php echo $wr_1 ?>" id="wr_1" required class="frm_input full_input required" placeholder="아호">
-        </div>
-
-        <div class="bo_w_tit write_div">
-            <p>성명</p>
             <label for="wr_subject" class="sound_only">제목<strong>필수</strong></label>
-            <input type="text" name="wr_subject" value="<?php echo $subject ?>" id="wr_subject" required class="frm_input full_input required" placeholder="성명">
+            <input type="text" name="wr_subject" value="<?php echo $subject ?>" id="wr_subject" required class="frm_input full_input required" placeholder="제목">
         </div>
 
-        <div class="bo_w_tit write_div">
-            <p>주소</p>
-            <label for="wr_2" class="sound_only"><strong>필수</strong></label>
-            <input type="text" name="wr_2" value="<?php echo $wr_2 ?>" id="wr_2" required class="frm_input full_input required" placeholder="주소">
-        </div>
-
-        <div class="bo_w_tit write_div">
-            <p>연락처</p>
-            <label for="wr_3" class="sound_only"><strong>필수</strong></label>
-            <input type="text" name="wr_3" value="<?php echo $wr_3 ?>" id="wr_3" required class="frm_input full_input required" placeholder="연락처">
-        </div>
-
-        <div class="bo_w_tit write_div">
-            <p>이메일</p>
-            <label for="wr_4" class="sound_only"><strong>필수</strong></label>
-            <input type="text" name="wr_4" value="<?php echo $wr_4  ?>" id="wr_4" required class="frm_input full_input required" placeholder="이메일">
-        </div>
-
-
-        <?php /*
         <div class="write_div">
             <label for="wr_content" class="sound_only">내용<strong>필수</strong></label>
             <?php if($write_min || $write_max) { ?>
@@ -146,19 +114,15 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             <div id="char_count_wrap"><span id="char_count"></span>글자</div>
             <?php } ?>
         </div>
-        */?>
-
-        <input type="hidden" name="wr_content" value="내용">
 
 
-        <?php /*
         <?php for ($i=1; $is_link && $i<=G5_LINK_COUNT; $i++) { ?>
         <div class="bo_w_link write_div">
             <label for="wr_link<?php echo $i ?>"><i class="fa fa-link" aria-hidden="true"></i> <span class="sound_only">링크 #<?php echo $i ?></span></label>
             <input type="text" name="wr_link<?php echo $i ?>" value="<?php if($w=="u"){echo $write['wr_link'.$i];} ?>" id="wr_link<?php echo $i ?>" class="frm_input wr_link">
         </div>
         <?php } ?>
-q       */ ?>
+
         
         <?php for ($i=0; $is_file && $i<$file_count; $i++) { ?>
         <div class="bo_w_flie write_div">
@@ -280,13 +244,4 @@ function fwrite_submit(f)
 
     return true;
 }
-</script>
-
-
-<script >
-   $(function () {
-       $(window).load(function () {
-           $('#ca_name').find("option[value='공지']").remove();
-       })
-   })
 </script>

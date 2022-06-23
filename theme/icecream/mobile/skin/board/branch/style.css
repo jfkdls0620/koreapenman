@@ -70,6 +70,10 @@
 .card-content dl:last-child{border:0;}
 .card-content dl dt{min-width: 110px;color:#666}
 
+.bo_w_tit.write_div{position:relative;padding-left:80px;}
+.bo_w_tit.write_div p{position:absolute;font-size:16px;top:50%;transform: translateY(-50%);left:10px;line-height: 16px;}
+.bo_w_tit.write_div input{border:1px solid #ccc;background-color: #fff;}
+
 /* 게시판 목록 공통 */
 .bo_fx {margin:15px 0;padding:0 }
 .bo_fx:after {display:block;visibility:hidden;clear:both;content:""}
