@@ -30,10 +30,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                             <?php
                             // 파일 출력
                             $v_img_count = count($view['file']);
-                            if(!$view['file'][0]) {
-                                echo "<div class='no-image'></div>";
 
-                            }else{
+                            if($view['file'][0]['view']) {
                                 echo "<div id=\"bo_v_img\">\n";
 
                                 for ($i=0; $i<=0; $i++) {
@@ -47,6 +45,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                                     }
                                 }
                                 echo "</div>\n";
+                            }else{
+                                echo "<div class='no-image'></div>";
                             }
 
                             ?>
@@ -129,26 +129,27 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 
         </div>
 
-
+        <ul class="image_list">
         <?php
-
             if($v_img_count > 1) {
                 echo "<div id=\"bo_v_img\">\n";
 
                 for ($i=1; $i<=count($view['file']); $i++) {
                     if ($view['file'][$i]['view']) {
+                        echo "<li>";
                         //echo $view['file'][$i]['view'];
                         //$file_ext = strtolower(substr(strrchr($view['file'][$i]['source'], "."), 1));
                         // $fileNameWithoutExt = substr($view['file'][$i]['source'], 0, strrpos($view['file'][$i]['source'], "."));
 
                         echo get_view_thumbnail($view['file'][$i]['view']);
                         // echo get_view_thumbnail($fileNameWithoutExt);
+                        echo "</li>";
                     }
                 }
                 echo "</div>\n";
             }
-
         ?>
+        </ul>
         <?php //echo $view['rich_content']; // {이미지:0} 과 같은 코드를 사용할 경우 ?>
 
         <?php if ($is_signature) { ?><p><?php echo $signature ?></p><?php } ?>

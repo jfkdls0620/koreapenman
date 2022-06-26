@@ -110,6 +110,10 @@
 
 #bo_list{margin:15px }
 
+ul.image_list{}
+ul.image_list li{display: inline-block;width: 23%;margin:1%;height: 210px;overflow: hidden;vertical-align: top;border:2px solid #ccc;}
+
+
 
 @media (max-width: 639px){
     #bo_list{margin:0 }
