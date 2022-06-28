@@ -3,6 +3,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0);
+include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
 ?>
 
 <section id="bo_w">
@@ -102,6 +103,21 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             <input type="text" name="wr_subject" value="<?php echo $subject ?>" id="wr_subject" required class="frm_input full_input required" placeholder="제목">
         </div>
 
+        <div class="chk_area" style="display: none">
+            <div class="bo_w_tit write_div">
+                <label for="wr_3" class="sound_only">전시장소</label>
+                <input type="text" name="wr_3" value="<?php echo $wr_3 ?>" id="wr_3" class="frm_input full_input" placeholder="전시장소">
+            </div>
+            <div class="bo_w_tit write_div">
+                <label for="wr_1" class="sound_only">접수일</label>
+                <input type="text" name="wr_1" value="<?php echo $wr_1 ?>" id="wr_1" class="frm_input full_input jq_date" placeholder="접수일">
+            </div>
+            <div class="bo_w_tit write_div">
+                <label for="wr_2" class="sound_only">전시일</label>
+                <input type="text" name="wr_2" value="<?php echo $wr_2 ?>" id="wr_2" class="frm_input full_input jq_date" placeholder="전시일">
+            </div>
+        </div>
+
         <div class="write_div">
             <label for="wr_content" class="sound_only">내용<strong>필수</strong></label>
             <?php if($write_min || $write_max) { ?>
@@ -161,6 +177,27 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 </section>
 
 <script>
+    $(function(){
+        $(".jq_date").datepicker({ changeMonth: true, changeYear: true, dateFormat: "yy-mm-dd", showButtonPanel: true, yearRange: "c-99:c+99", maxDate: "+0d" });
+
+        var $target_not = $('#notice');
+
+        if($target_not.is(':checked')){
+            $(".chk_area").show();
+        }
+
+        $target_not.on('change', function(){
+            var $chk = $('#notice').is(':checked');
+
+            if($chk){
+                $(".chk_area").show();
+            }else{
+                $(".chk_area").hide();
+            }
+        });
+
+    });
+
 <?php if($write_min || $write_max) { ?>
 // 글자수 제한
 var char_min = parseInt(<?php echo $write_min; ?>); // 최소
@@ -174,6 +211,7 @@ $(function() {
 });
 
 <?php } ?>
+
 function html_auto_br(obj)
 {
     if (obj.checked) {
