@@ -15,13 +15,21 @@ add_stylesheet('<link rel="stylesheet" href="'.$latest_skin_url.'/style.css">', 
             if ($list[$i]['icon_secret']) echo "<i class=\"fa fa-lock\" aria-hidden=\"true\"></i> ";
             //echo $list[$i]['icon_reply']." ";
             echo "<a href=\"".$list[$i]['href']."\" class=\"lt_tit\">";
-
+            echo "<h3>".$list[$i]['subject'] ."</h3>";
+            if($list[$i]['wr_5']){
+                echo "<div><span class='title'>전시장소 : </span> <h4>".$list[$i]['wr_5'] ."</h4></div>";
+                echo "<div><span class='title'>접수기간 : </span> <p style='display: inline-block'><span>".$list[$i]['wr_1'] ."</span> ~ <span>".$list[$i]['wr_2'] ."</span></p></div>";
+                echo "<div><span class='title'>전시기간 : </span> <p style='display: inline-block'><span>".$list[$i]['wr_3'] ."</span> ~ <span>".$list[$i]['wr_4'] ."</span></p></div>";
+            }
 //            if ($list[$i]['is_notice']) {
 //                echo "<strong>".$list[$i]['subject']."</strong>";
 //            } else {
 //                echo $list[$i]['subject'];
 //            }
 
+            echo "</a>"; ?>
+
+            <?php /*
             $thumb = get_list_thumbnail($list[$i]['bo_table'], $list[$i]['wr_id'], 1024,1024, false, true);
             if($thumb['src']) {
                 // <a href="'.$list[$i]['href'].'" class="bo_img"></a>
@@ -33,10 +41,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$latest_skin_url.'/style.css">', 
             }
 
             echo $img_content;
+              */ ?>
 
 
-            echo "</a>";
-            ?>
         </li>
     <?php } ?>
     <?php if (count($list) == 0) { //게시물이 없을 때 ?>
@@ -49,12 +56,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$latest_skin_url.'/style.css">', 
 
 <script>
 $(document).ready(function(){
-    $('.lt_notice').bxSlider({
-        controls: true,
-        pager: false,
-        infiniteLoop: false,
-        auto: true,
-    });
+
 });
 
 </script>

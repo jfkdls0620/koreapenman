@@ -42,7 +42,7 @@ function new_latest($skin_dir='', $rows=20, $subject_len=40, $is_comment=false, 
     else
         $sql_common .= " and a.wr_id = a.wr_parent ";
 
-    $sql_order = " order by a.bn_id desc ";
+    $sql_order = " order by a.bn_id asc ";
 
     $sql = " select a.*, b.bo_subject {$sql_common} {$sql_order} limit {$rows} ";
 

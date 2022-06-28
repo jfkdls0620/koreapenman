@@ -62,9 +62,11 @@
 .board_list .bo_img {position:absolute;top:0;right:0}
 
 .chk_area{font-size:0;}
-.chk_area .bo_w_tit{display: inline-block;width: 32%;margin-right: 2%}
-.chk_area .bo_w_tit:last-child{margin-right: 0;}
-.chk_area .bo_w_tit input{font-size:14px;}
+.chk_area input{font-size:14px;}
+.chk_area .row-2 .write_div{display:inline-block;width:49%;margin-right: 2%}
+.chk_area .row-2 .write_div:last-child{margin-right: 0;}
+.chk_area .row-2 .write_div:first-child::before{content:"~";display: inline-block;position:absolute;top:0;right:-14px;font-size:20px;line-height: 42px;}
+
 
 /* 게시판 목록 공통 */
 .bo_fx {margin:15px 0;padding:0 }

@@ -105,16 +105,28 @@ include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
 
         <div class="chk_area" style="display: none">
             <div class="bo_w_tit write_div">
-                <label for="wr_3" class="sound_only">전시장소</label>
-                <input type="text" name="wr_3" value="<?php echo $wr_3 ?>" id="wr_3" class="frm_input full_input" placeholder="전시장소">
+                <label for="wr_5" class="sound_only">전시장소</label>
+                <input type="text" name="wr_5" value="<?php echo $wr_5 ?>" id="wr_5" class="frm_input full_input" placeholder="전시장소">
             </div>
-            <div class="bo_w_tit write_div">
-                <label for="wr_1" class="sound_only">접수일</label>
-                <input type="text" name="wr_1" value="<?php echo $wr_1 ?>" id="wr_1" class="frm_input full_input jq_date" placeholder="접수일">
+            <div class="row-2">
+                <div class="bo_w_tit write_div">
+                    <label for="wr_1" class="sound_only">접수시작</label>
+                    <input type="text" name="wr_1" value="<?php echo $wr_1 ?>" id="wr_1" class="frm_input full_input jq_date" placeholder="접수시작">
+                </div>
+                <div class="bo_w_tit write_div">
+                    <label for="wr_2" class="sound_only">접수마감</label>
+                    <input type="text" name="wr_2" value="<?php echo $wr_2 ?>" id="wr_2" class="frm_input full_input jq_date" placeholder="접수마감">
+                </div>
             </div>
-            <div class="bo_w_tit write_div">
-                <label for="wr_2" class="sound_only">전시일</label>
-                <input type="text" name="wr_2" value="<?php echo $wr_2 ?>" id="wr_2" class="frm_input full_input jq_date" placeholder="전시일">
+            <div class="row-2">
+                <div class="bo_w_tit write_div">
+                    <label for="wr_3" class="sound_only">전시시작일</label>
+                    <input type="text" name="wr_3" value="<?php echo $wr_3 ?>" id="wr_3" class="frm_input full_input jq_date" placeholder="전시시작일">
+                </div>
+                <div class="bo_w_tit write_div">
+                    <label for="wr_4" class="sound_only">전시마감일</label>
+                    <input type="text" name="wr_4" value="<?php echo $wr_4 ?>" id="wr_4" class="frm_input full_input jq_date" placeholder="전시마감일">
+                </div>
             </div>
         </div>
 
@@ -178,7 +190,13 @@ include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
 
 <script>
     $(function(){
-        $(".jq_date").datepicker({ changeMonth: true, changeYear: true, dateFormat: "yy-mm-dd", showButtonPanel: true, yearRange: "c-99:c+99", maxDate: "+0d" });
+        $(".jq_date").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            dateFormat: "yy-mm-dd",
+            showButtonPanel: true,
+            yearRange: "c-99:c+99",
+            });
 
         var $target_not = $('#notice');
 
