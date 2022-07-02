@@ -15,7 +15,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$latest_skin_url.'/style.css">', 
             if ($list[$i]['icon_secret']) echo "<i class=\"fa fa-lock\" aria-hidden=\"true\"></i> ";
             //echo $list[$i]['icon_reply']." ";
             echo "<a href=\"".$list[$i]['href']."\" class=\"lt_tit\">";
-            echo "<h3>".$list[$i]['subject'] ."</h3>";
+            echo "<h3>".$list[$i]['wr_6'] ."</h3>";
             if($list[$i]['wr_5']){
                 echo "<div><span class='title'>전시장소 : </span> <h4>".$list[$i]['wr_5'] ."</h4></div>";
                 echo "<div><span class='title'>접수기간 : </span> <p style='display: inline-block'><span>".$list[$i]['wr_1'] ."</span> ~ <span>".$list[$i]['wr_2'] ."</span></p></div>";

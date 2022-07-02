@@ -25,6 +25,27 @@
 #bo_w .btn_cancel {}
 #bo_w .btn_frmline {} /* 우편번호검색버튼 등 */
 
+/* 220703 테이블 */
+.div_table{border-top:2px solid #000;}
+.div_table .tr{display: table;width: 100%;border-bottom:1px solid #000;}
+.div_table .tr.tr_title{background-color: #69b0f9;}
+.div_table .tr.tr_title .td{font-size:18px;font-weight: 600}
+.div_table .tr.tr_list{background-color: #fff;}
+.div_table .tr.tr_list.bo_notice{background-color:#e9f0ff}
+.div_table .tr .td{display: table-cell;text-align: center;position:relative;padding: 8px 0}
+.div_table .tr.tr_list .td{font-size:16px;}
+.div_table .tr .td .bo_chk{position:absolute;top:50%;transform: translateY(-50%);left:10px;}
+.div_table .tr .td a{display: block;text-align: left;padding-left: 30px;height: 24px;line-height: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 680px;}
+.div_table .tr .td:nth-child(1){width: 70%}
+.div_table .tr .td:nth-child(2){width: 10%}
+.div_table .tr .td:nth-child(3){width: 10%}
+.div_table .tr .td:nth-child(4){width: 10%}
+
+
 
 /* 게시판 목록 */
 #bo_list .td_chk {width:30px;text-align:center}
@@ -38,7 +59,7 @@
 #bo_list .td_date {width:60px;text-align:center}
 #bo_list .td_datetime {width:150px;text-align:center}
 #bo_list .td_mng {width:80px;text-align:center}
-#bo_list .notice_icon{display: inline-block;vertical-align:top;background: #ff6f6f;padding: 0 5px;line-height: 20px;border-radius: 5px;font-weight: normal;font-size:11px;color: #fff;}
+#bo_list .notice_icon{display: inline-block;vertical-align:top;background: #ff6f6f;padding: 0 5px;line-height: 24px;border-radius: 5px;font-weight: normal;font-size:11px;color: #fff;}
 #bo_list .notice_icon i{color:#fff}
 #bo_list .bo_subject .fa-download{width:16px;height:16px;line-height:16px;background:#ecaa30;color:#fff;text-align:center;font-size:10px;border-radius:2px}
 #bo_list .bo_subject .fa-link{width:16px;height:16px;line-height:16px;background:#2aa974;color:#fff;text-align:center;font-size:10px;border-radius:2px}
@@ -67,6 +88,7 @@
 .chk_area .row-2 .write_div:last-child{margin-right: 0;}
 .chk_area .row-2 .write_div:first-child::before{content:"~";display: inline-block;position:absolute;top:0;right:-14px;font-size:20px;line-height: 42px;}
 
+.write_div h3{font-size:18px;margin-top:5px}
 
 /* 게시판 목록 공통 */
 .bo_fx {margin:15px 0;padding:0 }

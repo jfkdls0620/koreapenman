@@ -64,7 +64,7 @@
 
 .board_list{background-color: #fff;padding: 10px;}
 .board_list ul{margin-top: 10px;font-size:0;}
-.board_list ul li{background: #e1e1e1;padding:15px 10px;position: relative;display: inline-block;margin-right: 1%;margin-bottom:1%;width: 14%}
+.board_list ul li{background: #46b0e3;padding:15px 10px;position: relative;display: inline-block;margin-right: 1%;margin-bottom:1%;width: 14%;border:2px solid #4f7ad9;}
 .board_list ul li a{font-size:16px;padding-left: 0;line-height:16px;}
 .board_list .bo_pf_img {position:absolute;top:30px;left:30px;width:46px;height:46px}
 .board_list .bo_pf_img img{border-radius:30px;width:100%;height:auto}

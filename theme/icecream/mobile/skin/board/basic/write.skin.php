@@ -99,16 +99,24 @@ include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
         <?php } ?>
 
         <div class="bo_w_tit write_div">
+            <h3>제목</h3>
             <label for="wr_subject" class="sound_only">제목<strong>필수</strong></label>
             <input type="text" name="wr_subject" value="<?php echo $subject ?>" id="wr_subject" required class="frm_input full_input required" placeholder="제목">
         </div>
 
         <div class="chk_area" style="display: none">
             <div class="bo_w_tit write_div">
+                <h3>부제목</h3>
+                <label for="wr_6" class="sound_only">부제목</label>
+                <input type="text" name="wr_6" value="<?php echo $wr_6 ?>" id="wr_6" class="frm_input full_input" placeholder="부제목">
+            </div>
+            <div class="bo_w_tit write_div">
+                <h3>전시장소</h3>
                 <label for="wr_5" class="sound_only">전시장소</label>
                 <input type="text" name="wr_5" value="<?php echo $wr_5 ?>" id="wr_5" class="frm_input full_input" placeholder="전시장소">
             </div>
             <div class="row-2">
+                <h3>접수일</h3>
                 <div class="bo_w_tit write_div">
                     <label for="wr_1" class="sound_only">접수시작</label>
                     <input type="text" name="wr_1" value="<?php echo $wr_1 ?>" id="wr_1" class="frm_input full_input jq_date" placeholder="접수시작">
@@ -119,6 +127,7 @@ include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
                 </div>
             </div>
             <div class="row-2">
+                <h3>전시일</h3>
                 <div class="bo_w_tit write_div">
                     <label for="wr_3" class="sound_only">전시시작일</label>
                     <input type="text" name="wr_3" value="<?php echo $wr_3 ?>" id="wr_3" class="frm_input full_input jq_date" placeholder="전시시작일">
