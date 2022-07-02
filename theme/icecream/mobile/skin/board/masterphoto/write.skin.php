@@ -107,7 +107,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             </div>
             <div class="col">
                 <div class="bo_w_tit write_div">
-                    <h3>성명(한자)</h3>
+                    <h3>한자</h3>
                     <label for="wr_8" class="sound_only">성명<strong>필수</strong></label>
                     <input type="text" name="wr_8" value="<?php echo $wr_8 ?>" id="wr_8" required class="frm_input full_input required" placeholder="성명(한자)">
                 </div>
@@ -132,16 +132,16 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         <div class="row col-3">
             <div class="col">
                 <div class="bo_w_tit write_div">
-                    <h3>출생 지역</h3>
+                    <h3>주소</h3>
                     <label for="wr_3" class="sound_only"><strong>필수</strong></label>
-                    <input type="text" name="wr_3" value="<?php echo $wr_3 ?>" id="wr_3" class="frm_input full_input" placeholder="출생 지역">
+                    <input type="text" name="wr_3" value="<?php echo $wr_3 ?>" id="wr_3" class="frm_input full_input" placeholder="주소">
                 </div>
             </div>
             <div class="col">
                 <div class="bo_w_tit write_div">
-                    <h3>출생 년도</h3>
+                    <h3>연락처</h3>
                     <label for="wr_4" class="sound_only"><strong>필수</strong></label>
-                    <input type="text" name="wr_4" value="<?php echo $wr_4 ?>" id="wr_4" class="frm_input full_input" placeholder="출생 년도">
+                    <input type="text" name="wr_4" value="<?php echo $wr_4 ?>" id="wr_4" class="frm_input full_input" placeholder="연락처">
                 </div>
             </div>
             <div class="col">
@@ -151,25 +151,15 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                     <input type="text" name="wr_5" value="<?php echo $wr_5 ?>" id="wr_5" class="frm_input full_input" placeholder="성별">
                 </div>
             </div>
+
         </div>
-        <div class="row col-2">
-            <div class="col">
-                <div class="bo_w_tit write_div">
-                    <h3>활동지역</h3>
-                    <label for="wr_6" class="sound_only"><strong>필수</strong></label>
-                    <input type="text" name="wr_6" value="<?php echo $wr_6 ?>" id="wr_6" class="frm_input full_input" placeholder="활동지역">
-                </div>
-            </div>
-            <div class="col">
-                <div class="bo_w_tit write_div">
-                    <h3>스승</h3>
-                    <label for="wr_7" class="sound_only"><strong>필수</strong></label>
-                    <input type="text" name="wr_7" value="<?php echo $wr_7 ?>" id="wr_7" class="frm_input full_input" placeholder="스승">
-                </div>
+        <div class="row">
+            <div class="bo_w_tit write_div">
+                <h3>미정</h3>
+                <label for="wr_6" class="sound_only">미정<strong>필수</strong></label>
+                <input type="text" name="wr_6" value="<?php echo $wr_6 ?>" id="wr_6" required class="frm_input full_input required" placeholder="미정">
             </div>
         </div>
-
-
         <div class="write_div">
             <label for="wr_content" class="sound_only">내용<strong>필수</strong></label>
             <?php if($write_min || $write_max) { ?>
@@ -312,4 +302,11 @@ function fwrite_submit(f)
 
     return true;
 }
+</script>
+<script >
+    $(function () {
+        $(window).load(function () {
+            $('#ca_name').find("option[value='공지']").remove();
+        })
+    })
 </script>
