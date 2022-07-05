@@ -38,7 +38,7 @@ if ($wr_subject == '') {
 
 $wr_content = '';
 if (isset($_POST['wr_content'])) {
-    $wr_content = substr(trim($_POST['wr_content']),0,65536);
+    $wr_content = substr(trim($_POST['wr_content']),0);
     $wr_content = preg_replace("#[\\\]+$#", "", $wr_content);
 }
 if ($wr_content == '') {

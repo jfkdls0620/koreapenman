@@ -164,6 +164,9 @@ ul.lt_notice li h3{font-size:22px;line-height:28px;display: inline-block;positio
 ul.lt_notice li h3::after{content:"";display: block;width: 100%;height: 2px;background-color: #132ac7;margin-top: 3px;}
 ul.lt_notice li:nth-child(2n) h3::after{display: none;}
 ul.lt_notice li h4{font-size:20px;display: inline-block}
+ul.lt_notice li:nth-child(3),
+ul.lt_notice li:nth-child(4){background-color:#f5ff59;border: 2px solid #727815}
+ul.lt_notice li:nth-child(3) h3::after{background-color: #000}
 
 .notice_wr li a .notice_img{
     background-repeat: no-repeat;

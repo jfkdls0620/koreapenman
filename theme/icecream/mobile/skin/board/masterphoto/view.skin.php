@@ -55,7 +55,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                             ?>
                         </div>
                         <div>
-                            <p style="text-align: center;font-size:15px;color:#000;margin: 0;">  <?php echo cut_str(get_text($view['wr_6']), 200);  // 서각 출력 ?></p>
+                            <p style="text-align: center;font-size:18px;color:#000;margin: 0;text-decoration: none;font-style: normal">
+                                <?php echo cut_str(get_text($view['wr_6']), 200);  // 서각 출력 ?>
+                            </p>
                         </div>
                     </td>
                     <th>성명</th>
