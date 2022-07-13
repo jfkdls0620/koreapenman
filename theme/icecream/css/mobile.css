@@ -520,10 +520,12 @@ a.gnb_2da:hover{background:#222;
         position:relative;
         top:0;
         width: 100%;
+        margin-bottom: 30px;
     }
     .v2_lnb li a{font-size:14px;padding: 8px;}
 
     #ctt{width: 100%;padding: 0;margin: 0}
+    .sub_nav{padding-left: 0;display: none}
 }
 
 /* 게시물 선택복사 선택이동 */

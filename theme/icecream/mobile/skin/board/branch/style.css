@@ -313,4 +313,18 @@ box-shadow: 1px 2px 8px #e2e4f1}
 
 @media (max-width: 639px){
     #bo_w{margin:15px 0}
+
+    #bo_list{padding: 0}
+    .board_list li{padding: 10px;border:2px solid #ccc;}
+    .card-content{padding-left: 0;}
+    .card-content .card-content_img{position: relative;top: 0;transform: none;text-align: center}
+    .card-content h3{font-size:16px;}
+    .card-content dl dt{min-width:95px;font-size:14px;}
+    .card-content dl dd{font-size:14px;}
+
+    #bo_cate li a {
+        font-size: 18px;
+        padding: 9px 0;
+        letter-spacing: 10px;
+    }
 }
