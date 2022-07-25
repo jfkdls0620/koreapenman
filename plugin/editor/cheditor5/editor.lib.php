@@ -47,7 +47,8 @@ function editor_html($id, $content, $is_dhtml_editor=true)
         $html .= "\n<span class=\"sound_only\">웹 에디터 끝</span>";
         $html .= "<script>ed_{$id}.run();</script>\n";
     } else {
-        $html .= "<textarea id=\"$id\" name=\"$id\" style=\"width:{$width};height:{$height};\" maxlength=\"65536\">$content</textarea>\n";
+        $html .= "<textarea id=\"$id\" name=\"$id\" style=\"width:{$width};height:{$height};\">$content</textarea>\n";
+        // $html .= "<textarea id=\"$id\" name=\"$id\" style=\"width:{$width};height:{$height};\" maxlength=\"65536\">$content</textarea>\n";
     }
     return $html;
 }
