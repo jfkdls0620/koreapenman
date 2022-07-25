@@ -385,8 +385,13 @@ if ($w == '') {
 
     }
 } else {
-    $content = get_text($write['wr_content'], 0);
+    $replace_content = str_replace("vertical-align: middle;", "", $write['wr_content']);
+    $replace_content = str_replace("font-family: &quot;맑은 고딕&quot;; ", "", $replace_content);
+    $replace_content = str_replace("background-color: rgb(255, 255, 255);", "", $replace_content);
+    $content = get_text($replace_content, 0);
 }
+
+
 
 $upload_max_filesize = number_format($board['bo_upload_size']) . ' 바이트';
 
@@ -423,6 +428,8 @@ if ($config['cf_editor'] && $is_dhtml_editor_use && $board['bo_use_dhtml_editor'
     if(is_file(G5_EDITOR_PATH.'/'.$config['cf_editor'].'/autosave.editor.js'))
         $editor_content_js = '<script src="'.G5_EDITOR_URL.'/'.$config['cf_editor'].'/autosave.editor.js"></script>'.PHP_EOL;
 }
+
+
 $editor_html = editor_html('wr_content', $content, $is_dhtml_editor);
 $editor_js = '';
 $editor_js .= get_editor_js('wr_content', $is_dhtml_editor);
