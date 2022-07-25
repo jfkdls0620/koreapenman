@@ -171,13 +171,13 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         </div>
         <div class="grade_area">
 
-            <a href="<?=G5_BBS_URL?>/board.php?bo_table=acquirer&sca=&kor=&wr_5=1&wr_4=<?=$wr_4?>" <?php if ($wr_5 === '1') { ?> class="on"<?}?>>
+            <a href="<?=G5_BBS_URL?>/board.php?bo_table=acquirer&sca=<?=$sca?>&wr_5=1&wr_4=<?=$wr_4?>" <?php if ($wr_5 === '1') { ?> class="on"<?}?>>
                 1급
             </a>
-            <a href="<?=G5_BBS_URL?>/board.php?bo_table=acquirer&sca=&kor=&wr_5=2&wr_4=<?=$wr_4?>" <?php if ($wr_5 === '2') { ?> class="on"<?}?>>
+            <a href="<?=G5_BBS_URL?>/board.php?bo_table=acquirer&sca=<?=$sca?>&wr_5=2&wr_4=<?=$wr_4?>" <?php if ($wr_5 === '2') { ?> class="on"<?}?>>
                 2급
             </a>
-            <a href="<?=G5_BBS_URL?>/board.php?bo_table=acquirer&sca=&kor=&kor=&wr_4=<?=$wr_4?>">
+            <a href="<?=G5_BBS_URL?>/board.php?bo_table=acquirer&sca=<?=$sca?>&wr_4=<?=$wr_4?>" <?php if ($wr_5 === '') { ?> class="on"<?}?>>
                 전체 급수보기
             </a>
 

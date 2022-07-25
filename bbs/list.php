@@ -62,7 +62,7 @@ if ((isset($_REQUEST['kor'])) || ($sca || $stx || $stx === '0')) {     //검색�
     $sql_search = get_sql_search($sca, $sfl, $stx, $sop);
 
     if (isset($_REQUEST['kor'])) {
-        $sql_search = " 1=1 ";
+        // $sql_search = " 1=1 ";
         if (strpos($f_word, 'ㄱ') === 0) {
             $sql_search .=  " and substr(wr_subject,1,1) between '가' and '낗' ";
         } else if(strpos($f_word, 'ㄴ') === 0) {
@@ -287,6 +287,7 @@ if ($is_search_bbs) {
 
     $sql .= " {$sql_search} {$sql_order} limit {$from_record}, $page_rows ";
 }
+
 
 // 페이지의 공지개수가 목록수 보다 작을 때만 실행
 if($page_rows > 0) {
