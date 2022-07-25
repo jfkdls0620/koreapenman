@@ -98,8 +98,14 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         <?php } ?>
 
         <div class="bo_w_tit write_div">
+            <p>연도</p>
             <label for="wr_subject" class="sound_only">제목<strong>필수</strong></label>
-            <input type="text" name="wr_subject" value="<?php echo $subject ?>" id="wr_subject" required class="frm_input full_input required" placeholder="제목">
+            <input type="text" name="wr_subject" value="<?php echo $subject ?>" id="wr_subject" required class="frm_input full_input required" placeholder="연도">
+        </div>
+        <div class="bo_w_tit write_div">
+            <p>구분(ex 1 or 2)</p>
+            <label for="wr_1" class="sound_only">구분<strong>필수</strong></label>
+            <input type="text" name="wr_1" value="<?php echo $wr_1 ?>" id="wr_1" required class="frm_input full_input required" placeholder="구분">
         </div>
 
         <div class="write_div">
@@ -115,13 +121,14 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             <?php } ?>
         </div>
 
-
+        <?php /*
         <?php for ($i=1; $is_link && $i<=G5_LINK_COUNT; $i++) { ?>
         <div class="bo_w_link write_div">
             <label for="wr_link<?php echo $i ?>"><i class="fa fa-link" aria-hidden="true"></i> <span class="sound_only">링크 #<?php echo $i ?></span></label>
             <input type="text" name="wr_link<?php echo $i ?>" value="<?php if($w=="u"){echo $write['wr_link'.$i];} ?>" id="wr_link<?php echo $i ?>" class="frm_input wr_link">
         </div>
         <?php } ?>
+ */ ?>
 
         
         <?php for ($i=0; $is_file && $i<$file_count; $i++) { ?>

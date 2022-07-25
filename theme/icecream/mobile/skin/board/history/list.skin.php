@@ -50,8 +50,10 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             <?php
             for ($i=0; $i<count($list); $i++) {
             ?>
-            <li class="<?php if ($thumb) echo "bo_liimg "; ?><?php if ($list[$i]['is_notice']) echo " bo_notice"; ?>">
-
+            <li class="<?php if ($thumb) echo "bo_liimg "; ?><?php if ($list[$i]['is_notice']) echo " bo_notice"; ?>" style="background-color: <?php echo $list[$i]['wr_1'] == '1' ? '#9cc4f5' : '#c1ddff' ?>">
+                <div class="list_th"><?php echo $list[$i]['subject'] ?></div>
+                <div class="list_td"><?php echo $list[$i]['wr_content'] ?></div>
+                <?php echo $list[$i]['wr_1'] ?>
                 <div class="bo_subject">
                     <?php if ($is_checkbox) { ?>
                     <span class="bo_chk">
@@ -66,9 +68,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                     <?php } ?>
 
                     <a href="<?php echo $list[$i]['href'] ?>" class="bo_subject">
-                        <?php echo $list[$i]['icon_reply']; ?>
-                        <?php if ($list[$i]['is_notice']) { ?><strong class="notice_icon">공지</strong><?php } ?> 
-                        <?php echo $list[$i]['subject'] ?>
+                        <?php /* echo $list[$i]['icon_reply']; */?>
+                        <?php /* if ($list[$i]['is_notice']) { ?><strong class="notice_icon">공지</strong><?php } */?>
+
                         <?php
                         // if ($list[$i]['file']['count']) { echo '<'.$list[$i]['file']['count'].'>'; }
 
@@ -82,7 +84,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                     </a>
                 </div>
 
-                <div class="bo_info">
+                <div class="bo_info" style="display: none">
                   <?php /*<span class="bo_pf_img"><?php echo get_member_profile_img($list[$i]['mb_id']); ?></span> */?>
                      <span class="sound_only">작성자</span><?php echo $list[$i]['name'] ?>
                     
@@ -90,6 +92,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                     <?php if ($list[$i]['comment_cnt']) { ?><span class="sound_only">댓글</span><i class="fa fa-commenting-o" aria-hidden="true"></i><?php echo $list[$i]['comment_cnt']; ?><?php } ?> 
                 
                 </div>
+
 
                 <?php
                 /*

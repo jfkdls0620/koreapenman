@@ -55,11 +55,14 @@
 #bo_cate #bo_cate_on {background:#86b9f8;color:#fff;border-color:#86b9f8}
 
 .board_list ul{border-top:2px solid #000;margin-top: 10px}
-.board_list ul li{background: #fff;padding:10px 20px;position: relative;line-height:20px;border-bottom:1px solid #686868}
+.board_list ul li{background: #fff;position: relative;line-height:20px;border-bottom:1px solid #686868}
 .board_list .bo_pf_img {position:absolute;top:30px;left:30px;width:46px;height:46px}
 .board_list .bo_pf_img img{border-radius:30px;width:100%;height:auto}
 .board_list .bo_notice{background:#e9f0ff;}
 .board_list .bo_img {position:absolute;top:0;right:0}
+
+.list_th{display: inline-block}
+.list_td{display: inline-block}
 
 /* 게시판 목록 공통 */
 .bo_fx {margin:15px 0;padding:0 }
