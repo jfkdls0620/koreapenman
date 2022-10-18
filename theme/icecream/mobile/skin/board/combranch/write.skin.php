@@ -23,7 +23,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     if ($is_notice || $is_html || $is_secret || $is_mail) {
         $option = '';
         if ($is_notice) {
-            $option .= PHP_EOL.'<input type="checkbox" id="notice" name="notice" value="1" '.$notice_checked.'>'.PHP_EOL.'<label for="notice">공지</label>';
+            $option .= PHP_EOL.'<input type="checkbox" id="notice" name="notice" value="1" '.$notice_checked.'>'.PHP_EOL.'<label for="notice"</label>';
         }
 
         if ($is_html) {
@@ -90,7 +90,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         </div>
         <?php } ?>
 
-        <?php if ($option) { ?>
+        <?php if ($option && false) { ?>
         <div class="write_div">
             <span class="sound_only">옵션</span>
             <?php echo $option ?>
@@ -98,16 +98,24 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         <?php } ?>
 
         <div class="bo_w_tit write_div">
-            <p>연도</p>
-            <label for="wr_subject" class="sound_only">제목<strong>필수</strong></label>
-            <input type="text" name="wr_subject" value="<?php echo $subject ?>" id="wr_subject" required class="frm_input full_input required" placeholder="연도">
-        </div>
-        <div class="bo_w_tit write_div">
-            <p>구분(ex <span class="span-color" style="background-color: #9cc4f5">1</span><span class="span-color" style="background-color: #c1ddff">2</span>)</p>
-            <label for="wr_1" class="sound_only">구분<strong>필수</strong></label>
-            <input type="text" name="wr_1" value="<?php echo $wr_1 ?>" id="wr_1" required class="frm_input full_input required" placeholder="구분">
+            <p>지회</p>
+            <label for="wr_subject" class="sound_only">지회<strong>필수</strong></label>
+            <input type="text" name="wr_subject" value="<?php echo $subject ?>" id="wr_subject" required class="frm_input full_input required" placeholder="지회">
         </div>
 
+        <div class="bo_w_tit write_div jq_target">
+            <p>지부</p>
+            <label for="wr_1" class="sound_only"></label>
+            <input type="text" name="wr_2" value="<?php echo $wr_2 ?>" id="wr_2" class="frm_input full_input" placeholder="지부">
+        </div>
+
+        <div class="bo_w_tit write_div">
+            <p>주소</p>
+            <label for="wr_1" class="sound_only"><strong>필수</strong></label>
+            <input type="text" name="wr_1" value="<?php echo $wr_1 ?>" id="wr_1" required class="frm_input full_input required" placeholder="주소">
+        </div>
+
+        <?php /*
         <div class="write_div">
             <label for="wr_content" class="sound_only">내용<strong>필수</strong></label>
             <?php if($write_min || $write_max) { ?>
@@ -120,6 +128,10 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             <div id="char_count_wrap"><span id="char_count"></span>글자</div>
             <?php } ?>
         </div>
+        */?>
+
+        <input type="hidden" name="wr_content" value="내용">
+
 
         <?php /*
         <?php for ($i=1; $is_link && $i<=G5_LINK_COUNT; $i++) { ?>
@@ -128,9 +140,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             <input type="text" name="wr_link<?php echo $i ?>" value="<?php if($w=="u"){echo $write['wr_link'.$i];} ?>" id="wr_link<?php echo $i ?>" class="frm_input wr_link">
         </div>
         <?php } ?>
- */ ?>
+q       */ ?>
 
-        
         <?php for ($i=0; $is_file && $i<$file_count; $i++) { ?>
         <div class="bo_w_flie write_div">
             <div class="file_wr write_div">
@@ -251,4 +262,20 @@ function fwrite_submit(f)
 
     return true;
 }
+</script>
+
+
+<script >
+   $(function () {
+       $(window).load(function () {
+           $('#ca_name').find("option[value='공지']").remove();
+       })
+       $("#ca_name").on('change' ,function(){
+           if(this.value === '지부'){
+               $(".jq_target").show();
+           }else{
+               $(".jq_target").hide();
+           }
+       })
+   })
 </script>

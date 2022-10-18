@@ -12,6 +12,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 ?>
 
 <style type="text/css">
+    .empty_table{font-size:15px;}
     .bo_info_items .bo_info_item .bo_info_item--title {color: #333; font-weight: 700;}
     .board_kor_search_bar button{background-color:#fff;font-weight: 600}
     .board_kor_search_bar button.on {background-color: #0d61fb;color: #fff;}
@@ -109,19 +110,19 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     <input type="hidden" name="sw" value="">
 
     <div class="board_list">
-        <ul class="ex_ul">
-            <li>
-                <a href="http://koreapenman.com/bbs/board.php?bo_table=author&kor=&u_author=wr_2" class="draw-btn draw-border">
-                    대한민국서법예술대전
-                </a>
-            </li>
-            <li>
-                <a href="http://koreapenman.com/bbs/board.php?bo_table=author&kor=&u_author=wr_3" class="draw-btn draw-border">
-                    충무공숭모서화대전
-                </a>
-            </li>
-
-        </ul>
+<!--        <ul class="ex_ul">-->
+<!--            <li>-->
+<!--                <a href="http://koreapenman.com/bbs/board.php?bo_table=author&kor=&u_author=wr_2" class="draw-btn draw-border">-->
+<!--                    대한민국서법예술대전-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a href="http://koreapenman.com/bbs/board.php?bo_table=author&kor=&u_author=wr_3" class="draw-btn draw-border">-->
+<!--                    충무공숭모서화대전-->
+<!--                </a>-->
+<!--            </li>-->
+<!---->
+<!--        </ul>-->
 
         <div class="board_kor_search_bar">
             <button type="button" onclick="search_kor('ㄱ');"<?php if (strpos($f_word, 'ㄱ') === 0) { ?> class="on"<?}?>>ㄱ</button>
@@ -277,7 +278,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                 ?>
                  
             </li><?php } ?>
-            <?php if (count($list) == 0) { echo '<li class="empty_table">게시물이 없습니다.</li>'; } ?>
+            <?php if (count($list) == 0) { echo '<li class="empty_table">등록된 작가가 없습니다.</li>'; } ?>
         </ul>
     </div>
 

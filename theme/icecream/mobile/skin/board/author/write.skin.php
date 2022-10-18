@@ -246,3 +246,12 @@ function fwrite_submit(f)
     return true;
 }
 </script>
+
+
+<script >
+    $(function () {
+        $(window).load(function () {
+            $('#ca_name').find("option[value='공지']").remove();
+        })
+    })
+</script>

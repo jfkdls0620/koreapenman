@@ -27,6 +27,7 @@
 
 
 /* 게시판 목록 */
+#bo_list{background-color:#fff;}
 #bo_list .td_chk {width:30px;text-align:center}
 #bo_list .td_group {width:100px;text-align:center}
 #bo_list .td_board {width:120px;text-align:center}
@@ -48,26 +49,50 @@
 
 
 #bo_cate h2 {width:0;height:0;font-size:0;line-height:0;overflow:hidden}
-#bo_cate ul {margin:0 0 15px;zoom:1}
-#bo_cate ul:after {display:block;visibility:hidden;clear:both;content:""} 
-#bo_cate li{;display:block;float:left;}
-#bo_cate a {position:relative;display:block;line-height:35px;padding:0 20px;color:#888;border-bottom:2px solid #ddd;background:#fff;margin:5px 5px  5px 0;border-radius:5px}
-#bo_cate #bo_cate_on {background:#86b9f8;color:#fff;border-color:#86b9f8}
+#bo_cate ul {margin:0 0 15px;zoom:1;border:1px solid #ccc;}
+#bo_cate ul:after {display:block;visibility:hidden;clear:both;content:""}
+#bo_cate li{display: inline-block;text-align: center;width: 50%;box-sizing: border-box}
+#bo_cate li a{font-size:30px;display: block;padding: 15px 0;letter-spacing: 10px;}
+#bo_cate #bo_cate_on {background:#1870f3;color:#fff;border-color:#1870f3}
 
-.board_list ul{border-top:2px solid #000;margin-top: 10px}
-.board_list ul li{background: #fff;position: relative;line-height:20px;border-bottom:1px solid #686868}
-.board_list .bo_pf_img {position:absolute;top:30px;left:30px;width:46px;height:46px}
+/* 221018 테이블 */
+.jq_target{display: none;}
+.div_table{border-top:2px solid #000;}
+.div_table .tr{display: table;width: 100%;border-bottom:1px solid #000;}
+.div_table .tr.tr_title{background-color: #69b0f9;}
+.div_table .tr.tr_title .td{font-size:18px;font-weight: 600}
+.div_table .tr.tr_list{background-color: #fff;}
+.div_table .tr.tr_list.bo_notice{background-color:#e9f0ff}
+.div_table .tr .td{display: table-cell;text-align: center;position:relative;padding: 8px 0}
+.div_table .tr.tr_list .td{font-size:16px;}
+.div_table .tr .td .bo_chk{position:absolute;top:50%;transform: translateY(-50%);left:10px;}
+.div_table .tr .td a{display: block;text-align: left;padding-left: 30px;height: 24px;line-height: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 180px;}
+.div_table .tr .td:nth-child(1){width: 20%}
+.div_table .tr .td.td02{width: 20%}
+.div_table .tr .td.td03{width: 80%}
+
+.board_list ul{display: flex;flex-direction: column-reverse;}
+.board_list li{background: #fff;margin:10px 0 ;border:5px solid #ccc;position: relative;padding: 10px 20px;}
+.board_list .bo_pf_img {position:relative;top:30px;left:30px;width:46px;height:46px;display: none}
 .board_list .bo_pf_img img{border-radius:30px;width:100%;height:auto}
 .board_list .bo_notice{background:#e9f0ff;}
-.board_list .bo_img {position:absolute;top:0;right:0}
+.board_list .bo_img {position:relative;top:0;right:0;width:150px;height:150px;display: inline-block;background-repeat: no-repeat;background-size:100% auto;}
+.board_list .bo_img.v2_no-image{background-image: url("img/v2_no-img.png");background-size: 70% auto !important}
 
-.span-color{display: inline-block;width: 25px;text-align: center;margin:0 5px}
+.card-content{position:relative;width: 100%;padding-left: 180px;font-size:0;min-height: 150px}
+.card-content .card-content_img{position:absolute;top:50%;left:0;transform: translateY(-50%)}
+.card-content h3{font-size:24px;}
+.card-content dl{border-bottom:1px solid #ccc;width: 100%;font-size:16px;display: flex;justify-content: flex-start;padding: 5px 0}
+.card-content dl:last-child{border:0;}
+.card-content dl dt{min-width: 110px;color:#666}
 
-.bo_chk{display: none}
-.list_table{display: table;width: 100%;}
-.list_table>div{padding: 15px 0;}
-.list_table .list_th{display:table-cell;font-size:26px;width: 18%;text-align: right;padding-right: 15px;line-height: 26px;font-weight: 600}
-.list_table .list_td{display:table-cell;font-size:20px;line-height: 20px;}
+.bo_w_tit.write_div{position:relative;padding-left:80px;}
+.bo_w_tit.write_div p{position:absolute;font-size:16px;top:50%;transform: translateY(-50%);left:10px;line-height: 16px;}
+.bo_w_tit.write_div input{border:1px solid #ccc;background-color: #fff;}
 
 /* 게시판 목록 공통 */
 .bo_fx {margin:15px 0;padding:0 }
@@ -83,7 +108,7 @@
 .bo_notice td a {font-weight:bold}
 .td_num strong {color:#000}
 .bo_cate_link {display:inline-block;line-height:20px;color:#86b9f8;font-weight:600;padding:0 5px;;font-size:0.92em;}
-.bo_subject{display:inline-block;font-size:1.083em;font-weight:bold;margin-bottom:5px ;}
+.bo_subject{display:inline-block;font-size:1.083em;font-weight:bold;margin-bottom:5px ;vertical-align: top;position:absolute;top:10px;left:10px;z-index: 99}
 .bo_subject i{color: #8d96c2;font-size:12px}
 .bo_subject  .fa-heart{color:#ff0000}
 .bo_current {color:#e8180c}
@@ -103,7 +128,7 @@
 .view_is_list{position:relative;z-index:auto;float:right}
 .view_is_list li{display:inline-block}
 
-#bo_list{margin:15px }
+#bo_list{margin:15px;padding: 15px;}
 
 
 @media (max-width: 639px){
@@ -227,9 +252,10 @@ box-shadow: 1px 2px 8px #e2e4f1}
     #bo_v,.bo_v_nb,#bo_v_top{margin:15px 0}
 }
 /* 게시판 댓글 */
-.cmt_btn{text-align:left ;width:100% ;border:0;color:#696ae6;font-weight:bold;font-size:1.154em;margin: 20px 0 ;padding:15px;background:none;position:relative}
+.cmt_btn{text-align:left ;width:100% ;border:0;color:#696ae6;font-weight:bold;font-size:1.154em;margin: 20px 0 ;padding:15px;background:none;position:relative;
+}
 .cmt_btn:before{position:absolute;bottom:0;left:15px;width:30px;height:1px;background:#696ae6;content:''}
-#bo_vc {margin:15px}
+#bo_vc {margin:15px;}
 #bo_vc h2 {position:absolute;font-size:0;line-height:0;overflow:hidden}
 #bo_vc article {margin:0 0 20px;position:relative}
 #bo_vc header {line-height:20px;color:#888d94}
@@ -307,4 +333,18 @@ box-shadow: 1px 2px 8px #e2e4f1}
 
 @media (max-width: 639px){
     #bo_w{margin:15px 0}
+
+    #bo_list{padding: 0}
+    .board_list li{padding: 10px;border:2px solid #ccc;}
+    .card-content{padding-left: 0;}
+    .card-content .card-content_img{position: relative;top: 0;transform: none;text-align: center}
+    .card-content h3{font-size:16px;}
+    .card-content dl dt{min-width:95px;font-size:14px;}
+    .card-content dl dd{font-size:14px;}
+
+    #bo_cate li a {
+        font-size: 18px;
+        padding: 9px 0;
+        letter-spacing: 10px;
+    }
 }

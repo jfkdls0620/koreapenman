@@ -29,7 +29,7 @@ include_once(G5_THEME_LIB_PATH.'/new_lastest.lib.php');
             <div class="grid-item"><div class="grid-inner">9</div></div>
             <div class="grid-item"><a href="http://www.koreapenman.com/bbs/board.php?bo_table=data01" class="grid-inner">발간자료</a></div>
             <div class="grid-item"><div class="grid-inner">11</div></div>
-            <div class="grid-item"><a href="http://www.koreapenman.com/bbs/content.php?co_id=masterintro" class="grid-inner">한국예술명인명장</a></div>
+            <div class="grid-item"><a href="http://www.koreapenman.com/bbs/content.php?co_id=masterintro" class="grid-inner">한국명인명장</a></div>
             <div class="grid-item"><div class="grid-inner">13</div></div>
         </div>
         <!--  공지 최신글2 { -->
@@ -41,7 +41,7 @@ include_once(G5_THEME_LIB_PATH.'/new_lastest.lib.php');
         ?>
         <div class="ex_area">
             <div class="ex_area-inner">
-                <a href="http://koreapenman.com/bbs/board.php?bo_table=exhibition">미 술 관</a>
+                <a href="http://koreapenman.com/bbs/board.php?bo_table=exhibition">소장작품</a>
                 <div class="ex_area-bg"></div>
             </div>
         </div>
