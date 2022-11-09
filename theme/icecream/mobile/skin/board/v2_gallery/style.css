@@ -50,11 +50,19 @@
 
 
 #bo_cate h2 {width:0;height:0;font-size:0;line-height:0;overflow:hidden}
-#bo_cate ul {margin:0 0 15px;zoom:1;border:1px solid #ccc;}
+#bo_cate ul {margin:0 0 15px;zoom:1;padding: 0 10px}
 #bo_cate ul:after {display:block;visibility:hidden;clear:both;content:""}
-#bo_cate li{display: inline-block;text-align: center;width: 25%;box-sizing: border-box;border-right:1px solid #ccc;}
-#bo_cate li:last-child{border-right:0;}
-#bo_cate li a{font-size:22px;display: block;padding: 15px 0;}
+#bo_cate li{display: inline-block;
+    text-align: center;
+    width: 32%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    margin-right: 2%;
+    margin-top: 10px;}
+#bo_cate li:nth-child(3n){margin-right: 0}
+#bo_cate li a{font-size: 22px;
+    display: block;
+    padding: 7px 0;}
 #bo_cate #bo_cate_on {background: #1870f3;color: #fff;border-color: #1870f3;}
 
 .board_list{padding: 10px}

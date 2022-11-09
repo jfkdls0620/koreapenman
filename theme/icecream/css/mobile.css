@@ -141,7 +141,7 @@ tr.table_bg02{background-color: #c1ddff}
 .v2_lnb li{border-bottom: 1px solid #ccc;}
 .v2_lnb li.on{background: #0f75ac}
 .v2_lnb li.on a{color:#fff;}
-.v2_lnb li a{font-size:16px;padding: 10px;display: block;}
+.v2_lnb li a{font-size:15px;padding: 10px;display: block;}
 
 /* 공지사항 메인 */
 .main_container .notice_wr{
