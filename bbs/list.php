@@ -59,7 +59,10 @@ $u_author = clean_xss_tags(trim($_REQUEST['u_author']));
 
 if ((isset($_REQUEST['kor'])) || ($sca || $stx || $stx === '0')) {     //검색이면
     $is_search_bbs = true;      //검색구분변수 true 지정
-    $sql_search = get_sql_search($sca, $sfl, $stx, $sop);
+    if($sca)
+        $sql_search = get_sql_search($sca, $sfl, $stx, $sop);
+    else
+        $sql_search = ' 1 ';
 
     if (isset($_REQUEST['kor'])) {
         // $sql_search = " 1=1 ";
@@ -288,7 +291,6 @@ if ($is_search_bbs) {
     $sql .= " {$sql_search} {$sql_order} limit {$from_record}, $page_rows ";
 }
 
-
 // 페이지의 공지개수가 목록수 보다 작을 때만 실행
 if($page_rows > 0) {
     $result = sql_query($sql);
@@ -312,6 +314,7 @@ if($page_rows > 0) {
         $i++;
         $k++;
     }
+
 }
 
 g5_latest_cache_data($board['bo_table'], $list);
