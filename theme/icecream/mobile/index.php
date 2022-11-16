@@ -41,7 +41,7 @@ include_once(G5_THEME_LIB_PATH.'/new_lastest.lib.php');
         ?>
         <div class="ex_area">
             <div class="ex_area-inner">
-                <a href="http://koreapenman.com/bbs/board.php?bo_table=exhibition">소장작품</a>
+                <a href="http://koreapenman.com/bbs/board.php?bo_table=work01">소장작품</a>
                 <div class="ex_area-bg"></div>
             </div>
         </div>

@@ -23,6 +23,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     </nav>
     <?php } ?>
 
+    <div id="bo_list_total">
+        <span>전체 <?php echo number_format($total_count) ?>건</span>
+        <?php echo $page ?> 페이지
+    </div>
+
 
     <form name="fboardlist" id="fboardlist" action="<?php echo G5_BBS_URL; ?>/board_list_update.php" onsubmit="return fboardlist_submit(this);" method="post">
     <input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
@@ -41,68 +46,63 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             <label for="chkall"><span class="sound_only">현재 페이지 게시물 </span>전체선택</label>
         </div>
         <?php } ?>
-        <div class="table-head">
-            <div>인증부문</div>
-            <div>분 류</div>
-        </div>
         <ul>
             <?php
             for ($i=0; $i<count($list); $i++) {
             ?>
             <li class="<?php if ($thumb) echo "bo_liimg "; ?><?php if ($list[$i]['is_notice']) echo " bo_notice"; ?>">
-                    <div class="bo_subject">
-                        <?php if ($is_checkbox) { ?>
-                        <span class="bo_chk">
-                            <label for="chk_wr_id_<?php echo $i ?>" class="sound_only"><?php echo $list[$i]['subject'] ?></label>
-                            <input type="checkbox" name="chk_wr_id[]" value="<?php echo $list[$i]['wr_id'] ?>" id="chk_wr_id_<?php echo $i ?>">
-                        </span><?php } ?>
 
-                    </div>
+                <div class="bo_subject">
+                    <?php if ($is_checkbox) { ?>
+                    <span class="bo_chk">
+                        <label for="chk_wr_id_<?php echo $i ?>" class="sound_only"><?php echo $list[$i]['subject'] ?></label>
+                        <input type="checkbox" name="chk_wr_id[]" value="<?php echo $list[$i]['wr_id'] ?>" id="chk_wr_id_<?php echo $i ?>">
+                    </span><?php } ?>
 
-                     <div class="card-content">
-                         <div class="card-content_img">
-                             <?php
-                             $thumb = get_list_thumbnail($board['bo_table'], $list[$i]['wr_id'], $board['bo_mobile_gallery_width'], $board['bo_mobile_gallery_height']);
-                             if($is_admin){
-                                 if($thumb['src']) {
-                                     $img_content = '<a href="'.$list[$i]['href'].'" class="bo_img">
-                                    <img src="'.$thumb['src'].'" alt="'.$thumb['alt'].'"">
-                                    </a>';
-                                 } else {
-                                     $img_content = '<a href="'.$list[$i]['href'].'" class="bo_img v2_no-image"></a>';
-                                 }
-                             }else{
-                                 if($thumb['src']) {
-                                     $img_content = '<a href="#" class="bo_img">
-                                    <img src="'.$thumb['src'].'" alt="'.$thumb['alt'].'"">
-                                    </a>';
-                                 } else {
-                                     $img_content = '<a href="#" class="bo_img v2_no-image"></a>';
-                                 }
-                             }
-
-
-                             echo $img_content;
-                             ?>
-                         </div>
-                         <div class="card-content_cate">
-                             <span><?php echo $list[$i]['wr_subject']?></span>
-                         </div>
-                         <div class="card-content_text">
-                             <p><?php echo $list[$i]['wr_1']?></p>
-                         </div>
-
-                    </div>
-
-                    <?php /*
+                    <?php
                     if ($is_category && $list[$i]['ca_name']) {
-                        ?>
-                        <a href="<?php echo $list[$i]['ca_name_href'] ?>" class="bo_cate_link"><?php echo $list[$i]['ca_name'] ?></a>
-                    <?php }*/ ?>
+                    ?>
+                    <a href="<?php echo $list[$i]['ca_name_href'] ?>" class="bo_cate_link"><?php echo $list[$i]['ca_name'] ?></a>
+                    <?php } ?>
 
-                    <!--<img src="'.$thumb['src'].'" alt="'.$thumb['alt'].'" width="'.$board['bo_mobile_gallery_width'].'" height="'.$board['bo_mobile_gallery_height'].'">-->
+                    <a href="<?php echo $list[$i]['href'] ?>" class="bo_subject">
+                        <?php echo $list[$i]['icon_reply']; ?>
+                        <?php if ($list[$i]['is_notice']) { ?><strong class="notice_icon">공지</strong><?php } ?> 
+                        <?php echo $list[$i]['subject'] ?>
+                        <?php
+                        // if ($list[$i]['file']['count']) { echo '<'.$list[$i]['file']['count'].'>'; }
+
+                        //if (isset($list[$i]['icon_new'])) echo $list[$i]['icon_new'];
+                       // if (isset($list[$i]['icon_hot'])) echo $list[$i]['icon_hot'];
+                      //  if (isset($list[$i]['icon_file'])) echo $list[$i]['icon_file'];
+                      //  if (isset($list[$i]['icon_link'])) echo $list[$i]['icon_link'];
+                     //   if (isset($list[$i]['icon_secret'])) echo $list[$i]['icon_secret'];
+
+                        ?>
+                    </a>
+      
+                </div>
+                <div class="bo_info">
+                     <span class="bo_pf_img"><?php echo get_member_profile_img($list[$i]['mb_id']); ?></span>
+                     <span class="sound_only">작성자</span><?php echo $list[$i]['name'] ?>
+                    
+                    <span class="bo_date"><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo $list[$i]['datetime2'] ?></span>  
+                    <?php if ($list[$i]['comment_cnt']) { ?><span class="sound_only">댓글</span><i class="fa fa-commenting-o" aria-hidden="true"></i><?php echo $list[$i]['comment_cnt']; ?><?php } ?> 
+                
+                </div>
+                <?php
+                $thumb = get_list_thumbnail($board['bo_table'], $list[$i]['wr_id'], $board['bo_mobile_gallery_width'], $board['bo_mobile_gallery_height']);
+                if($thumb['src']) {
+                    $img_content = '<a href="'.$list[$i]['href'].'" class="bo_img"><img src="'.$thumb['src'].'" alt="'.$thumb['alt'].'" width="'.$board['bo_mobile_gallery_width'].'" height="'.$board['bo_mobile_gallery_height'].'"></a>';
+                } else {
+                    $img_content = '';
+                }
+
+                echo $img_content;
+                ?>
+                 
             </li><?php } ?>
-            <?php if (count($list) == 0) { echo '<li class="empty_table">게시물이 없습니다.</li>'; } ?>
+            <?php if (count($list) == 0) { echo '<li class="empty_table">등록된 작품이 없습니다.</li>'; } ?>
         </ul>
     </div>
 
@@ -142,8 +142,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 
 <!-- 페이지 -->
 <?php echo $write_pages; ?>
-<?php
-/*
+
 <fieldset id="bo_sch">
     <legend>게시물 검색</legend>
 
@@ -165,8 +164,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     <button type="submit" value="검색" class="sch_btn"><i class="fa fa-search" aria-hidden="true"></i> <span class="sound_only">검색</span></button>
     </form>
 </fieldset>
-*/
-?>
+
 <?php if ($is_checkbox) { ?>
 <script>
 function all_checked(sw) {
@@ -228,13 +226,6 @@ function select_copy(sw) {
     f.action = g5_bbs_url+"/move.php";
     f.submit();
 }
-
-$(function () {
-    $(window).load(function () {
-        //$('#bo_cate_ul').find("li:nth-child(2)").find("a").attr("id","bo_cate_on");
-    })
-})
 </script>
-
 <?php } ?>
 <!-- 게시판 목록 끝 -->
