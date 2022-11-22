@@ -68,7 +68,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                     <a href="<?php echo $list[$i]['href'] ?>" class="bo_subject">
                         <?php echo $list[$i]['icon_reply']; ?>
                         <?php if ($list[$i]['is_notice']) { ?><strong class="notice_icon">공지</strong><?php } ?> 
-                        <?php echo $list[$i]['subject'] ?>
+                        <?php echo $list[$i]['wr_1'] ?>
                         <?php
                         // if ($list[$i]['file']['count']) { echo '<'.$list[$i]['file']['count'].'>'; }
 

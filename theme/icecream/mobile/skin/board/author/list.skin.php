@@ -181,105 +181,58 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             <label for="chkall"><span class="sound_only">현재 페이지 게시물 </span>전체선택</label>
         </div>
         <?php } ?>
-        <ul class="board_list__items">
-            <?php
-            for ($i=0; $i<count($list); $i++) {
-            ?>
-            <li class="<?php if ($thumb) echo "bo_liimg "; ?><?php if ($list[$i]['is_notice']) echo " bo_notice"; ?>">
-                <div class="card-content">
-                    <div class="card-content_img">
-                        <?php
-                        $thumb = get_list_thumbnail($board['bo_table'], $list[$i]['wr_id'], $board['bo_mobile_gallery_width'], $board['bo_mobile_gallery_height']);
-                        if ($is_admin){
-                            if($thumb['src']) {
-                                $img_content = '<a href="'.$list[$i]['href'].'" class="bo_img" style="background-image:url('.$thumb['src'].')"> </a>';
-                            } else {
-                                $img_content = '<a href="'.$list[$i]['href'].'" class="bo_img v2_no-image"></a>';
-                            }
-                        }else{
-                            if($thumb['src']) {
-                                $img_content = '<span class="bo_img" style="background-image:url('.$thumb['src'].')"> </a>';
-                            } else {
-                                $img_content = '<span class="bo_img v2_no-image"></a>';
-                            }
-                        }
-
-                        echo $img_content;
-                        ?>
-                    </div>
-                    <h3><?php echo $list[$i]['wr_5'] ?></h3>
-                    <dl>
-                        <dt>아호 성명</dt>
-                        <dd>
-                            <span style="min-width: 30px;display: inline-block;text-align: center;"><?php echo $list[$i]['wr_1']?></span>
-                            <span><?php echo $list[$i]['subject']?></span>
-                        </dd>
-                    </dl>
-                    <?php if ($list[$i]['wr_2']){ ?>
-                    <dl>
-                        <dt>대한민국서법예술대전 취득년도</dt>
-                        <dd><?php echo $list[$i]['wr_2']?></dd>
-                    </dl>
-                    <?php } ?>
-                    <?php if ($list[$i]['wr_3']) { ?>
-                    <dl>
-                        <dt>충무공숭모서화대전 취득년도</dt>
-                        <dd><?php echo $list[$i]['wr_3']?></dd>
-                    </dl>
-                    <?php } ?>
-                </div>
-                <div class="bo_subject">
-                    <?php if ($is_checkbox) { ?>
-                    <span class="bo_chk">
-                        <label for="chk_wr_id_<?php echo $i ?>" class="sound_only"><?php echo $list[$i]['subject'] ?></label>
-                        <input type="checkbox" name="chk_wr_id[]" value="<?php echo $list[$i]['wr_id'] ?>" id="chk_wr_id_<?php echo $i ?>">
-                    </span><?php } ?>
-
-                    <?php
-                    if ($is_category && $list[$i]['ca_name']) {
-                    ?>
-                    <?php /* <a href="<?php echo $list[$i]['ca_name_href'] ?>" class="bo_cate_link"><?php echo $list[$i]['ca_name'] ?></a> */ ?>
-                    <?php } ?>
-
-                    <a href="<?php echo $list[$i]['href'] ?>" class="bo_subject">
-                        <?php echo $list[$i]['icon_reply']; ?>
-                        <?php if ($list[$i]['is_notice']) { ?><strong class="notice_icon">공지</strong><?php } ?>
-                        <?php
-                        // if ($list[$i]['file']['count']) { echo '<'.$list[$i]['file']['count'].'>'; }
-        /*
-                        if (isset($list[$i]['icon_new'])) echo $list[$i]['icon_new'];
-                        if (isset($list[$i]['icon_hot'])) echo $list[$i]['icon_hot'];
-                        if (isset($list[$i]['icon_file'])) echo $list[$i]['icon_file'];
-                        if (isset($list[$i]['icon_link'])) echo $list[$i]['icon_link'];
-                        if (isset($list[$i]['icon_secret'])) echo $list[$i]['icon_secret'];
-*/
-                        ?>
-                    </a>
-                </div>
-
-                <?php /*
-                <div class="bo_info">
-                    <span class="sound_only">작성자</span><?php echo $list[$i]['name'] ?>
-
-                    <span class="bo_date"><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo $list[$i]['datetime2'] ?></span>
-                    <?php if ($list[$i]['comment_cnt']) { ?><span class="sound_only">댓글</span><i class="fa fa-commenting-o" aria-hidden="true"></i><?php echo $list[$i]['comment_cnt']; ?><?php } ?>
-
-                </div>
-
-                $thumb = get_list_thumbnail($board['bo_table'], $list[$i]['wr_id'], $board['bo_mobile_gallery_width'], $board['bo_mobile_gallery_height']);
-                if($thumb['src']) {
-                    $img_content = '<a href="'.$list[$i]['href'].'" class="bo_img"><img src="'.$thumb['src'].'" alt="'.$thumb['alt'].'" width="'.$board['bo_mobile_gallery_width'].'" height="'.$board['bo_mobile_gallery_height'].'"></a>';
-                } else {
-                    $img_content = '';
-                }
-
-                echo $img_content;
-                */
+        <div class="board_list__items">
+            <ul class="div-table_thead">
+                <li>성명</li>
+                <li>아호</li>
+                <li>대한민국서법예술대전 위촉년도</li>
+                <li>충무공숭모예술대전 위촉년도</li>
+            </ul>
+            <ul class="div-table_tbody">
+                <?php
+                for ($i=0; $i<count($list); $i++) {
                 ?>
-                 
-            </li><?php } ?>
-            <?php if (count($list) == 0) { echo '<li class="empty_table">등록된 작가가 없습니다.</li>'; } ?>
-        </ul>
+                <li class="<?php if ($thumb) echo "bo_liimg "; ?><?php if ($list[$i]['is_notice']) echo " bo_notice"; ?>">
+                    <div class="name">
+                        <div class="bo_subject">
+                            <?php if ($is_checkbox) { ?>
+                                <span class="bo_chk">
+                                <label for="chk_wr_id_<?php echo $i ?>" class="sound_only"><?php echo $list[$i]['subject'] ?></label>
+                            <input type="checkbox" name="chk_wr_id[]" value="<?php echo $list[$i]['wr_id'] ?>" id="chk_wr_id_<?php echo $i ?>">
+                                </span><?php } ?>
+
+                            <?php
+                            if ($is_category && $list[$i]['ca_name']) {
+                                ?>
+                                <?php /* <a href="<?php echo $list[$i]['ca_name_href'] ?>" class="bo_cate_link"><?php echo $list[$i]['ca_name'] ?></a> */ ?>
+                            <?php } ?>
+
+                            <a href="<?php echo $list[$i]['href'] ?>" class="bo_subject">
+                                <?php echo $list[$i]['icon_reply']; ?>
+                                <?php if ($list[$i]['is_notice']) { ?><strong class="notice_icon">공지</strong><?php } ?>
+                                <?php
+                                // if ($list[$i]['file']['count']) { echo '<'.$list[$i]['file']['count'].'>'; }
+                                /*
+                                                if (isset($list[$i]['icon_new'])) echo $list[$i]['icon_new'];
+                                                if (isset($list[$i]['icon_hot'])) echo $list[$i]['icon_hot'];
+                                                if (isset($list[$i]['icon_file'])) echo $list[$i]['icon_file'];
+                                                if (isset($list[$i]['icon_link'])) echo $list[$i]['icon_link'];
+                                                if (isset($list[$i]['icon_secret'])) echo $list[$i]['icon_secret'];
+                        */
+                                ?>
+                            </a>
+                        </div>
+                        <a href="<?php echo $list[$i]['href'] ?>"><?php echo $list[$i]['subject']?></a>
+                    </div> <!-- 성명 -->
+                    <div class="sub_name"><?php echo $list[$i]['wr_1']?></div> <!-- 아호 -->
+                    <div><?php echo $list[$i]['wr_2']?></div>
+                    <div><?php echo $list[$i]['wr_3']?></div>
+
+
+                </li><?php } ?>
+                <?php if (count($list) == 0) { echo '<li class="empty_table">등록된 작가가 없습니다.</li>'; } ?>
+            </ul>
+        </div>
     </div>
 
     <?php if ($list_href || $is_checkbox || $write_href) { ?>

@@ -63,21 +63,17 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                          <div class="card-content_img">
                              <?php
                              $thumb = get_list_thumbnail($board['bo_table'], $list[$i]['wr_id'], $board['bo_mobile_gallery_width'], $board['bo_mobile_gallery_height']);
-                             if($is_admin){
+                             if ($is_admin){
                                  if($thumb['src']) {
-                                     $img_content = '<a href="'.$list[$i]['href'].'" class="bo_img">
-                                    <img src="'.$thumb['src'].'" alt="'.$thumb['alt'].'"">
-                                    </a>';
+                                     $img_content = '<a href="'.$list[$i]['href'].'" style="background-image:url('.$thumb['src'].')"> </a>';
                                  } else {
                                      $img_content = '<a href="'.$list[$i]['href'].'" class="bo_img v2_no-image"></a>';
                                  }
                              }else{
                                  if($thumb['src']) {
-                                     $img_content = '<a href="#" class="bo_img">
-                                    <img src="'.$thumb['src'].'" alt="'.$thumb['alt'].'"">
-                                    </a>';
+                                     $img_content = '<span style="background-image:url('.$thumb['src'].')"> </a>';
                                  } else {
-                                     $img_content = '<a href="#" class="bo_img v2_no-image"></a>';
+                                     $img_content = '<span class="bo_img v2_no-image"></a>';
                                  }
                              }
 
@@ -86,7 +82,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                              ?>
                          </div>
                          <div class="card-content_cate">
-                             <span><?php echo $list[$i]['wr_subject']?></span>
+                             <span><a href="<?php echo $list[$i]['href'] ?>"><?php echo $list[$i]['wr_subject']?></a></span>
                          </div>
                          <div class="card-content_text">
                              <p><?php echo $list[$i]['wr_1']?></p>
