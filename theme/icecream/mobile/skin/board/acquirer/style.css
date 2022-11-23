@@ -62,7 +62,7 @@
 .bo_w_tit.write_div input{border:1px solid #ccc;background-color: #fff;}
 
 .board_list{background-color: #fff;padding: 10px}
-ul.div-table_thead{display: table; width: 100%;border-top:1px solid #333;border-bottom:1px solid #ccc;background-color:#eaeaea}
+ul.div-table_thead{display: table; width: 100%;border-top:1px solid #333;border-bottom:1px solid #ccc;background-color:#eaeaea;margin-top: 30px;}
 ul.div-table_thead li{display: table-cell;border-right:1px solid #ccc;text-align: center;font-size:16px;padding: 10px 0;font-weight: 500;width: 20%}
 ul.div-table_thead li:last-child{width:20%;border-right:0;}
 

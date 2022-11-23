@@ -222,7 +222,12 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                                 ?>
                             </a>
                         </div>
-                        <a href="<?php echo $list[$i]['href'] ?>"><?php echo $list[$i]['subject']?></a>
+                        <?php if($is_admin){?>
+                            <a href="<?php echo $list[$i]['href'] ?>"><?php echo $list[$i]['subject']?></a>
+                        <?php }else{ ?>
+                            <?php echo $list[$i]['subject']?>
+                        <?php }?>
+
                     </div> <!-- 성명 -->
                     <div class="sub_name"><?php echo $list[$i]['wr_1']?></div> <!-- 아호 -->
                     <div><?php echo $list[$i]['wr_2']?></div>

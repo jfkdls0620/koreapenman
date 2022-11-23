@@ -58,7 +58,7 @@
 
 .board_list{background-color: #fff;padding: 10px}
 .board_list ul.board_list__items{font-size:0;}
-ul.div-table_thead{display: table; width: 100%;border-top:1px solid #333;border-bottom:1px solid #ccc;background-color:#eaeaea}
+ul.div-table_thead{display: table; width: 100%;border-top:1px solid #333;border-bottom:1px solid #ccc;background-color:#eaeaea;margin-top: 30px}
 ul.div-table_thead li{display: table-cell;border-right:1px solid #ccc;text-align: center;font-size:16px;padding: 10px 0;font-weight: 500;width: 18%}
 ul.div-table_thead li:last-child{width:10%;border-right:0;}
 

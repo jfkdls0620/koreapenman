@@ -235,7 +235,13 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 
                         </div>
                     </div> <!-- 취득년도 -->
-                    <div class="name"><a href="<?php echo $list[$i]['href'] ?>" class="bo_img"><?php echo $list[$i]['subject']?></a></div> <!-- 성명 -->
+                    <div class="name">
+                        <?php if($is_admin){?>
+                            <a href="<?php echo $list[$i]['href'] ?>" class="bo_img"><?php echo $list[$i]['subject']?></a>
+                        <?php }else{ ?>
+                            <?php echo $list[$i]['subject']?>
+                        <?php }?>
+                    </div> <!-- 성명 -->
                     <div class="sub_name"><?php echo $list[$i]['wr_2']?></div> <!-- 아호 -->
                     <div class="grade"><?php echo $list[$i]['wr_5']?></div>
                     <div class="etc"><?php echo $list[$i]['wr_6']?></div>

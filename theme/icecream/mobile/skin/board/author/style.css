@@ -67,7 +67,7 @@
 .board_list .bo_img {position:relative;top:0;right:0;width:120px;height:120px;display: inline-block;background-repeat: no-repeat;background-size:100% auto;background-position: center;}
 .board_list .bo_img.v2_no-image{background-image: url("img/v2_no-img.png");background-size: 70% auto !important;}
 
-ul.div-table_thead{display: table; width: 100%;border-top:1px solid #333;border-bottom:1px solid #ccc;background-color:#eaeaea}
+ul.div-table_thead{display: table; width: 100%;border-top:1px solid #333;border-bottom:1px solid #ccc;background-color:#eaeaea;margin-top: 30px}
 ul.div-table_thead li{display: table-cell;border-right:1px solid #ccc;text-align: center;font-size:16px;padding: 10px 0;font-weight: 500;width: 30%}
 ul.div-table_thead li:first-child{width: 20%}
 ul.div-table_thead li:nth-child(2){width: 20%}

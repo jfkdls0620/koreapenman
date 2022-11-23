@@ -82,7 +82,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                              ?>
                          </div>
                          <div class="card-content_cate">
-                             <span><a href="<?php echo $list[$i]['href'] ?>"><?php echo $list[$i]['wr_subject']?></a></span>
+                             <?php if($is_admin){?>
+                                 <a href="<?php echo $list[$i]['href'] ?>"><?php echo $list[$i]['wr_subject']?></a>
+                             <?php }else{ ?>
+                                 <?php echo $list[$i]['wr_subject']?>
+                             <?php }?>
                          </div>
                          <div class="card-content_text">
                              <p><?php echo $list[$i]['wr_1']?></p>
