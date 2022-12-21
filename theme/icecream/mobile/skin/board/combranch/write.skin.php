@@ -270,6 +270,14 @@ function fwrite_submit(f)
        $(window).load(function () {
            $('#ca_name').find("option[value='공지']").remove();
        })
+
+       var $target = $("#ca_name option:selected").val();
+       if($target === '지회'){
+           $(".jq_target").hide();
+       }else{
+           $(".jq_target").show();
+       }
+
        $("#ca_name").on('change' ,function(){
            if(this.value === '지부'){
                $(".jq_target").show();
