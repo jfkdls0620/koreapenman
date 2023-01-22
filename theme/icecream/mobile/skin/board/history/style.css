@@ -106,11 +106,21 @@
 #bo_list{margin:15px }
 
 
-@media (max-width: 639px){
+@media (max-width: 969px){
     #bo_list{margin:0 }
-    .board_list li{margin:15px 0}    .board_list li{padding:20px}
+    .board_list li{margin:0; padding:7px}
     .board_list .bo_pf_img{display:none}
     .board_list .bo_img img{height:90px;width:auto}
+
+    .list_table .list_th{
+        font-size:20px;
+    }
+    .list_table .list_td{
+        font-size:16px;
+    }
+    .list_table>div{
+        padding: 5px 0;
+    }
 
 }
 /* 게시판 쓰기 */
