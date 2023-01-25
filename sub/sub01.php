@@ -114,6 +114,29 @@ $co_view = sql_fetch(" select co_subject, co_content, co_mobile_content from {$g
         .list dl{padding-left: 10px}
         .list dl dt{font-size:18px;margin-top: 10px}
         .list dl dd{font-size:16px;font-weight: 300;padding-left: 5px}
+
+        @media (max-width: 969px){
+            .td-img{
+                width: 100%;
+            }
+            .table{
+                padding: 0 10px;
+            }
+            .table .td-text{
+                width: 100%;
+            }
+            .table.tl .td-text dl{
+                padding: 0;
+                margin-top: 15px;
+            }
+            dl dt{
+                font-size:20px;
+                padding-bottom: 5px;
+            }
+            dl dd{
+                font-size:18px;
+            }
+        }
     </style>
     <script>
         var title = "<?php echo $co_view['co_subject'] ?>";

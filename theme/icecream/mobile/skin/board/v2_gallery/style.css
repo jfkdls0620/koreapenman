@@ -314,6 +314,53 @@ box-shadow: 1px 2px 8px #e2e4f1}
 #bo_w .bo_w_flie .frm_input{margin:5px 0 0 }
 .write_btn_wr{text-align:right;}
 
-@media (max-width: 639px){
+@media (max-width: 969px){
     #bo_w{margin:15px 0}
+    #bo_cate ul{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        padding: 0;
+    }
+    #bo_cate ul li{
+        margin: 5px;
+        padding: 0;
+        flex: 1 1 calc(48% - 10px);
+        width: auto;
+    }
+    #bo_cate li:nth-child(3n){
+        margin: 5px;
+    }
+    #bo_cate li a{
+        font-size:15px;
+    }
+
+    .board_list ul{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+    .board_list li{
+        padding: 5px;
+        width: 100%;
+        margin: 10px 0;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column-reverse;
+    }
+    #bo_v{
+        padding: 10px;
+    }
+    .board_list .bo_img{
+        width: 80%;
+        margin: 0 auto;
+    }
+    .board_list .bo_img img{
+        height: auto;
+        width: 100%;
+        text-align: center;
+        display: block;
+        margin: 0 auto;
+    }
+
 }
