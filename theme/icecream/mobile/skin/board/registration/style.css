@@ -110,12 +110,36 @@
 #bo_list{margin:15px;padding: 15px;}
 
 
-@media (max-width: 639px){
+@media (max-width: 969px){
     #bo_list{margin:0 }
     .board_list li{margin:15px 0}    .board_list li{padding:20px}
     .board_list .bo_pf_img{display:none}
     .board_list .bo_img img{height:90px;width:auto}
 
+    .board_list ul{
+        display: flex;
+        flex-direction: column;
+    }
+    .board_list ul li{
+        width: 100%;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    .card-content{
+        padding-left: 0px;
+    }
+    .card-content .card-content_img{
+        position:relative;
+        transform: none;
+        top:0;
+        left:0;
+        text-align: center;
+    }
+    .card-content h3{
+        text-align: center;
+        font-size:20px;
+    }
 }
 /* 게시판 쓰기 */
 #bo_w #wr_email, #bo_w #wr_homepage, #bo_w #wr_subject {width:100%}

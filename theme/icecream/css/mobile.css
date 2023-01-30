@@ -487,6 +487,19 @@ a.gnb_2da:hover{background:#222;
     #gnb .gnb_menu_btn{display: block;top:-62px}
     #gnb{position:relative;top:0;right:0;transform:none;z-index: 999}
 
+    .ctt_stare table{display: flex;justify-content: center;}
+    .ctt_stare table td p span{font-size:16px !important;}
+
+    .ctt_sub02{
+        width: 100% !important;
+    }
+    .ctt_sub02 table td{
+        width: 100% !important;
+    }
+    #ctt_con{
+        padding: 0 10px !important;
+    }
+
 }
 
 /* 텍스트 크기 조절 */

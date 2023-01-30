@@ -116,6 +116,9 @@ $co_view = sql_fetch(" select co_subject, co_content, co_mobile_content from {$g
         .list dl dd{font-size:16px;font-weight: 300;padding-left: 5px}
 
         @media (max-width: 969px){
+            #container.sub_page{
+                padding: 0;
+            }
             .td-img{
                 width: 100%;
             }
@@ -123,7 +126,7 @@ $co_view = sql_fetch(" select co_subject, co_content, co_mobile_content from {$g
                 padding: 0 10px;
             }
             .table .td-text{
-                width: 100%;
+                width: 100% !important;
             }
             .table.tl .td-text dl{
                 padding: 0;
@@ -135,6 +138,9 @@ $co_view = sql_fetch(" select co_subject, co_content, co_mobile_content from {$g
             }
             dl dd{
                 font-size:18px;
+            }
+            .td-img.img02{
+                width: 100% !important;
             }
         }
     </style>

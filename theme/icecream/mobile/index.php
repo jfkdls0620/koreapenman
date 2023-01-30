@@ -50,7 +50,7 @@ include_once(G5_THEME_LIB_PATH.'/new_lastest.lib.php');
                 </a></div>
             <div class="grid-item"><div class="grid-inner">11</div></div>
             <div class="grid-item">
-                <a href="http://www.koreapenman.com/bbs/content.php?co_id=masterintro" class="grid-inner">
+                <a href="http://www.koreapenman.com/sub/sub01.php" class="grid-inner">
                     한국명인명장
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
                 </a></div>

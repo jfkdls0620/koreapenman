@@ -117,11 +117,8 @@
 #bo_list{margin:15px;padding: 15px;}
 
 
-@media (max-width: 639px){
+@media (max-width: 969px){
     #bo_list{margin:0 }
-    .board_list li{margin:15px 0}    .board_list li{padding:20px}
-    .board_list .bo_pf_img{display:none}
-    .board_list .bo_img img{height:90px;width:auto}
 
 }
 /* 게시판 쓰기 */
@@ -317,11 +314,10 @@ box-shadow: 1px 2px 8px #e2e4f1}
 #bo_w .bo_w_flie .frm_input{margin:5px 0 0 }
 .write_btn_wr{text-align:right;}
 
-@media (max-width: 639px){
+@media (max-width: 969px){
     #bo_w{margin:15px 0}
 
     #bo_list{padding: 0}
-    .board_list li{padding: 10px;border:2px solid #ccc;}
     .card-content{padding-left: 0;}
     .card-content .card-content_img{position: relative;top: 0;transform: none;text-align: center}
     .card-content h3{font-size:16px;}
@@ -332,5 +328,47 @@ box-shadow: 1px 2px 8px #e2e4f1}
         font-size: 18px;
         padding: 9px 0;
         letter-spacing: 10px;
+    }
+
+
+    .board_list li{padding:0;margin: 15px 0;border:1px solid #ccc;}
+    .board_list .bo_pf_img{display:none}
+    .board_list .bo_img img{height:90px;width:auto}
+    .table-head{
+        display: none;
+    }
+    .card-content{
+        display: flex;
+        flex-direction: column;
+    }
+    .card-content>div{
+        border:0;
+    }
+    .card-content .card-content_img{
+        width: 100%;
+    }
+    .card-content .card-content_cate{
+        width: 100%;
+        border:0;
+        border-bottom:1px solid #ccc;
+        padding: 5px 0;
+        background-color: #e1e1e1;
+        font-weight: 500;
+    }
+    .card-content .card-content_cate::before{
+        content:"인증부문 -";
+        display: inline-block;
+        font-size:18px;
+        font-weight: 400;
+    }
+    .card-content .card-content_text::before{
+        content:"분류";
+        display: block;
+        font-size:18px;
+        font-weight: 500;
+        padding-top: 8px;
+    }
+    .card-content .card-content_text p{
+        padding:5px 10px;
     }
 }

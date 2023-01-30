@@ -121,9 +121,8 @@
 
 @media (max-width: 639px){
     #bo_list{margin:0 }
-    .board_list li{margin:15px 0}    .board_list li{padding:20px}
+    .board_list li{margin:5px 0}
     .board_list .bo_pf_img{display:none}
-    .board_list .bo_img img{height:90px;width:auto}
 
 }
 /* 게시판 쓰기 */
@@ -325,6 +324,61 @@ box-shadow: 1px 2px 8px #e2e4f1}
 #bo_w .bo_w_flie .frm_input{margin:5px 0 0 }
 .write_btn_wr{text-align:right;}
 
-@media (max-width: 639px){
+@media (max-width: 969px){
     #bo_w{margin:15px 0}
+
+    #bo_cate ul{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        padding:0;
+    }
+    #bo_cate_ul li{
+        width: 31%;
+        margin: 1%;
+    }
+    #bo_cate li:nth-child(3n){
+        margin: 1%;
+    }
+    #bo_cate li a{
+        font-size:18px;
+    }
+
+    .board_list ul{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    .board_list li{
+        width: 49%;
+        padding: 10px;
+    }
+    .board_list li:nth-child(2n){
+        margin-left: 2%;
+    }
+    .bo_subject{
+        width: 100%;
+    }
+    .board_list .bo_img{
+        width: 100%;
+        display: block;
+    }
+
+    #bo_v{
+        padding:5px;
+    }
+    #bo_v_con table tbody{
+        display: flex;
+        flex-direction: column;
+    }
+    #bo_v_con table tbody tr{
+        display: flex;
+        flex-direction: column;
+    }
+    #bo_v_con table tbody tr th{
+        width: 100%;
+    }
+    #bo_list a.bo_subject{
+        width: 100%;
+    }
 }

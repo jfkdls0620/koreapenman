@@ -114,11 +114,85 @@ ul.div-table_tbody li>div:last-child{border-right:0;width: 10%}
 #bo_list{margin:15px }
 
 
-@media (max-width: 639px){
+@media (max-width: 969px){
     #bo_list{margin:0 }
-    .board_list li{margin:15px 0}    .board_list li{padding:20px}
+    .board_list{padding: 0}
+    .board_list li{margin:0}
+    .board_list li{padding:0}
     .board_list .bo_pf_img{display:none}
     .board_list .bo_img img{height:90px;width:auto}
+    ul.div-table_thead{
+        display: none;
+    }
+    ul.div-table_tbody li{
+        display: flex;
+        flex-direction: column;
+        border-bottom: 0;
+        margin-top: 10px;
+    }
+    ul.div-table_tbody li>div{
+        width: 100%;
+        text-align: left;
+        padding:0;
+        border:1px solid #ccc;
+        border-bottom:0;
+        display: flex;
+    }
+    ul.div-table_tbody li>div a{
+
+        position:relative;
+    }
+    ul.div-table_tbody li>div a.bo_img{
+        display:flex;
+        align-items: center;
+    }
+    ul.div-table_tbody li>div a.bo_img::after{
+        content:"내용보기";
+        display: inline-block;
+        width: auto;
+        padding: 2px 3px;
+        background-color: #e1e1e1;
+        border:1px solid #ccc;
+        margin-left: 10px;
+        text-align: center;
+        font-size:15px;
+        font-weight: 500;
+        line-height: 18px;
+    }
+    ul.div-table_tbody li>div:last-child{
+        width: 100%;
+        border-right:1px solid #ccc;
+        border-bottom:1px solid #ccc;
+    }
+    ul.div-table_tbody li>div::before{
+        content:"";
+        display: inline-block;
+        font-size:15px;
+        font-weight: 500;
+        padding: 5px 10px 5px;
+        border-right:1px solid #ccc;
+        min-width: 90px;
+        margin-right: 10px;
+        background: #eaeaea;
+    }
+    ul.div-table_tbody li>div.sub04::before{
+        content:"취득년도"
+    }
+    ul.div-table_tbody li>div:nth-child(2)::before{
+        content:"성명"
+    }
+    ul.div-table_tbody li>div:nth-child(3)::before{
+        content:"인증부문"
+    }
+    ul.div-table_tbody li>div:nth-child(4)::before{
+        content:"인증번호"
+    }
+    ul.div-table_tbody li>div:nth-child(5)::before{
+        content:"소속"
+    }
+    ul.div-table_tbody li>div:nth-child(6)::before{
+        content:"비고"
+    }
 
 }
 /* 게시판 쓰기 */
@@ -337,6 +411,29 @@ h4.list-title{text-align: center;font-size:28px;padding: 15px 0}
 #bo_w .bo_w_flie .frm_input{margin:5px 0 0 }
 .write_btn_wr{text-align:right;}
 
-@media (max-width: 639px){
+@media (max-width: 969px){
     #bo_w{margin:15px 0}
+
+    #bo_v{padding: 0;}
+    #bo_v_title table{display: flex;}
+    #bo_v_title table tbody{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    #bo_v_title table th,
+    #bo_v_title table td{border:1px solid #ccc;}
+    #bo_v_title table th{font-size:18px;text-align: left;padding: 5px}
+    #bo_v_title table td{text-align: left;padding: 5px;}
+    #bo_v_title table td:first-child{display: none;}
+    #bo_v_title table td span{font-weight: 400}
+    #bo_v_title table tr{
+        display: flex;
+        flex-direction: inherit;
+        margin-bottom: 15px;
+    }
+
+    .bo_chk{
+        display: none;
+    }
 }
