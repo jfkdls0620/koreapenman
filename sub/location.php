@@ -28,14 +28,14 @@ $co_view = sql_fetch(" select co_subject, co_content, co_mobile_content from {$g
             $(".sub_nav h2").text(title);
 
             var mapOptions = {
-                center: new naver.maps.LatLng(37.558404, 127.0130084),
+                center: new naver.maps.LatLng(37.5568702, 127.0126459),
                 zoom: 18
             };
 
             var map = new naver.maps.Map('map', mapOptions);
 
             var marker = new naver.maps.Marker({
-                position: new naver.maps.LatLng(37.558404, 127.0130084),
+                position: new naver.maps.LatLng(37.5568702, 127.0126459),
                 map: map
             });
             marker.setMap(map);

@@ -117,6 +117,9 @@
     .board_list .bo_pf_img{display:none}
     .board_list .bo_img img{height:90px;width:auto}
 
+    .card-content{
+        display: flex;
+    }
 }
 /* 게시판 쓰기 */
 #bo_w #wr_email, #bo_w #wr_homepage, #bo_w #wr_subject {width:100%}

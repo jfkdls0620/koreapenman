@@ -7,7 +7,7 @@ include_once(G5_LIB_PATH.'/thumbnail.lib.php');
 
 <?php
 $co_view = sql_fetch(" select co_subject, co_content, co_mobile_content from {$g5['content_table']} where co_id = 'sub04' ");
-// print_r2($co_view);
+//print_r2($co_view);
 ?>
     <article id="ctt" class="ctt_aoIncorporation">
         <div id="ctt_con">
@@ -21,7 +21,7 @@ $co_view = sql_fetch(" select co_subject, co_content, co_mobile_content from {$g
                 </div>
                 <img src="img/sub04_img.png" alt="명인명장 인증절차">
                 <div>
-                    <a href="#">한국명인·명장 신청서 PDF 다운로드</a>
+                    <a href="http://koreapenman.com/bbs/board.php?bo_table=notice&wr_id=55">한국명인·명장 신청서 PDF 다운로드</a>
                 </div>
             </div>
         </div>
