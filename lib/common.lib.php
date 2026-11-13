@@ -1528,6 +1528,8 @@ function sql_connect($host, $user, $pass, $db=G5_MYSQL_DB)
     global $g5;
 
     if(function_exists('mysqli_connect') && G5_MYSQLI_USE) {
+        // PHP 8.1+ 기본값(예외 발생)을 끄고 기존처럼 false 반환으로 처리
+        if (function_exists('mysqli_report')) mysqli_report(MYSQLI_REPORT_OFF);
         $link = @mysqli_connect($host, $user, $pass, $db) or die('MySQL Host, User, Password, DB 정보에 오류가 있습니다.');
 
         // 연결 오류 발생 시 스크립트 종료

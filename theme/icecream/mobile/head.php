@@ -245,11 +245,11 @@ include_once(G5_LIB_PATH.'/popular.lib.php');
                     $find_txt = $_SERVER['REQUEST_URI'];
                     $find_clone = false;
                     foreach( $menu_datas as $row ){
-                        if(strpos($find_txt,$row['me_link'])== false){
+                        if(strpos($find_txt,$row['me_link'])== false){
                             $find_clone =true;
                         }else{
                             foreach( (array) $row['sub'] as $row2 ){
-                                if(strpos($find_txt,$row2['me_link'])== false){
+                                if(strpos($find_txt,$row2['me_link'])== false){
                                     $find_clone =true;
                                 }
                             }
@@ -262,7 +262,7 @@ include_once(G5_LIB_PATH.'/popular.lib.php');
                     }
 
                     foreach ($snb_menu['sub'] as $menu){//커! 스근
-                        echo '<li '.(strpos($find_txt,$menu['me_link'])== false ? 'class="on"' : '').'><a class="" href="'.G5_URL.$menu['me_link'].'"> '.$menu['me_name'].'</a></li>';
+                        echo '<li '.(strpos($find_txt,$menu['me_link'])== false ? 'class="on"' : '').'><a class="" href="'.G5_URL.$menu['me_link'].'"> '.$menu['me_name'].'</a></li>';
                     }
 
                     ?>
